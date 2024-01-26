@@ -1,0 +1,12 @@
+.signInForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.signInForm input {
+  width: 15rem;
+  text-align: center;
+}
+.signInForm button {
+  width: 15.5rem;
+}
