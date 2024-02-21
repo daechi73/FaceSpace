@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 function SignInPage(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const navigate = useNavigate();
 
   const handleSigninBtn = (e) => {
@@ -26,6 +28,8 @@ function SignInPage(props) {
           setPassword("");
           props.setSignedInUser(res.user);
           navigate("/home");
+        } else {
+          setErrorMsg(res);
         }
       });
   };
@@ -37,6 +41,8 @@ function SignInPage(props) {
   };
   return (
     <div className="signInPage">
+      <div className="signInPage-title">Welcome to Facespace</div>
+      <div className="signInPage-instruction">Please sign in </div>
       <div className="signInForm">
         <input
           type="text"
@@ -57,10 +63,11 @@ function SignInPage(props) {
         <button className="signInBtn" onClick={handleSigninBtn}>
           Sign in
         </button>
-        <div className="signUpLink">
-          <Link to="/sign_up">Sign Up</Link>
-        </div>
       </div>
+      <div className="signUpLink">
+        <Link to="/sign_up">Sign Up</Link>
+      </div>
+      <div className="signInPage-errorMsg errorMsg">{errorMsg}</div>
     </div>
   );
 }
