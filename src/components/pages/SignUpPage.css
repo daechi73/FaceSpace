@@ -12,6 +12,7 @@
   font-size: 3rem;
   margin: 3rem 0;
 }
+
 .signUpPage-form {
   display: flex;
   flex-direction: column;
@@ -21,4 +22,7 @@
 }
 .signUpPage-form-input {
   width: 200px;
+}
+.signUpPage-errorMsg {
+  margin-top: 2rem;
 }
