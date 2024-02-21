@@ -1,7 +1,7 @@
 import React from "react";
 import "./SignUpPage.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignUpPage() {
   const [username, setUsername] = useState("");
@@ -9,6 +9,18 @@ function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
+  const [errorMsgs, setErrorMsgs] = useState([]);
+
+  const navigate = useNavigate();
+
+  const renderErrorMessages = errorMsgs.map((e, i) => {
+    return (
+      <div key={i} className="signInPage-errorMsg errorMsg">
+        {e.msg}
+      </div>
+    );
+  });
+
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -23,6 +35,31 @@ function SignUpPage() {
   };
   const handleBioChange = (e) => {
     setBio(e.target.value);
+  };
+
+  const handleSignUpBtn = (e) => {
+    const options = {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+        name: name,
+        email: email,
+        bio: bio,
+      }),
+    };
+    fetch("http://localhost:3000/users/sign_up", options)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.status === "success") {
+          navigate("/");
+        } else {
+          setErrorMsgs(res.errors);
+        }
+      });
   };
   return (
     <div className="signUpPage">
@@ -66,14 +103,17 @@ function SignUpPage() {
         <textarea
           name="bio"
           id="signUpPage-form-bio"
-          cols="30"
+          cols="40"
           rows="10"
           className="signUpPage-form-bio"
           placeholder="Introduce yourself here.."
           onChange={handleBioChange}
           value={bio}
         ></textarea>
-        <button className="signUpBtn">SIgn up</button>
+        <button className="signUpBtn" onClick={handleSignUpBtn}>
+          SIgn up
+        </button>
+        <div className="signUpPage-errorMsgs">{renderErrorMessages}</div>
       </div>
     </div>
   );
