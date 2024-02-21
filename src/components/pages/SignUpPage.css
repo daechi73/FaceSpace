@@ -1,0 +1,24 @@
+.signUpPage {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.signUpPage-backBtn {
+  align-self: flex-start;
+  padding: 3rem;
+}
+.signUpPage-title {
+  font-size: 3rem;
+  margin-bottom: 4rem;
+}
+.signUpPage-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.signUpPage-form-input {
+  width: 200px;
+}
