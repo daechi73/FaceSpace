@@ -1,3 +1,18 @@
+.signInPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.signInPage-title {
+  font-size: 2.5rem;
+  margin-bottom: 6rem;
+}
+.signInPage-instruction {
+  margin-bottom: 2rem;
+}
 .signInForm {
   display: flex;
   flex-direction: column;
@@ -7,6 +22,10 @@
   width: 15rem;
   text-align: center;
 }
+
 .signInForm button {
   width: 15.5rem;
+}
+.signInPage-errorMsg {
+  margin-top: 2rem;
 }
