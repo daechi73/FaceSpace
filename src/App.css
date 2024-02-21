@@ -5,3 +5,7 @@
   align-items: center;
   justify-content: center;
 }
+.errorMsg {
+  color: red;
+  font-style: italic;
+}
