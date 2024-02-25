@@ -1,7 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SignInPage.css";
 import { useNavigate, Link } from "react-router-dom";
+
 function SignInPage(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -9,7 +10,7 @@ function SignInPage(props) {
 
   const navigate = useNavigate();
 
-  const handleSigninBtn = (e) => {
+  const handleSigninBtn = () => {
     const options = {
       mode: "cors",
       method: "POST",
@@ -39,8 +40,16 @@ function SignInPage(props) {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+
+  useEffect(() => {
+    const addEnterKeyEvent = (e) => {
+      if (e.key === "Enter") handleSigninBtn();
+    };
+    window.addEventListener("keydown", addEnterKeyEvent);
+    return () => window.removeEventListener("keydown", addEnterKeyEvent);
+  });
   return (
-    <div className="signInPage">
+    <div className="signInPage" id="signInPage">
       <div className="signInPage-title">Welcome to Facespace</div>
       <div className="signInPage-instruction">Please sign in </div>
       <div className="signInForm">
@@ -67,7 +76,9 @@ function SignInPage(props) {
       <div className="signUpLink">
         <Link to="/sign_up">Sign Up</Link>
       </div>
-      <div className="signInPage-errorMsg errorMsg">{errorMsg}</div>
+      <div className="signInPage-errorMsgs errorMsgs">
+        <div className="signInPage-errorMsg errorMsg">{errorMsg}</div>
+      </div>
     </div>
   );
 }
