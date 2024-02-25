@@ -1,6 +1,6 @@
 import React from "react";
 import "./SignUpPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function SignUpPage() {
@@ -61,6 +61,15 @@ function SignUpPage() {
         }
       });
   };
+
+  useEffect(() => {
+    const addEnterKeyEvent = (e) => {
+      console.log(e);
+      if (e.key === "Enter") handleSignUpBtn();
+    };
+    window.addEventListener("keydown", addEnterKeyEvent);
+    return () => window.removeEventListener("keydown", addEnterKeyEvent);
+  });
   return (
     <div className="signUpPage">
       <div className="signUpPage-backBtn">
