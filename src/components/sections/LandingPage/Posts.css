@@ -1,0 +1,13 @@
+.landingPage-posts-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.landingPage-posts-postBox {
+  width: 800px;
+  font-size: 1rem;
+}
+.landingPage-posts-form-btn {
+  width: 5rem;
+}
