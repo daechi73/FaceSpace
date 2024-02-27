@@ -23,11 +23,12 @@ function SignInPage(props) {
     fetch("http://localhost:3000/users/sign_in", options)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         if (res.status === "success") {
           setUsername("");
           setPassword("");
           props.setSignedInUser(res.user);
+          localStorage.removeItem("signedInUser");
+          localStorage.setItem("signedInUser", res.user._id);
           navigate("/home");
         } else {
           setErrorMsg(res);
