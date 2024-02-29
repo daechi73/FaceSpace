@@ -10,19 +10,19 @@ import "./App.css";
 
 function App() {
   const { url } = useParams();
-
-  const [count, setCount] = useState(0);
   const [signedInUser, setSignedInUser] = useState();
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
-      console.log("here in app useEffect");
-      fetch(`http://localhost:3000/users/65d5664decf0c63384f7e002`, {
-        mode: "cors",
-      })
+      console.log("here in app useEffect in App");
+      fetch(
+        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`,
+        {
+          mode: "cors",
+        }
+      )
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           setSignedInUser(res.user);
         });
     }
