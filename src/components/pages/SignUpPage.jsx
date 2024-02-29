@@ -64,7 +64,6 @@ function SignUpPage() {
 
   useEffect(() => {
     const addEnterKeyEvent = (e) => {
-      console.log(e);
       if (e.key === "Enter") handleSignUpBtn();
     };
     window.addEventListener("keydown", addEnterKeyEvent);
