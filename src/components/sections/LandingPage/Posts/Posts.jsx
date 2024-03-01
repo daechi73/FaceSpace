@@ -10,15 +10,13 @@ function Posts(props) {
     fetch("http://localhost:3000/posts", { mode: "cors" })
       .then((res) => res.json())
       .then((res) => {
-        if (res.status === "failed") setPosts(res.msg);
+        if (res.status === "failed") "setPosts(res.msg)";
         else {
           setPosts(res.posts);
         }
       });
   }, [resetPosts]);
   const handlePostBtn = () => {
-    const newResetPost = resetPosts + 1;
-    setResetPost(newResetPost);
     const options = {
       mode: "cors",
       method: "POST",
@@ -30,7 +28,11 @@ function Posts(props) {
     };
     fetch("http://localhost:3000/posts/post", options)
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        if (res.status === "success") {
+          setResetPost(resetPosts + 1);
+        }
+      });
   };
   const handlePostChange = (e) => {
     setPost(e.target.value);
