@@ -1,4 +1,12 @@
 .headers-profile {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
+}
+.headers-profile-username {
+  cursor: pointer;
+}
+.headers-profile-signOut {
+  cursor: pointer;
+  color: rgb(51, 66, 201);
 }
