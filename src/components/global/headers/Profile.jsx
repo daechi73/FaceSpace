@@ -15,7 +15,7 @@ function Profile(props) {
   };
   return (
     <div className="headers-profile">
-      <div className="headers-profile-userName">{props.signedInUser}</div>
+      <div className="headers-profile-username">{props.signedInUser}</div>
       <div className="headers-profile-signOut" onClick={handleSignOutBtn}>
         Sign out
       </div>
