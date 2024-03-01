@@ -1,8 +1,26 @@
 import React from "react";
 import "./Profile.css";
+import { useNavigate } from "react-router-dom";
 
 function Profile(props) {
-  return <div className="headers-profile">{props.signedInUser}</div>;
+  const navigate = useNavigate();
+  const handleSignOutBtn = () => {
+    fetch("http://localhost:3000/users/sign_out", { mode: "cors" })
+      .then((res) => res.json())
+      .then((res) => {
+        props.setSignedInUser(res.user);
+        localStorage.removeItem("signedInUser");
+        navigate("/");
+      });
+  };
+  return (
+    <div className="headers-profile">
+      <div className="headers-profile-userName">{props.signedInUser}</div>
+      <div className="headers-profile-signOut" onClick={handleSignOutBtn}>
+        Sign out
+      </div>
+    </div>
+  );
 }
 
 export default Profile;
