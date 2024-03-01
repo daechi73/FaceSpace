@@ -32,7 +32,10 @@ function App() {
     <>
       {signedInUser ? (
         <>
-          <Headers signedInUser={signedInUser} />
+          <Headers
+            signedInUser={signedInUser}
+            setSignedInUser={setSignedInUser}
+          />
           {url === "home" ? (
             <LandingPage signedInUser={signedInUser} />
           ) : (
