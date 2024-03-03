@@ -1,3 +1,8 @@
 .landingPage-people {
   border-top: solid;
 }
+.landingPage-people-user {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
