@@ -23,11 +23,13 @@ function App() {
       )
         .then((res) => res.json())
         .then((res) => {
+          console.log(res.user);
           setSignedInUser(res.user);
         });
     }
   });
   console.log("here in app");
+  // console.log(signedInUser);
   return (
     <>
       {signedInUser ? (
@@ -37,7 +39,10 @@ function App() {
             setSignedInUser={setSignedInUser}
           />
           {url === "home" ? (
-            <LandingPage signedInUser={signedInUser} />
+            <LandingPage
+              signedInUser={signedInUser}
+              setSignedInUser={setSignedInUser}
+            />
           ) : (
             <PageNotFound />
           )}
