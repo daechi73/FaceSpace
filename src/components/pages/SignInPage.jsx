@@ -4,6 +4,7 @@ import "./SignInPage.css";
 import { useNavigate, Link } from "react-router-dom";
 
 function SignInPage(props) {
+  console.log("here in signInpage");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -14,7 +15,12 @@ function SignInPage(props) {
     const options = {
       mode: "cors",
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000/",
+      },
       body: JSON.stringify({
         username: username,
         password: password,
@@ -26,6 +32,8 @@ function SignInPage(props) {
         if (res.status === "success") {
           setUsername("");
           setPassword("");
+          console.log(res.user);
+          console.log(res.altUser);
           props.setSignedInUser(res.user);
           localStorage.removeItem("signedInUser");
           localStorage.setItem("signedInUser", res.user._id);
