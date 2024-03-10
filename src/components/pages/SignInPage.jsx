@@ -33,7 +33,6 @@ function SignInPage(props) {
           setUsername("");
           setPassword("");
           console.log(res.user);
-          console.log(res.altUser);
           props.setSignedInUser(res.user);
           localStorage.removeItem("signedInUser");
           localStorage.setItem("signedInUser", res.user._id);
