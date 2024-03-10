@@ -15,14 +15,22 @@ function App() {
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
       console.log("here in app useEffect in App");
+      const options = {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Cache: "no-cache",
+        },
+        credentials: "same-origin",
+      };
       fetch(
-        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`,
-        {
-          mode: "cors",
-        }
+        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
       )
         .then((res) => res.json())
         .then((res) => {
+          console.log(res);
           console.log(res.user);
           setSignedInUser(res.user);
         });
