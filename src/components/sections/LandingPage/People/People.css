@@ -11,3 +11,7 @@
   justify-content: center;
   gap: 0.5rem;
 }
+.landingPage-people-user-status {
+  display: flex;
+  gap: 0.5rem;
+}
