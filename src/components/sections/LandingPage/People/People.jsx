@@ -4,6 +4,7 @@ import "./People.css";
 
 function People(props) {
   const [people, setPeople] = useState([]);
+
   console.log("here in people");
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function People(props) {
       .then((res) => res.json())
       .then((res) => {
         console.log("in people useEffect");
-        // console.log(res);
+        console.log(res);
         if (res.status === "success") setPeople(res.users);
       });
   }, []);
@@ -36,17 +37,18 @@ function People(props) {
         .then((res) => res.json())
         .then((res) => {
           console.log("In renderUSers add friend");
+          console.log(res);
           props.setSignedInUser(res.user);
         });
     };
-    const checkUserAdded = () => {
-      for (
-        let j = 0;
-        j < props.signedInUser.friend_requests_outgoing.length;
-        j++
-      ) {
-        if (props.signedInUser.friend_requests_outgoing[j]._id === e._id) {
-          return true;
+
+    const filterInOutFReq = () => {
+      for (let j = 0; j < props.signedInUser.friend_requests.length; j++) {
+        if (props.signedInUser.friend_requests[j].inbound._id === e._id) {
+          return "inbound";
+        }
+        if (props.signedInUser.friend_requests[j].outbound._id === e._id) {
+          return "outbound";
         }
       }
       return false;
@@ -55,10 +57,12 @@ function People(props) {
     return (
       <div className="landingPage-people-user" key={i}>
         <div className="landingPage-People-user-user">{e.user_name}</div>
-        {checkUserAdded() ? (
-          <div className="landingPage-people-user-waitingForResponse">
+        {filterInOutFReq() === "inbound" ? (
+          <div className="landingPage-people-user-status">
             Waiting for response
           </div>
+        ) : filterInOutFReq() === "outbound" ? (
+          <div className="landingPage-people-user-status">Accept decline</div>
         ) : (
           <div className="landingPage-people-user-addBtn" onClick={addFriend}>
             +
@@ -78,21 +82,27 @@ function People(props) {
             </div>
           );
         });
+
   const renderFriendReq =
-    props.signedInUser.friend_requests_incoming.length === 0
+    props.signedInUser.friend_requests.length === 0
       ? ""
-      : props.signedInUser.friend_requests_incoming.map((e, i) => {
-          return (
-            <div className="landingPage-people-friends-request" key={i}>
-              {e.user_name}
-              <div className="landingPage-people-friends-request-acceptBtn">
-                Accept
+      : props.signedInUser.friend_requests.map((e, i) => {
+          console.log(e.inbound._id);
+          console.log(props.signedInUser._id);
+          if (e.inbound._id === props.signedInUser._id) {
+            console.log("working in renderFRiendReq");
+            return (
+              <div className="landingPage-people-friends-request" key={i}>
+                {e.outbound.user_name}
+                <div className="landingPage-people-friends-request-acceptBtn">
+                  Accept
+                </div>
+                <div className="landingPage-people-friends-request-declineBtn">
+                  decline
+                </div>
               </div>
-              <div className="landingPage-people-friends-request-declineBtn">
-                decline
-              </div>
-            </div>
-          );
+            );
+          }
         });
   return (
     <div className="landingPage-people">
