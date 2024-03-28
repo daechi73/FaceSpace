@@ -5,8 +5,6 @@ function RenderFriendReq(props) {
     props.signedInUser.friend_requests.length === 0
       ? ""
       : props.signedInUser.friend_requests.map((e, i) => {
-          console.log(e.inbound._id);
-          console.log(props.signedInUser._id);
           if (e.inbound._id === props.signedInUser._id) {
             console.log("working in renderFRiendReq");
             return (
