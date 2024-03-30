@@ -1,6 +1,13 @@
 import React from "react";
 
 function RenderFriendReq(props) {
+  const handleAcceptFReq = () => {
+    console.log("working");
+  };
+  const handleDeclineFreq = () => {
+    console.log("working");
+  };
+
   const renderFriendReq =
     props.signedInUser.friend_requests.length === 0
       ? ""
@@ -10,10 +17,16 @@ function RenderFriendReq(props) {
             return (
               <div className="landingPage-people-friends-request" key={i}>
                 {e.outbound.user_name}
-                <div className="landingPage-people-friends-request-acceptBtn">
+                <div
+                  className="landingPage-people-friends-request-acceptBtn"
+                  onClick={handleAcceptFReq}
+                >
                   Accept
                 </div>
-                <div className="landingPage-people-friends-request-declineBtn">
+                <div
+                  className="landingPage-people-friends-request-declineBtn"
+                  onClick={handleDeclineFreq}
+                >
                   decline
                 </div>
               </div>
