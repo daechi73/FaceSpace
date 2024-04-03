@@ -1,6 +1,7 @@
 import React from "react";
 
 function RenderUsers(props) {
+  console.log("Here In RenderUsers");
   const renderUsers = props.people.map((e, i) => {
     const friendReq = () => {
       const options = {
