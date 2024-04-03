@@ -29,7 +29,10 @@ function People(props) {
     <div className="landingPage-people">
       <div className="landingPage-people-friends-container">
         <div className="landingPage-people-friends-friendReq">
-          <RenderFriendReq signedInUser={props.signedInUser} />
+          <RenderFriendReq
+            signedInUser={props.signedInUser}
+            setSignedInUser={props.setSignedInUser}
+          />
         </div>
 
         <div className="landingPage-people-friends-friends">
