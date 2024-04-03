@@ -1,6 +1,7 @@
 import React from "react";
 
 function RenderFriends(props) {
+  console.log("here in RenderFriends");
   const renderFriends =
     props.signedInUser.friends.length === 0 ? (
       <div className="landingPage-people-friends">"You have no friends"</div>
