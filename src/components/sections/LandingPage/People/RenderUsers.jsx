@@ -33,6 +33,12 @@ function RenderUsers(props) {
       }
       return false;
     };
+    const checkIfFriends = () => {
+      for (let j = 0; j < props.signedInUser.friends.length; j++) {
+        if (props.signedInUser.friends[j]._id === e._id) return true;
+      }
+      return false;
+    };
 
     return (
       <div className="landingPage-people-user" key={i}>
@@ -50,6 +56,8 @@ function RenderUsers(props) {
               Decline
             </div>
           </div>
+        ) : checkIfFriends() ? (
+          <div className="landingPage-people-user-alreadyFriends">friends</div>
         ) : (
           <div className="landingPage-people-user-addBtn" onClick={friendReq}>
             +
