@@ -8,7 +8,6 @@ function RenderFriendReq(props) {
       : props.signedInUser.friend_requests.map((e, i) => {
           if (e.inbound._id === props.signedInUser._id) {
             console.log("working in renderFRiendReq");
-
             const handleAcceptFReq = () => {
               console.log("working");
               const options = {
