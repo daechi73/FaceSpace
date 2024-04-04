@@ -28,8 +28,22 @@ function RenderFriendReq(props) {
                   }
                 });
             };
-            const handleDeclineFreq = () => {
-              console.log("working");
+            const handleDeclineFReq = () => {
+              const options = {
+                mode: "cors",
+                headers: { "Content-Type": "application/json" },
+                method: "POST",
+                body: JSON.stringify({ friendReq: e }),
+              };
+              fetch(
+                `http://localhost:3000/users/${props.signedInUser._id}/update/declineFriendReq`,
+                options
+              )
+                .then((res) => res.json())
+                .then((res) => {
+                  console.log(res);
+                  props.setSignedInUser(res.user);
+                });
             };
             return (
               <div className="landingPage-people-friends-request" key={i}>
@@ -42,7 +56,7 @@ function RenderFriendReq(props) {
                 </div>
                 <div
                   className="landingPage-people-friends-request-declineBtn"
-                  onClick={handleDeclineFreq}
+                  onClick={handleDeclineFReq}
                 >
                   decline
                 </div>

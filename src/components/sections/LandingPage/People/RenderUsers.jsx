@@ -48,7 +48,23 @@ function RenderUsers(props) {
           }
         });
     };
-
+    const handleDeclineFReq = () => {
+      const options = {
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ friendReq: findFriendReq(e) }),
+      };
+      fetch(
+        `http://localhost:3000/users/${props.signedInUser._id}/update/declineFriendReq`,
+        options
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          props.setSignedInUser(res.user);
+        });
+    };
     const filterInOutFReq = () => {
       for (let j = 0; j < props.signedInUser.friend_requests.length; j++) {
         if (props.signedInUser.friend_requests[j].inbound._id === e._id) {
@@ -82,7 +98,10 @@ function RenderUsers(props) {
             >
               Accept
             </div>
-            <div className="landingPage-people-user-status-declineBtn">
+            <div
+              className="landingPage-people-user-status-declineBtn"
+              onClick={handleDeclineFReq}
+            >
               Decline
             </div>
           </div>
