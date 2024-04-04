@@ -21,6 +21,33 @@ function RenderUsers(props) {
           props.setSignedInUser(res.user);
         });
     };
+    const findFriendReq = (e) => {
+      for (let i = 0; i < props.signedInUser.friend_requests.length; i++) {
+        if (props.signedInUser.friend_requests[i].outbound._id === e._id) {
+          return props.signedInUser.friend_requests[i];
+        }
+      }
+    };
+    const handleAcceptFReq = () => {
+      console.log("working");
+      const options = {
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({ friendReq: findFriendReq(e) }),
+      };
+      fetch(
+        `http://localhost:3000/users/${props.signedInUser._id}/update/addFriend`,
+        options
+      )
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.status === "success") {
+            console.log(res);
+            props.setSignedInUser(res.user);
+          }
+        });
+    };
 
     const filterInOutFReq = () => {
       for (let j = 0; j < props.signedInUser.friend_requests.length; j++) {
@@ -49,7 +76,10 @@ function RenderUsers(props) {
           </div>
         ) : filterInOutFReq() === "outbound" ? (
           <div className="landingPage-people-user-status">
-            <div className="landingPage-people-user-status-acceptBtn">
+            <div
+              className="landingPage-people-user-status-acceptBtn"
+              onClick={handleAcceptFReq}
+            >
               Accept
             </div>
             <div className="landingPage-people-user-status-declineBtn">
