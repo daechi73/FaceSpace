@@ -1,4 +1,5 @@
 import React from "react";
+import FriendsUtility from "./FriendsUtility";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");
@@ -9,42 +10,20 @@ function RenderFriendReq(props) {
           if (e.inbound._id === props.signedInUser._id) {
             console.log("working in renderFRiendReq");
             const handleAcceptFReq = () => {
-              console.log("working");
-              const options = {
-                mode: "cors",
-                headers: { "Content-Type": "application/json" },
-                method: "POST",
-                body: JSON.stringify({ friendReq: e }),
-              };
-              fetch(
-                `http://localhost:3000/users/${props.signedInUser._id}/update/addFriend`,
-                options
-              )
-                .then((res) => res.json())
-                .then((res) => {
-                  if (res.status === "success") {
-                    console.log(res);
-                    props.setSignedInUser(res.user);
-                  }
-                });
+              FriendsUtility().addFriends(
+                e,
+                props.signedInUser,
+                props.setSignedInUser
+              );
             };
+
             const handleDeclineFReq = () => {
-              const options = {
-                mode: "cors",
-                headers: { "Content-Type": "application/json" },
-                method: "POST",
-                body: JSON.stringify({ friendReq: e }),
-              };
-              fetch(
-                `http://localhost:3000/users/${props.signedInUser._id}/update/declineFriendReq`,
-                options
-              )
-                .then((res) => res.json())
-                .then((res) => {
-                  console.log(res);
-                  props.setSignedInUser(res.user);
-                });
+              FriendsUtility().declineFriendReq(
+                e,
+                props.signedInUser.props.setSignedInUser
+              );
             };
+
             return (
               <div className="landingPage-people-friends-request" key={i}>
                 {e.outbound.user_name}

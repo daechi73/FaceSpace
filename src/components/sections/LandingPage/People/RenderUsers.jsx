@@ -1,4 +1,5 @@
 import React from "react";
+import FriendsUtility from "./FriendsUtility";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
@@ -21,49 +22,20 @@ function RenderUsers(props) {
           props.setSignedInUser(res.user);
         });
     };
-    const findFriendReq = (e) => {
-      for (let i = 0; i < props.signedInUser.friend_requests.length; i++) {
-        if (props.signedInUser.friend_requests[i].outbound._id === e._id) {
-          return props.signedInUser.friend_requests[i];
-        }
-      }
-    };
+
     const handleAcceptFReq = () => {
-      console.log("working");
-      const options = {
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-        body: JSON.stringify({ friendReq: findFriendReq(e) }),
-      };
-      fetch(
-        `http://localhost:3000/users/${props.signedInUser._id}/update/addFriend`,
-        options
-      )
-        .then((res) => res.json())
-        .then((res) => {
-          if (res.status === "success") {
-            console.log(res);
-            props.setSignedInUser(res.user);
-          }
-        });
+      FriendsUtility().addFriends(
+        FriendsUtility().findFriendReq(e, props.signedInUser),
+        props.signedInUser,
+        props.setSignedInUser
+      );
     };
     const handleDeclineFReq = () => {
-      const options = {
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-        body: JSON.stringify({ friendReq: findFriendReq(e) }),
-      };
-      fetch(
-        `http://localhost:3000/users/${props.signedInUser._id}/update/declineFriendReq`,
-        options
-      )
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res);
-          props.setSignedInUser(res.user);
-        });
+      FriendsUtility().declineFriendReq(
+        FriendsUtility().findFriendReq(e, props.signedInUser),
+        props.signedInUser,
+        props.setSignedInUser
+      );
     };
     const filterInOutFReq = () => {
       for (let j = 0; j < props.signedInUser.friend_requests.length; j++) {
