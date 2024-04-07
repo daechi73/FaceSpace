@@ -31,6 +31,7 @@ function Posts(props) {
       .then((res) => {
         if (res.status === "success") {
           setResetPost(resetPosts + 1);
+          setPost("");
         }
       });
   };
@@ -50,8 +51,8 @@ function Posts(props) {
         <textarea
           className="landingPage-posts-postBox"
           name="postBox"
-          cols="80"
-          rows="6"
+          // cols="80"
+          // rows="6"
           onChange={handlePostChange}
           value={post}
         />
