@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
   const { url } = useParams();
   const [signedInUser, setSignedInUser] = useState();
-  const [userProfile, setProfileUser] = useState();
+  const [userProfile, setUserProfile] = useState();
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -36,6 +36,9 @@ function App() {
           setSignedInUser(res.user);
         });
     }
+    if (localStorage.getItem("userProfile")) {
+      setUserProfile(localStorage.getItem("userProfile"));
+    }
   });
   console.log("here in app");
   // console.log(signedInUser);
@@ -51,7 +54,7 @@ function App() {
             <LandingPage
               signedInUser={signedInUser}
               setSignedInUser={setSignedInUser}
-              setProfileUser={setProfileUser}
+              setUserProfile={setUserProfile}
             />
           ) : url === "profile" ? (
             <Profile userProfile={userProfile} />
