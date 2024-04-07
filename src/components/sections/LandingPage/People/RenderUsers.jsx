@@ -61,7 +61,7 @@ function RenderUsers(props) {
         <div className="landingPage-People-user-user">
           <ProfileLink
             username={e.user_name}
-            setProfileUser={props.setProfileUser}
+            setUserProfile={props.setUserProfile}
           />
         </div>
         {filterInOutFReq() === "inbound" ? (

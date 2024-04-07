@@ -40,14 +40,14 @@ function People(props) {
           <RenderFriendReq
             signedInUser={props.signedInUser}
             setSignedInUser={props.setSignedInUser}
-            setProfileUser={props.setProfileUser}
+            setUserProfile={props.setUserProfile}
           />
         </div>
         <div className="landingPage-people-friends-friends-title">Friends:</div>
         <div className="landingPage-people-friends-friends">
           <RenderFriends
             signedInUser={props.signedInUser}
-            setProfileUser={props.setProfileUser}
+            setUserProfile={props.setUserProfile}
           />
         </div>
       </div>
@@ -57,7 +57,7 @@ function People(props) {
           people={people}
           signedInUser={props.signedInUser}
           setSignedInUser={props.setSignedInUser}
-          setProfileUser={props.setProfileUser}
+          setUserProfile={props.setUserProfile}
         />
       </div>
     </div>

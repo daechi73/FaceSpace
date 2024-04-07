@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 function ProfileLink(props) {
   const handleLink = () => {
-    props.setProfileUser(props.username);
+    props.setUserProfile(props.username);
+    localStorage.removeItem("userProfile");
+    localStorage.setItem("userProfile", props.username);
   };
   return (
     <div className="profileLink">
