@@ -28,22 +28,36 @@ function People(props) {
   return (
     <div className="landingPage-people">
       <div className="landingPage-people-friends-container">
+        {props.signedInUser.friend_requests.length === 0 ? (
+          ""
+        ) : (
+          <div className="landingPage-people-friends-title">
+            Friend Requests:
+          </div>
+        )}
+
         <div className="landingPage-people-friends-friendReq">
           <RenderFriendReq
             signedInUser={props.signedInUser}
             setSignedInUser={props.setSignedInUser}
+            setProfileUser={props.setProfileUser}
           />
         </div>
-
+        <div className="landingPage-people-friends-friends-title">Friends:</div>
         <div className="landingPage-people-friends-friends">
-          <RenderFriends signedInUser={props.signedInUser} />
+          <RenderFriends
+            signedInUser={props.signedInUser}
+            setProfileUser={props.setProfileUser}
+          />
         </div>
       </div>
       <div className="landingPage-people-user-container">
+        <div className="landingPage-people-user-title">Users:</div>
         <RenderUsers
           people={people}
           signedInUser={props.signedInUser}
           setSignedInUser={props.setSignedInUser}
+          setProfileUser={props.setProfileUser}
         />
       </div>
     </div>
