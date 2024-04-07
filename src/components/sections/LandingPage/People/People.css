@@ -15,3 +15,12 @@
   display: flex;
   gap: 0.5rem;
 }
+.landingPage-people-friends-title {
+  text-decoration: underline;
+}
+.landingPage-people-user-title {
+  text-decoration: underline;
+}
+.landingPage-people-friends-friends-title {
+  text-decoration: underline;
+}
