@@ -10,3 +10,7 @@
   color: red;
   font-style: italic;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
