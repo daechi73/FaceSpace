@@ -1,5 +1,6 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
+import ProfileLink from "../../Profile/ProfileLink";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
@@ -57,7 +58,12 @@ function RenderUsers(props) {
 
     return (
       <div className="landingPage-people-user" key={i}>
-        <div className="landingPage-People-user-user">{e.user_name}</div>
+        <div className="landingPage-People-user-user">
+          <ProfileLink
+            username={e.user_name}
+            setProfileUser={props.setProfileUser}
+          />
+        </div>
         {filterInOutFReq() === "inbound" ? (
           <div className="landingPage-people-user-status">
             Waiting for response
