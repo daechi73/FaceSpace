@@ -11,6 +11,7 @@ function LandingPage(props) {
       <People
         signedInUser={props.signedInUser}
         setSignedInUser={props.setSignedInUser}
+        setProfileUser={props.setProfileUser}
       />
     </div>
   );
