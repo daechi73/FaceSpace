@@ -85,7 +85,7 @@ function SignUpPage() {
           value={username}
         />
         <input
-          type="text"
+          type="password"
           className="signUpPage-form-password signUpPage-form-input"
           name="password"
           placeholder="Password"
