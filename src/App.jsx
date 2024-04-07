@@ -57,7 +57,10 @@ function App() {
               setUserProfile={setUserProfile}
             />
           ) : url === "profile" ? (
-            <Profile userProfile={userProfile} />
+            <Profile
+              userProfile={userProfile}
+              setUserProfile={setUserProfile}
+            />
           ) : (
             <PageNotFound />
           )}
