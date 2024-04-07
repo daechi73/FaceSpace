@@ -1,4 +1,6 @@
 import React from "react";
+import "./Profile.css";
+import Posts from "../sections/Profile/Posts";
 import { useEffect, useState } from "react";
 
 function Profile(props) {
@@ -17,7 +19,10 @@ function Profile(props) {
   return (
     <div className="profile-container">
       {profileUser ? (
-        <div className="profile-username">{profileUser.user_name}</div>
+        <>
+          <div className="profile-username">{profileUser.user_name}</div>
+          <Posts posts={profileUser.posts} />
+        </>
       ) : (
         ""
       )}
