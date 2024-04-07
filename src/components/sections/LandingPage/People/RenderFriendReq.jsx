@@ -1,32 +1,32 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
+import ProfileLink from "../../Profile/ProfileLink";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");
   const renderFriendReq =
-    props.signedInUser.friend_requests.length === 0
+    props.user.friend_requests.length === 0
       ? ""
-      : props.signedInUser.friend_requests.map((e, i) => {
-          if (e.inbound._id === props.signedInUser._id) {
+      : props.user.friend_requests.map((e, i) => {
+          if (e.inbound._id === props.user._id) {
             console.log("working in renderFRiendReq");
             const handleAcceptFReq = () => {
-              FriendsUtility().addFriends(
-                e,
-                props.signedInUser,
-                props.setSignedInUser
-              );
+              FriendsUtility().addFriends(e, props.user, props.setSignedInUser);
             };
 
             const handleDeclineFReq = () => {
               FriendsUtility().declineFriendReq(
                 e,
-                props.signedInUser.props.setSignedInUser
+                props.user.props.setSignedInUser
               );
             };
 
             return (
               <div className="landingPage-people-friends-request" key={i}>
-                {e.outbound.user_name}
+                <ProfileLink
+                  username={e.outbound.user_name}
+                  setUserProfile={props.setUserProfile}
+                />
                 <div
                   className="landingPage-people-friends-request-acceptBtn"
                   onClick={handleAcceptFReq}

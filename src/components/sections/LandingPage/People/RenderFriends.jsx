@@ -1,15 +1,19 @@
 import React from "react";
+import ProfileLink from "../../Profile/ProfileLink";
 
 function RenderFriends(props) {
   console.log("here in RenderFriends");
   const renderFriends =
-    props.signedInUser.friends.length === 0 ? (
+    props.user.friends.length === 0 ? (
       <div className="landingPage-people-friends">"You have no friends"</div>
     ) : (
-      props.signedInUser.friends.map((e, i) => {
+      props.user.friends.map((e, i) => {
         return (
           <div className="landingPage-people-friends" key={i}>
-            {e.user_name}
+            <ProfileLink
+              username={e.user_name}
+              setUserProfile={props.setUserProfile}
+            />
           </div>
         );
       })

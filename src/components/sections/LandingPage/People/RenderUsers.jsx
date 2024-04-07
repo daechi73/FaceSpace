@@ -13,7 +13,7 @@ function RenderUsers(props) {
         body: JSON.stringify({ toAddUserId: e._id }),
       };
       fetch(
-        `http://localhost:3000/users/${props.signedInUser._id}/update/addFriendReq`,
+        `http://localhost:3000/users/${props.user._id}/update/addFriendReq`,
         options
       )
         .then((res) => res.json())
@@ -26,32 +26,32 @@ function RenderUsers(props) {
 
     const handleAcceptFReq = () => {
       FriendsUtility().addFriends(
-        FriendsUtility().findFriendReq(e, props.signedInUser),
-        props.signedInUser,
+        FriendsUtility().findFriendReq(e, props.user),
+        props.user,
         props.setSignedInUser
       );
     };
     const handleDeclineFReq = () => {
       FriendsUtility().declineFriendReq(
-        FriendsUtility().findFriendReq(e, props.signedInUser),
-        props.signedInUser,
+        FriendsUtility().findFriendReq(e, props.user),
+        props.user,
         props.setSignedInUser
       );
     };
     const filterInOutFReq = () => {
-      for (let j = 0; j < props.signedInUser.friend_requests.length; j++) {
-        if (props.signedInUser.friend_requests[j].inbound._id === e._id) {
+      for (let j = 0; j < props.user.friend_requests.length; j++) {
+        if (props.user.friend_requests[j].inbound._id === e._id) {
           return "inbound";
         }
-        if (props.signedInUser.friend_requests[j].outbound._id === e._id) {
+        if (props.user.friend_requests[j].outbound._id === e._id) {
           return "outbound";
         }
       }
       return false;
     };
     const checkIfFriends = () => {
-      for (let j = 0; j < props.signedInUser.friends.length; j++) {
-        if (props.signedInUser.friends[j]._id === e._id) return true;
+      for (let j = 0; j < props.user.friends.length; j++) {
+        if (props.user.friends[j]._id === e._id) return true;
       }
       return false;
     };
