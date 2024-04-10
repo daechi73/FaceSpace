@@ -2,3 +2,8 @@
   height: 70vh;
   width: 100%;
 }
+.profile-userInfo-tag {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
