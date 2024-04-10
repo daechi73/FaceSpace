@@ -1,0 +1,21 @@
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  font-size: 12px;
+}
+.chatbox-postMsg {
+  display: inherit;
+  flex-direction: inherit;
+  align-items: center;
+}
+.chatbox-display {
+  border: solid;
+}
+.chatbox-msgBox {
+  height: 3rem;
+  width: 98%;
+}
+.chatbox-sendBtn {
+  width: 3rem;
+}
