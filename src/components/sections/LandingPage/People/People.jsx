@@ -1,13 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./People.css";
-import RenderUsers from "./RenderUsers";
-import RenderFriends from "./RenderFriends";
-import RenderFriendReq from "./RenderFriendReq";
+import RenderUsers from "../../RenderUsersUtilify/RenderUsers";
+import RenderFriends from "../../RenderUsersUtilify/RenderFriends";
+import RenderFriendReq from "../../RenderUsersUtilify/RenderFriendReq";
 
 function People(props) {
-  const [people, setPeople] = useState([]);
-
   console.log("here in people");
   useEffect(() => {
     const options = {
@@ -21,7 +19,11 @@ function People(props) {
       .then((res) => {
         console.log("in people useEffect");
         console.log(res);
-        if (res.status === "success") setPeople(res.users);
+        if (res.status === "success") {
+          props.setPeople(res.users);
+          localStorage.removeItem("people");
+          localStorage.setItem("people", JSON.stringify(res.users));
+        }
       });
   }, []);
 
@@ -54,7 +56,7 @@ function People(props) {
       <div className="landingPage-people-user-container">
         <div className="landingPage-people-user-title">Users:</div>
         <RenderUsers
-          people={people}
+          people={props.people}
           user={props.signedInUser}
           setSignedInUser={props.setSignedInUser}
           setUserProfile={props.setUserProfile}
