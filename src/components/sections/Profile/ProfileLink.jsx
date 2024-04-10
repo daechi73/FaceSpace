@@ -6,6 +6,7 @@ function ProfileLink(props) {
     props.setUserProfile(props.username);
     localStorage.removeItem("userProfile");
     localStorage.setItem("userProfile", props.username);
+    props.setResetProfile !== "" ? props.setResetProfile("reset") : "";
   };
   return (
     <div className="profileLink">
