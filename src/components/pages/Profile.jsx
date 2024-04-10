@@ -1,33 +1,58 @@
 import React from "react";
 import "./Profile.css";
 import Posts from "../sections/Profile/Posts";
-import RenderFriends from "../sections/LandingPage/People/RenderFriends";
+import RenderFriends from "../sections/RenderUsersUtilify/RenderFriends";
+import RenderUsers from "../sections/RenderUsersUtilify/RenderUsers";
 import { useEffect, useState } from "react";
 
 function Profile(props) {
   console.log("In Profile");
-  const [userProfile, setUserProfile] = useState();
+  const [userProfileInfo, setUserProfileInfo] = useState();
+  const [resetProfile, setResetProfile] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/users/username/${props.userProfile}`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
-        setUserProfile(res.user);
+        setUserProfileInfo(res.user);
       });
-  }, []);
-  console.log(userProfile);
+  }, [resetProfile]);
+  console.log(userProfileInfo);
+  console.log(resetProfile);
   return (
     <div className="profile-container">
-      {userProfile ? (
+      {userProfileInfo ? (
         <>
-          <div className="profile-username">{userProfile.user_name}</div>
-          <div className="profile-bio">{userProfile.bio}</div>
-          <Posts posts={userProfile.posts} />
-          <RenderFriends
-            user={userProfile}
-            setUserProfile={props.setUserProfile}
-          />
+          <div className="profile-userInfo">
+            <div className="profile-username profile-userInfo-tag">
+              <div className="profile-username-title">Username:</div>
+              <div className="profile-username-username">
+                {userProfileInfo.user_name}
+              </div>
+            </div>
+            <div className="profile-bio profile-userInfo-tag">
+              <div className="profile-bio-title">Bio:</div>
+              <div className="profile-bio-bio">{userProfileInfo.bio}</div>
+            </div>
+          </div>
+
+          <Posts posts={userProfileInfo.posts} />
+          <div className="profile-friends">
+            <RenderFriends
+              user={userProfileInfo}
+              setUserProfile={props.setUserProfile}
+              resetProfile={setResetProfile}
+            />
+          </div>
+          <div className="profile-users">
+            <RenderUsers
+              people={props.people}
+              user={props.user}
+              setSignedInUser={props.setSignedInUser}
+              setUserProfile={props.setUserProfile}
+            />
+          </div>
         </>
       ) : (
         ""
