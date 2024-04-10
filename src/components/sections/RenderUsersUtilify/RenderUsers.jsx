@@ -1,9 +1,10 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
-import ProfileLink from "../../Profile/ProfileLink";
+import ProfileLink from "../Profile/ProfileLink";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
+  console.log(`user length ${props.people.length}`);
   const renderUsers = props.people.map((e, i) => {
     const friendReq = () => {
       const options = {

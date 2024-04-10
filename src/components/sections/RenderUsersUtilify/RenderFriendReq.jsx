@@ -1,6 +1,6 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
-import ProfileLink from "../../Profile/ProfileLink";
+import ProfileLink from "../Profile/ProfileLink";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");

@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileLink from "../../Profile/ProfileLink";
+import ProfileLink from "../Profile/ProfileLink";
 
 function RenderFriends(props) {
   console.log("here in RenderFriends");
@@ -13,6 +13,7 @@ function RenderFriends(props) {
             <ProfileLink
               username={e.user_name}
               setUserProfile={props.setUserProfile}
+              setResetProfile={props.setResetProfile}
             />
           </div>
         );
