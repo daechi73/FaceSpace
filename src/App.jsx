@@ -13,6 +13,7 @@ function App() {
   const { url } = useParams();
   const [signedInUser, setSignedInUser] = useState();
   const [userProfile, setUserProfile] = useState();
+  const [people, setPeople] = useState([]);
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -39,6 +40,9 @@ function App() {
     if (localStorage.getItem("userProfile")) {
       setUserProfile(localStorage.getItem("userProfile"));
     }
+    if (localStorage.getItem("people") && people.length === 0)
+      setPeople(JSON.parse(localStorage.getItem("people")));
+    // localStorage.removeItem("people");
   });
   console.log("here in app");
   // console.log(signedInUser);
@@ -55,11 +59,16 @@ function App() {
               signedInUser={signedInUser}
               setSignedInUser={setSignedInUser}
               setUserProfile={setUserProfile}
+              people={people}
+              setPeople={setPeople}
             />
           ) : url === "profile" ? (
             <Profile
               userProfile={userProfile}
               setUserProfile={setUserProfile}
+              people={people}
+              user={signedInUser}
+              setSignedInUser={setSignedInUser}
             />
           ) : (
             <PageNotFound />
