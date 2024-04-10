@@ -1,6 +1,6 @@
 import React from "react";
 import "./Headers.css";
-import Profile from "./Profile";
+import HeadersProfile from "./HeadersProfile";
 import { Link } from "react-router-dom";
 
 function Headers(props) {
@@ -9,7 +9,7 @@ function Headers(props) {
       <div className="headers-title">
         <Link to="/home">FaceSpace</Link>
       </div>
-      <Profile
+      <HeadersProfile
         signedInUser={props.signedInUser.user_name}
         setSignedInUser={props.setSignedInUser}
       />
