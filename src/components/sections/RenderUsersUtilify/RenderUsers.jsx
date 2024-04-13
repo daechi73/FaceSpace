@@ -1,10 +1,18 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import ProfileLink from "../Profile/ProfileLink";
+import RenderUserClickMenu from "../Profile/RenderUserClickMenu";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
-  console.log(`user length ${props.people.length}`);
+  const handleUsernameClick = (e) => {
+    if (props.showMenu === false) props.setShowMenu(true);
+    else {
+      props.setShowMenu(false);
+    }
+    console.log(e);
+    props.setShowMenuUsername(e.target.innerText);
+  };
   const renderUsers = props.people.map((e, i) => {
     const friendReq = () => {
       const options = {
@@ -60,10 +68,16 @@ function RenderUsers(props) {
     return (
       <div className="landingPage-people-user" key={i}>
         <div className="landingPage-People-user-user">
-          <ProfileLink
+          {/* <ProfileLink
             username={e.user_name}
             setUserProfile={props.setUserProfile}
-          />
+          /> */}
+          <div
+            className="landingPage-people-user-user-username"
+            onClick={handleUsernameClick}
+          >
+            {e.user_name}
+          </div>
         </div>
         {filterInOutFReq() === "inbound" ? (
           <div className="landingPage-people-user-status">
@@ -95,7 +109,20 @@ function RenderUsers(props) {
     );
   });
 
-  return <>{renderUsers}</>;
+  return (
+    <>
+      {renderUsers}
+      {props.showMenu ? (
+        <RenderUserClickMenu
+          username={props.showMenuUsername}
+          setUserProfile={props.setUserProfile}
+          setShowMenu={props.setShowMenu}
+        />
+      ) : (
+        <></>
+      )}
+    </>
+  );
 }
 
 export default RenderUsers;

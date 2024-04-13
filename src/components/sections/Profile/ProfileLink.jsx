@@ -1,8 +1,11 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import RenderUserClickMenu from "./RenderUserClickMenu";
 
 function ProfileLink(props) {
-  const handleLink = () => {
+  const handleLinkClick = () => {
+    console.log("here in profileLink handleLinkClick");
     props.setUserProfile(props.username);
     localStorage.removeItem("userProfile");
     localStorage.setItem("userProfile", props.username);
@@ -10,8 +13,8 @@ function ProfileLink(props) {
   };
   return (
     <div className="profileLink">
-      <Link to="/profile" onClick={handleLink}>
-        {props.username}
+      <Link to="/profile" onClick={handleLinkClick}>
+        Profile
       </Link>
     </div>
   );

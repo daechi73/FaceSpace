@@ -7,6 +7,18 @@ import RenderFriendReq from "../../RenderUsersUtilify/RenderFriendReq";
 
 function People(props) {
   console.log("here in people");
+  const [showMenu, setShowMenu] = useState(false);
+  const [showMenuUsername, setShowMenuUsername] = useState("");
+  useEffect(() => {
+    const removeMenu = (e) => {
+      if (e.target.className !== "landingPage-people-user-user-username")
+        setShowMenu(false);
+    };
+    window.addEventListener("click", removeMenu);
+    return () => {
+      window.removeEventListener("click", removeMenu);
+    };
+  });
   useEffect(() => {
     const options = {
       mode: "cors",
@@ -43,6 +55,8 @@ function People(props) {
             user={props.signedInUser}
             setSignedInUser={props.setSignedInUser}
             setUserProfile={props.setUserProfile}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
           />
         </div>
         <div className="landingPage-people-friends-friends-title">Friends:</div>
@@ -60,6 +74,10 @@ function People(props) {
           user={props.signedInUser}
           setSignedInUser={props.setSignedInUser}
           setUserProfile={props.setUserProfile}
+          showMenu={showMenu}
+          setShowMenu={setShowMenu}
+          setShowMenuUsername={setShowMenuUsername}
+          showMenuUsername={showMenuUsername}
         />
       </div>
     </div>

@@ -9,7 +9,6 @@ function Posts(props) {
       </div>
     );
   });
-  console.log(props.posts);
   return <div className="profile-posts">{renderUserPosts}</div>;
 }
 

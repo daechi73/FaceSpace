@@ -18,8 +18,7 @@ function Profile(props) {
         setUserProfileInfo(res.user);
       });
   }, [resetProfile]);
-  console.log(userProfileInfo);
-  console.log(resetProfile);
+
   return (
     <div className="profile-container">
       {userProfileInfo ? (
