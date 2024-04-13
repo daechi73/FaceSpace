@@ -1,6 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Chatbox.css";
+import MessageApi from "./MessageApi";
+import ChatboxApi from "./ChatboxApi";
+import AddChatboxToUser from "./AddChatboxToUser";
+import GetUpdatedUser from "./GetUpdatedUser";
 
 function Chatbox(props) {
   const [msg, setMsg] = useState("");
@@ -9,11 +13,34 @@ function Chatbox(props) {
   const handleMsgBoxChange = (e) => {
     setMsg(e.target.value);
   };
-  const handleSendBtn = () => {
-    msgs.push(msg);
-    const updatedMsgs = msgs;
+  const handleSendBtn = async () => {
+    // msgs.push(msg);
+    // const updatedMsgs = msgs;
+    // setMsg("");
+    // setMsgs(updatedMsgs);
+    const req = {
+      sender: props.signedInUser.id,
+      receiver: "newUser3",
+      msg: msg,
+    };
+    const createMessage = await MessageApi(req);
+    let sendMessage;
+    console.log(createMessage);
+    createMessage.status === "success"
+      ? (sendMessage = ChatboxApi(createMessage.message))
+      : createMessage.msg;
+    if (sendMessage.chatbox) {
+      const response = AddChatboxToUser(
+        sendMessage.chatbox,
+        props.signedInUser
+      );
+      props.setSignedInUser(response.user);
+    } else {
+      const getUpdatedUser = GetUpdatedUser(props.signedInUser.id);
+      props.setSignedInUser(getUpdatedUser.user);
+    }
+    //MessageApi(req);
     setMsg("");
-    setMsgs(updatedMsgs);
   };
   const renderMsgs = msgs.map((e, i) => {
     return (
