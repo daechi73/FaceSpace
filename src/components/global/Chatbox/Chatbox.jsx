@@ -19,8 +19,8 @@ function Chatbox(props) {
     // setMsg("");
     // setMsgs(updatedMsgs);
     const req = {
-      sender: props.signedInUser.id,
-      receiver: "newUser3",
+      sender: props.chatUsers[0],
+      receiver: props.chatUsers[1],
       msg: msg,
     };
     const createMessage = await MessageApi(req);
