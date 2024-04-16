@@ -119,6 +119,8 @@ function RenderUsers(props) {
           username={props.showMenuUsername}
           setUserProfile={props.setUserProfile}
           setShowMenu={props.setShowMenu}
+          chatbox={props.chatbox}
+          setChatbox={props.setChatbox}
         />
       ) : (
         <></>
