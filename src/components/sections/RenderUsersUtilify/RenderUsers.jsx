@@ -2,17 +2,19 @@ import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import ProfileLink from "../Profile/ProfileLink";
 import RenderUserClickMenu from "../Profile/RenderUserClickMenu";
+import UserMenu from "./UserMenu";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
   const handleUsernameClick = (e) => {
-    if (props.showMenu === false) props.setShowMenu(true);
-    else {
-      props.setShowMenu(false);
-    }
-    console.log(e);
-    props.setShowMenuUsername(e.target.innerText);
+    UserMenu(
+      props.showMenu,
+      props.setShowMenu,
+      props.setShowMenuUsername,
+      e.target.innerText
+    );
   };
+
   const renderUsers = props.people.map((e, i) => {
     const friendReq = () => {
       const options = {
