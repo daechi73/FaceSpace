@@ -3,6 +3,12 @@ import "./RenderUserClickMenu.css";
 import ProfileLink from "../../sections/Profile/ProfileLink";
 
 function RenderUserClickMenu(props) {
+  const handleChatClick = () => {
+    if (props.chatbox === false) props.setChatbox(true);
+    else props.setChatbox(false);
+    const chatUsers = [props.signedInUser, props.username];
+    props.setChatUsers(chatUsers);
+  };
   return (
     <div className="userClickMenu">
       <div className="userClickMenu-chat">Chat</div>
