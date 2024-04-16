@@ -1,8 +1,8 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import ProfileLink from "../Profile/ProfileLink";
-import RenderUserClickMenu from "../Profile/RenderUserClickMenu";
-import UserMenu from "./UserMenu";
+import RenderUserClickMenu from "../../global/UserClickMenu/RenderUserClickMenu";
+import UserMenu from "../../global/UserClickMenu/UserMenu";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");

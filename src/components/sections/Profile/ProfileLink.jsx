@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import RenderUserClickMenu from "./RenderUserClickMenu";
+import RenderUserClickMenu from "../../global/UserClickMenu/RenderUserClickMenu";
 
 function ProfileLink(props) {
   const handleLinkClick = () => {

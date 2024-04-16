@@ -1,6 +1,6 @@
 import React from "react";
 import "./RenderUserClickMenu.css";
-import ProfileLink from "./ProfileLink";
+import ProfileLink from "../../sections/Profile/ProfileLink";
 
 function RenderUserClickMenu(props) {
   return (

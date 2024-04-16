@@ -1,7 +1,7 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import ProfileLink from "../Profile/ProfileLink";
-import RenderUserClickMenu from "../Profile/RenderUserClickMenu";
+import RenderUserClickMenu from "../../global/UserClickMenu/RenderUserClickMenu";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");
