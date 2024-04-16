@@ -62,6 +62,8 @@ function App() {
               setUserProfile={setUserProfile}
               people={people}
               setPeople={setPeople}
+              chatbox={chatbox}
+              setChatbox={setChatbox}
             />
           ) : url === "profile" ? (
             <Profile
