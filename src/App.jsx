@@ -14,6 +14,7 @@ function App() {
   const [signedInUser, setSignedInUser] = useState();
   const [userProfile, setUserProfile] = useState();
   const [people, setPeople] = useState([]);
+  const [chatbox, setChatbox] = useState(false);
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
