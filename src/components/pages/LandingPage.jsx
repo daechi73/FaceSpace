@@ -20,6 +20,8 @@ function LandingPage(props) {
         setUserToChat={setUserToChat}
         chatbox={props.chatbox}
         setChatbox={props.setChatbox}
+        chatUsers={chatUsers}
+        setChatUsers={setChatUsers}
       />
       {props.chatbox ? (
         <Chatbox

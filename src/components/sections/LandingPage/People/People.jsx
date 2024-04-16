@@ -80,6 +80,8 @@ function People(props) {
           showMenuUsername={showMenuUsername}
           chatbox={props.chatbox}
           setChatbox={props.setChatbox}
+          chatUsers={chatUsers}
+          setChatUsers={setChatUsers}
         />
       </div>
     </div>

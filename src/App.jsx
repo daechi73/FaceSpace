@@ -15,6 +15,7 @@ function App() {
   const [userProfile, setUserProfile] = useState();
   const [people, setPeople] = useState([]);
   const [chatbox, setChatbox] = useState(false);
+  const [chatUsers, setChatUsers] = useState([]);
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -64,6 +65,8 @@ function App() {
               setPeople={setPeople}
               chatbox={chatbox}
               setChatbox={setChatbox}
+              chatUsers={chatUsers}
+              setChatUsers={setChatUsers}
             />
           ) : url === "profile" ? (
             <Profile
