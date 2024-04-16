@@ -19,10 +19,14 @@ function LandingPage(props) {
         setPeople={props.setPeople}
         setUserToChat={setUserToChat}
       />
-      <Chatbox
-        signedInUser={props.signedInUser}
-        setSignedInUser={props.setSignedInUser}
-      />
+      {props.chatbox ? (
+        <Chatbox
+          signedInUser={props.signedInUser}
+          setSignedInUser={props.setSignedInUser}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
