@@ -123,6 +123,7 @@ function RenderUsers(props) {
           setChatbox={props.setChatbox}
           chatUsers={chatUsers}
           setChatUsers={setChatUsers}
+          signedInUser={props.signedInUser}
         />
       ) : (
         <></>
