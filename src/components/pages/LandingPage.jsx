@@ -7,7 +7,6 @@ import Chatbox from "../global/Chatbox/Chatbox.jsx";
 
 function LandingPage(props) {
   console.log("here in landingPage");
-  const [userToChat, setUserToChat] = useState();
   return (
     <div className="landingPage">
       <Posts signedInUser={props.signedInUser} />
@@ -17,7 +16,6 @@ function LandingPage(props) {
         setUserProfile={props.setUserProfile}
         people={props.people}
         setPeople={props.setPeople}
-        setUserToChat={setUserToChat}
         chatbox={props.chatbox}
         setChatbox={props.setChatbox}
         chatUsers={props.chatUsers}
