@@ -3,6 +3,9 @@
   flex-direction: column;
   width: 18rem;
   font-size: 12px;
+  border: solid;
+  border-width: 0.5px;
+  padding: 1rem;
 }
 .chatbox-postMsg {
   display: inherit;
@@ -10,7 +13,9 @@
   align-items: center;
 }
 .chatbox-display {
-  border: solid;
+  border-top: solid;
+  height: 4rem;
+  border-width: 0.5px;
 }
 .chatbox-msgBox {
   height: 3rem;
