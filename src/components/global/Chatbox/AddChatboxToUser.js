@@ -1,4 +1,5 @@
-const AddChatboxToUser = (chatbox, signedInUser) => {
+const AddChatboxToUser = async (chatbox, signedInUser) => {
+  console.log("Here in AddChaTBoxToUser");
   let response;
   const options = {
     mode: "cors",
@@ -12,6 +13,8 @@ const AddChatboxToUser = (chatbox, signedInUser) => {
   )
     .then((res) => res.json())
     .then((res) => {
+      console.log("here in addchatboxtouser");
+      console.log(res);
       if ((res.status = "success")) {
         return (response = res);
       }
