@@ -1,4 +1,5 @@
 const MessageApi = async (req) => {
+  console.log("here in Messageapi");
   let response;
   const options = {
     mode: "cors",
