@@ -30,7 +30,6 @@ function RenderUsers(props) {
         .then((res) => res.json())
         .then((res) => {
           console.log("In renderUSers add friend");
-          console.log(res);
           props.setSignedInUser(res.user);
         });
     };
@@ -123,7 +122,7 @@ function RenderUsers(props) {
           setChatbox={props.setChatbox}
           chatUsers={props.chatUsers}
           setChatUsers={props.setChatUsers}
-          signedInUser={props.signedInUser}
+          signedInUser={props.user}
         />
       ) : (
         <></>
