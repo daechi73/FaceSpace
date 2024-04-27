@@ -1,4 +1,5 @@
-const ChatboxApi = (message) => {
+const ChatboxApi = async (message) => {
+  console.log("here in chatboxapi");
   let response;
   const options = {
     mode: "cors",
