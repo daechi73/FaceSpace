@@ -5,8 +5,7 @@ import ProfileLink from "../../sections/Profile/ProfileLink";
 function RenderUserClickMenu(props) {
   const handleChatClick = () => {
     if (props.chatbox === false) props.setChatbox(true);
-    else props.setChatbox(false);
-    const chatUsers = [props.signedInUser, props.username];
+    const chatUsers = [props.signedInUser.id, props.username];
     props.setChatUsers(chatUsers);
   };
   return (
