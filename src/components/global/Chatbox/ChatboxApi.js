@@ -10,7 +10,6 @@ const ChatboxApi = async (message) => {
   return fetch("http://localhost:3000/chatboxes/add_messages", options)
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
       return (response = res);
     });
 };
