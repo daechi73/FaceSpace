@@ -35,37 +35,43 @@ function Chatbox(props) {
     setMsg(e.target.value);
   };
   const handleSendBtn = async () => {
-    //msgs.push(msg);
-    // const updatedMsgs = msgs;
-    // setMsg("");
-    // setMsgs(updatedMsgs);
-    // const req = {
-    //   sender: props.chatUsers[0],
-    //   receiver: props.chatUsers[1],
-    //   msg: msg,a
-    // };
-    // const createMessage = await MessageApi(req);
-    // let chatbox;
-    // console.log(createMessage);
-    // createMessage.status === "success"
-    //   ? (chatbox = await ChatboxApi(createMessage.message))
-    //   : console.log(createMessage.msg);
-    // if (chatbox.method === "created") {
-    //   const response = await AddChatboxToUser(
-    //     chatbox.chatbox,
-    //     props.chatUsers[0]
-    //   );
-    //   // props.setSignedInUser(response.user);
-    //   // setMsgs(response.chatbox);
-    //   console.log(response.chatbox);
-    // } else {
-    //   //const getUpdatedUser = GetUpdatedUser(props.chatUsers[0]);
-    //   // props.setSignedInUser(getUpdatedUser.user);
-    //   console.log("here");
-    //   console.log(chatbox);
-    //   //setMsgs(chatbox.messages);
-    // }
-    // setMsg("");
+    //##basic concept
+    // let newMsgs = msgs;
+    // newMsgs.push(msg);
+    // console.log(newMsgs);
+    // setMsgs(newMsgs);
+    //
+    //##Real Implementation
+
+    const req = {
+      sender: props.chatUsers[0],
+      receiver: props.chatUsers[1],
+      msg: msg,
+    };
+
+    const createMessage = await MessageApi(req);
+    console.log(createMessage);
+    let chatbox;
+    createMessage.status === "success"
+      ? (chatbox = await ChatboxApi(createMessage.message))
+      : console.log(createMessage.msg);
+    console.log(chatbox);
+    if (chatbox.method === "created") {
+      const response = await AddChatboxToUser(
+        chatbox.chatbox,
+        props.chatUsers[0]
+      );
+      // props.setSignedInUser(response.user);
+      // setMsgs(response.chatbox);
+      console.log(response.chatbox);
+    } else {
+      //const getUpdatedUser = GetUpdatedUser(props.chatUsers[0]);
+      // props.setSignedInUser(getUpdatedUser.user);
+      // console.log("finalStage");
+      // console.log(chatbox.chatbox.messages);
+      setMsgs(chatbox.chatbox.messages);
+    }
+    setMsg("");
   };
   const renderMsgs = msgs.map((e, i) => {
     return (
@@ -74,6 +80,9 @@ function Chatbox(props) {
       </div>
     );
   });
+  console.log("msg: " + msg);
+  console.log("msgs: " + msgs);
+
   return (
     <div className="chatbox">
       <div className="chatbox-username">{props.chatUsers[1]}</div>
