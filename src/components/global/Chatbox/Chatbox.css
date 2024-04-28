@@ -14,8 +14,10 @@
 }
 .chatbox-display {
   border-top: solid;
-  height: 4rem;
+  height: 9rem;
   border-width: 0.5px;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 .chatbox-msgBox {
   height: 3rem;
