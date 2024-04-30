@@ -25,6 +25,7 @@ function LandingPage(props) {
         <Chatbox
           chatUsers={props.chatUsers}
           setSignedInUser={props.setSignedInUser}
+          chatbox={props.chatbox}
         />
       ) : (
         <></>
