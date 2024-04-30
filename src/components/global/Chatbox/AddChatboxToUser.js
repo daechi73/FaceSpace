@@ -8,16 +8,13 @@ const AddChatboxToUser = async (chatbox, signedInUser) => {
     body: JSON.stringify({ chatbox: chatbox }),
   };
   return fetch(
-    `http://localhost:3000/users/${signedInUser.id}/addChatbox`,
+    `http://localhost:3000/users/${signedInUser}/update/addChatbox`,
     options
   )
     .then((res) => res.json())
     .then((res) => {
       console.log("here in addchatboxtouser");
-      console.log(res);
-      if ((res.status = "success")) {
-        return (response = res);
-      }
+      return (response = res);
     });
 };
 
