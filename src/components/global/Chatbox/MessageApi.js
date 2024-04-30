@@ -1,6 +1,5 @@
 const MessageApi = async (req) => {
   console.log("here in Messageapi");
-  let response;
   const options = {
     mode: "cors",
     method: "POST",
@@ -11,8 +10,7 @@ const MessageApi = async (req) => {
     .then((res) => res.json())
     .then((res) => {
       if (res.status === "success") {
-        response = res;
-        return response;
+        return res;
       }
     });
 };
