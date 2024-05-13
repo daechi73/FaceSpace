@@ -5,10 +5,7 @@ const GetChatbox = async (chatUsers) => {
     .then((res) => res.json())
     .then((res) => {
       console.log("here in getChatboxs");
-      if ((res.status = "success")) {
-        //console.log(res);
-        return res;
-      }
+      if (res.status === "success") return res;
     });
 };
 
