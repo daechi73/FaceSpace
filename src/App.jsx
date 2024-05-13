@@ -14,7 +14,7 @@ function App() {
   const [signedInUser, setSignedInUser] = useState();
   const [userProfile, setUserProfile] = useState();
   const [people, setPeople] = useState([]);
-  const [chatbox, setChatbox] = useState(false);
+  const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
 
   useEffect(() => {
