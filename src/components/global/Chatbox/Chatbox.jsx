@@ -5,7 +5,6 @@ import MessageApi from "./MessageApi";
 import ChatboxApi from "./ChatboxApi";
 import AddChatboxToUser from "./AddChatboxToUser";
 import GetUpdatedUser from "./GetUpdatedUser";
-import GetChatbox from "./GetChatbox";
 import io from "socket.io-client";
 
 function Chatbox(props) {
@@ -24,12 +23,22 @@ function Chatbox(props) {
     // socketInstant.on("testing", (data) => {
     //   alert(data);
     // });
+    console.log(props.chatUsers);
+    fetch(
+      `http://localhost:3000/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("here in chatbox fetch");
+        console.log(res);
+        if (res.status === "success") setMsgs(res.chatbox.messages);
+        else setMsgs([]);
+      });
 
-    GetChatbox(props.chatUsers);
     return () => {
       // socketInstant.disconnect();
     };
-  }, []);
+  }, [props.chatbox]);
 
   const handleMsgBoxChange = (e) => {
     setMsg(e.target.value);
@@ -61,9 +70,10 @@ function Chatbox(props) {
         chatbox.chatbox,
         props.chatUsers[0]
       );
+      console.log(response);
       // props.setSignedInUser(response.user);
-      // setMsgs(response.chatbox);
-      console.log(response.chatbox);
+      setMsgs(response.chatbox.messages);
+      // console.log(response.chatbox);
     } else {
       //const getUpdatedUser = GetUpdatedUser(props.chatUsers[0]);
       // props.setSignedInUser(getUpdatedUser.user);
