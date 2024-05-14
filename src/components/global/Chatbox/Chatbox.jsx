@@ -90,11 +90,21 @@ function Chatbox(props) {
       </div>
     );
   });
+
+  const handleCloseBtn = () => {
+    props.setChatbox(null);
+  };
+
   console.log("msg: " + msg);
   console.log("msgs: " + msgs);
 
   return (
     <div className="chatbox">
+      <div className="chatbox-closeBtn-container">
+        <div className="chatbox-closeBtn" onClick={handleCloseBtn}>
+          x
+        </div>
+      </div>
       <div className="chatbox-username">{props.chatUsers[1]}</div>
       <div className="chatbox-display">{renderMsgs}</div>
       <div className="chatbox-postMsg">
