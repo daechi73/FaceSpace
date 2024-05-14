@@ -26,3 +26,11 @@
 .chatbox-sendBtn {
   width: 3rem;
 }
+.chatbox-closeBtn-container {
+  display: flex;
+  justify-content: end;
+}
+.chatbox-closeBtn {
+  margin-right: 1rem;
+  font-size: 16px;
+}
