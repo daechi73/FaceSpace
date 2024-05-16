@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Chatbox.css";
 import MessageApi from "./MessageApi";
 import ChatboxApi from "./ChatboxApi";
@@ -11,6 +11,8 @@ function Chatbox(props) {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [socket, setSocket] = useState(null);
+  let displayRef = useRef(null);
+
   console.log("here in chatbox");
 
   useEffect(() => {
@@ -31,14 +33,21 @@ function Chatbox(props) {
       .then((res) => {
         console.log("here in chatbox fetch");
         console.log(res);
-        if (res.status === "success") setMsgs(res.chatbox.messages);
-        else setMsgs([]);
+        if (res.status === "success") {
+          setMsgs(res.chatbox.messages);
+        } else setMsgs([]);
       });
 
     return () => {
       // socketInstant.disconnect();
     };
   }, [props.chatbox]);
+
+  useEffect(() => {
+    if (displayRef.current) {
+      displayRef.current.scrollTo(0, 1000);
+    }
+  });
 
   const handleMsgBoxChange = (e) => {
     setMsg(e.target.value);
@@ -95,6 +104,7 @@ function Chatbox(props) {
     props.setChatbox(null);
   };
 
+  console.log(displayRef.current);
   console.log("msg: " + msg);
   console.log("msgs: " + msgs);
 
@@ -106,7 +116,9 @@ function Chatbox(props) {
         </div>
       </div>
       <div className="chatbox-username">{props.chatUsers[1]}</div>
-      <div className="chatbox-display">{renderMsgs}</div>
+      <div className="chatbox-display" ref={displayRef}>
+        {renderMsgs}
+      </div>
       <div className="chatbox-postMsg">
         <textarea
           className="chatbox-msgBox"
