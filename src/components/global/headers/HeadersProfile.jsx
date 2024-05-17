@@ -10,6 +10,8 @@ function Profile(props) {
       .then((res) => {
         props.setSignedInUser(res.user);
         localStorage.removeItem("signedInUser");
+        props.setChatbox(null);
+        props.setChatUsers([]);
         navigate("/");
       });
   };
