@@ -12,6 +12,8 @@ function Headers(props) {
       <HeadersProfile
         signedInUser={props.signedInUser.user_name}
         setSignedInUser={props.setSignedInUser}
+        setChatbox={props.setChatbox}
+        setChatUsers={props.setChatUsers}
       />
     </div>
   );
