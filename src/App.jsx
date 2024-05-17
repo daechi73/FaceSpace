@@ -55,6 +55,8 @@ function App() {
           <Headers
             signedInUser={signedInUser}
             setSignedInUser={setSignedInUser}
+            setChatbox={setChatbox}
+            setChatUsers={setChatUsers}
           />
           {url === "home" ? (
             <LandingPage
