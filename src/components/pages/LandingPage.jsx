@@ -33,7 +33,11 @@ function LandingPage(props) {
       ) : (
         <></>
       )} */}
-      <ChatSystem signedInUser={props.signedInUser} />
+      <ChatSystem
+        signedInUser={props.signedInUser}
+        setChatUsers={props.setChatUsers}
+        setChatbox={props.setChatbox}
+      />
     </div>
   );
 }

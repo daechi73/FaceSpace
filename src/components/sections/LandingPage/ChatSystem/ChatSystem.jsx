@@ -6,7 +6,6 @@ import useGetChatUsers from "./useGetChatUsers";
 function ChatSystem(props) {
   console.log("HERE in ChatSystem");
   const users = useGetChatUsers(props.signedInUser._id);
-  const [chatboxes, setChatboxes] = useState([]);
 
   const renderUsers = users.map((e, i) => {
     return (
