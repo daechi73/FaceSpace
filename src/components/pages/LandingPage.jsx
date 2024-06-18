@@ -10,7 +10,7 @@ function LandingPage(props) {
   console.log("here in landingPage");
   return (
     <div className="landingPage">
-      {/* <Posts signedInUser={props.signedInUser} />
+      <Posts signedInUser={props.signedInUser} />
       <People
         signedInUser={props.signedInUser}
         setSignedInUser={props.setSignedInUser}
@@ -32,11 +32,12 @@ function LandingPage(props) {
         />
       ) : (
         <></>
-      )} */}
+      )}
       <ChatSystem
         signedInUser={props.signedInUser}
         setChatUsers={props.setChatUsers}
         setChatbox={props.setChatbox}
+        chatbox={props.chatbox}
       />
     </div>
   );
