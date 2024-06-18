@@ -8,8 +8,15 @@ function ChatSystem(props) {
   const users = useGetChatUsers(props.signedInUser._id);
 
   const renderUsers = users.map((e, i) => {
+    const handleUserClick = () => {
+      props.setChatUsers([props.signedInUser._id, e.user_name]);
+      if (props.chatbox === null) {
+        props.setChatbox(1);
+      } else props.setChatbox(props.chatbox + 1);
+    };
+
     return (
-      <div className="chatSystem_user" key={i}>
+      <div className="chatSystem_user" key={i} onClick={handleUserClick}>
         {e.user_name}
       </div>
     );
