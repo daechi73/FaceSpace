@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./ChatSystem.css";
 import useGetChatUsers from "./useGetChatUsers";
+import "./ChatSystem.css";
 
 function ChatSystem(props) {
   console.log("HERE in ChatSystem");
@@ -26,8 +27,8 @@ function ChatSystem(props) {
 
   return (
     <div className="chatSystem">
-      <div className="chatSystem_title">Chat</div>
-      <div className="chatSystem_users">{renderUsers}</div>
+      <div className="chatSystem-title">Chat</div>
+      <div className="chatSystem-users">{renderUsers}</div>
     </div>
   );
 }
