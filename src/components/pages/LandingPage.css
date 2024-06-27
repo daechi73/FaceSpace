@@ -1,4 +1,8 @@
 .landingPage {
   height: 100%;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 80vh;
+  margin-top: 3rem;
 }
