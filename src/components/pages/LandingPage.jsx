@@ -22,7 +22,12 @@ function LandingPage(props) {
         chatUsers={props.chatUsers}
         setChatUsers={props.setChatUsers}
       />
-
+      <ChatSystem
+        signedInUser={props.signedInUser}
+        setChatUsers={props.setChatUsers}
+        setChatbox={props.setChatbox}
+        chatbox={props.chatbox}
+      />
       {props.chatbox ? (
         <Chatbox
           chatUsers={props.chatUsers}
@@ -33,12 +38,6 @@ function LandingPage(props) {
       ) : (
         <></>
       )}
-      <ChatSystem
-        signedInUser={props.signedInUser}
-        setChatUsers={props.setChatUsers}
-        setChatbox={props.setChatbox}
-        chatbox={props.chatbox}
-      />
     </div>
   );
 }
