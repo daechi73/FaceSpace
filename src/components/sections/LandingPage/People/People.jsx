@@ -41,25 +41,23 @@ function People(props) {
 
   return (
     <div className="landingPage-people">
+      <div className="landingPage-people-friends-title">Friend Requests</div>
       <div className="landingPage-people-friends-container">
         {props.signedInUser.friend_requests.length === 0 ? (
-          ""
+          "You have no Friend Request"
         ) : (
-          <div className="landingPage-people-friends-title">
-            Friend Requests:
+          <div className="landingPage-people-friends-friendReq">
+            <RenderFriendReq
+              user={props.signedInUser}
+              setSignedInUser={props.setSignedInUser}
+              setUserProfile={props.setUserProfile}
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+            />
           </div>
         )}
 
-        <div className="landingPage-people-friends-friendReq">
-          <RenderFriendReq
-            user={props.signedInUser}
-            setSignedInUser={props.setSignedInUser}
-            setUserProfile={props.setUserProfile}
-            showMenu={showMenu}
-            setShowMenu={setShowMenu}
-          />
-        </div>
-        <div className="landingPage-people-friends-friends-title">Friends:</div>
+        <div className="landingPage-people-friends-friends-title">Friends</div>
         <div className="landingPage-people-friends-friends">
           <RenderFriends
             user={props.signedInUser}
@@ -68,7 +66,7 @@ function People(props) {
         </div>
       </div>
       <div className="landingPage-people-user-container">
-        <div className="landingPage-people-user-title">Users:</div>
+        <div className="landingPage-people-user-title">Users</div>
         <RenderUsers
           people={props.people}
           user={props.signedInUser}
