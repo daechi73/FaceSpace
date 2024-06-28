@@ -12,12 +12,13 @@
   display: flex;
   gap: 0.5rem;
 }
-.landingPage-people-friends-title {
-  text-decoration: underline;
+
+.landingPage-people-friends-friends-title {
+  font-size: 1.5rem;
 }
 .landingPage-people-user-title {
-  text-decoration: underline;
+  font-size: 1.5rem;
 }
-.landingPage-people-friends-friends-title {
-  text-decoration: underline;
+.landingPage-people-friends-title {
+  font-size: 1.5rem;
 }
