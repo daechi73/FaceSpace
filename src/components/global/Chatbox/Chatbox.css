@@ -9,6 +9,8 @@
   border-width: 0.5px;
   padding: 1rem;
   margin: 0.5rem;
+  background-color: rgb(134, 133, 22);
+  border-radius: 1.5rem;
 }
 .chatbox-postMsg {
   display: inherit;
@@ -16,6 +18,7 @@
   align-items: center;
 }
 .chatbox-display {
+  padding: 0.5rem;
   border-top: solid;
   height: 9rem;
   border-width: 0.5px;
