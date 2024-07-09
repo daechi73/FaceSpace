@@ -10,9 +10,9 @@ const userGetChatUsers = (signedInUserId) => {
         chatboxes = res.user.chatbox;
         const tempUsers = [];
         chatboxes.forEach((e) => {
-          if (e.new_message)
-            tempUsers.push({ user: e.users[1], new_message: true });
-          else tempUsers.push({ user: e.users[1], new_message: false });
+          if (res.user.user_name === e.new_message) {
+            tempUsers.push({ user: e.users[1], new_message: false });
+          } else tempUsers.push({ user: e.users[1], new_message: true });
           setUsers(tempUsers);
         });
       });
@@ -23,3 +23,4 @@ const userGetChatUsers = (signedInUserId) => {
 export default userGetChatUsers;
 {
 }
+``;
