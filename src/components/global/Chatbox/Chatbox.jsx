@@ -34,9 +34,7 @@ function Chatbox(props) {
         console.log("here in chatbox fetch");
         console.log(res);
         if (res.status === "success") {
-          console.log("hereee");
           setMsgs(res.chatbox.messages);
-          //console.log(res.chatbox.messages[res.chatbox.messages.length - 1]);
         } else setMsgs([]);
       });
 
