@@ -22,6 +22,3 @@ const userGetChatUsers = (signedInUserId) => {
 };
 
 export default userGetChatUsers;
-{
-}
-``;
