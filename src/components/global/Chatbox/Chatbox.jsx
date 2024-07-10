@@ -6,10 +6,12 @@ import ChatboxApi from "./ChatboxApi";
 import AddChatboxToUser from "./AddChatboxToUser";
 import GetUpdatedUser from "./GetUpdatedUser";
 import io from "socket.io-client";
+import useRemoveChatboxNewMessage from "../../sections/LandingPage/ChatSystem/useRemoveChatboxNewMessage";
 
 function Chatbox(props) {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
+  const [chatboxId, setChatboxId] = useState(null);
   const [socket, setSocket] = useState(null);
   let displayRef = useRef(null);
 
@@ -34,8 +36,14 @@ function Chatbox(props) {
         console.log("here in chatbox fetch");
         console.log(res);
         if (res.status === "success") {
-          console.log("hereee");
           setMsgs(res.chatbox.messages);
+          //resets changes in chatboxID will change said chatbox's new_message into ""
+          if (
+            res.chatbox.new_message !== "" &&
+            res.chatbox.new_message !== props.signedInUser.user_name
+          ) {
+            setChatboxId(res.chatbox._id);
+          }
           //console.log(res.chatbox.messages[res.chatbox.messages.length - 1]);
         } else setMsgs([]);
       });
@@ -50,6 +58,8 @@ function Chatbox(props) {
       displayRef.current.scrollTo(0, 1000);
     }
   });
+
+  useRemoveChatboxNewMessage({ chatboxId: chatboxId });
 
   const handleMsgBoxChange = (e) => {
     setMsg(e.target.value);
@@ -106,9 +116,9 @@ function Chatbox(props) {
     props.setChatbox(null);
   };
 
-  console.log(displayRef.current);
-  console.log("msg: " + msg);
-  console.log("msgs: " + msgs);
+  // console.log(displayRef.current);
+  // console.log("msg: " + msg);
+  // console.log("msgs: " + msgs);
 
   return (
     <div className="chatbox">

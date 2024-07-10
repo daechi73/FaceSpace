@@ -7,21 +7,24 @@ import "./ChatSystem.css";
 function ChatSystem(props) {
   console.log("HERE in ChatSystem");
   const users = useGetChatUsers(props.signedInUser._id);
-  console.log("heree1");
-  console.log(users);
-
   const renderUsers = users.map((e, i) => {
     const handleUserClick = () => {
       props.setChatUsers([props.signedInUser._id, e.user.user_name]);
       if (props.chatbox === null) {
         props.setChatbox(1);
       } else props.setChatbox(props.chatbox + 1);
+      if (document.querySelector(`.newMessages.${e.user.user_name}`))
+        document
+          .querySelector(`.newMessages.${e.user.user_name}`)
+          .classList.remove("newMessages");
     };
 
     return (
       <div
         className={
-          e.new_message ? "chatSystem_user newMessages" : "chatSystem_user"
+          e.new_message
+            ? `chatSystem_user newMessages ${e.user.user_name}`
+            : "chatSystem_user"
         }
         key={i}
         onClick={handleUserClick}
@@ -30,8 +33,6 @@ function ChatSystem(props) {
       </div>
     );
   });
-
-  console.log(users);
 
   return (
     <div className="chatSystem">
