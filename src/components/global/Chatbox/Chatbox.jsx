@@ -98,6 +98,11 @@ function Chatbox(props) {
       setMsgs(chatbox.chatbox.messages);
     }
     setMsg("");
+    const resetChatSystem = (resetChatSystem, setResetChatSystem) => {
+      if (resetChatSystem === null) return setResetChatSystem(1);
+      else return setResetChatSystem(resetChatSystem + 1);
+    };
+    resetChatSystem(props.resetChatSystem, props.setResetChatSystem);
   };
   const renderMsgs = msgs.map((e, i) => {
     return (
