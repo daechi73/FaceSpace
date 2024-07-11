@@ -26,7 +26,6 @@ function Chatbox(props) {
     // socketInstant.on("testing", (data) => {
     //   alert(data);
     // });
-    console.log(props.chatUsers);
 
     fetch(
       `http://localhost:3000/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
@@ -34,7 +33,6 @@ function Chatbox(props) {
       .then((res) => res.json())
       .then((res) => {
         console.log("here in chatbox fetch");
-        console.log(res);
         if (res.status === "success") {
           setMsgs(res.chatbox.messages);
           //resets changes in chatboxID will change said chatbox's new_message into ""
@@ -80,18 +78,15 @@ function Chatbox(props) {
     };
 
     const createMessage = await MessageApi(req);
-    console.log(createMessage);
     let chatbox;
     createMessage.status === "success"
       ? (chatbox = await ChatboxApi(createMessage.message))
       : console.log(createMessage.msg);
-    console.log(chatbox);
     if (chatbox.method === "created") {
       const response = await AddChatboxToUser(
         chatbox.chatbox,
         props.chatUsers[0]
       );
-      console.log(response);
       // props.setSignedInUser(response.user);
       setMsgs(response.chatbox.messages);
       // console.log(response.chatbox);

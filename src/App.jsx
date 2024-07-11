@@ -35,7 +35,6 @@ function App() {
       )
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           setSignedInUser(res.user);
         });
     }

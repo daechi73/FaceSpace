@@ -30,7 +30,6 @@ function People(props) {
       .then((res) => res.json())
       .then((res) => {
         console.log("in people useEffect");
-        console.log(res);
         if (res.status === "success") {
           props.setPeople(res.users);
           localStorage.removeItem("people");
