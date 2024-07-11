@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const userGetChatUsers = (signedInUserId) => {
+const userGetChatUsers = (signedInUserId, resetChatSystem) => {
   const [users, setUsers] = useState([]);
   let chatboxes;
 
@@ -27,7 +27,7 @@ const userGetChatUsers = (signedInUserId) => {
           setUsers(tempUsers);
         });
       });
-  }, []);
+  }, [resetChatSystem]);
   return users;
 };
 
