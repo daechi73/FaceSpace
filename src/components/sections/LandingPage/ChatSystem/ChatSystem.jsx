@@ -7,6 +7,7 @@ import "./ChatSystem.css";
 function ChatSystem(props) {
   console.log("HERE in ChatSystem");
   const users = useGetChatUsers(props.signedInUser._id);
+
   const renderUsers = users.map((e, i) => {
     const handleUserClick = () => {
       props.setChatUsers([props.signedInUser._id, e.user.user_name]);
