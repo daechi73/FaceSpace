@@ -8,6 +8,10 @@ import ChatSystem from "../sections/LandingPage/ChatSystem/ChatSystem.jsx";
 
 function LandingPage(props) {
   console.log("here in landingPage");
+
+  const [resetChatSystem, setResetChatSystem] = useState(null);
+  console.log("here for resetChatSystem");
+  console.log(resetChatSystem);
   return (
     <div className="landingPage">
       <ChatSystem
@@ -15,7 +19,9 @@ function LandingPage(props) {
         setChatUsers={props.setChatUsers}
         setChatbox={props.setChatbox}
         chatbox={props.chatbox}
+        resetChatSystem={resetChatSystem}
       />
+
       <Posts signedInUser={props.signedInUser} />
       <People
         signedInUser={props.signedInUser}
@@ -36,6 +42,8 @@ function LandingPage(props) {
           chatbox={props.chatbox}
           setChatbox={props.setChatbox}
           signedInUser={props.signedInUser}
+          setResetChatSystem={setResetChatSystem}
+          resetChatSystem={resetChatSystem}
         />
       ) : (
         <></>
