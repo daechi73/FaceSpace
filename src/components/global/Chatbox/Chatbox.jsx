@@ -16,7 +16,6 @@ function Chatbox(props) {
   let displayRef = useRef(null);
 
   console.log("here in chatbox");
-
   useEffect(() => {
     // const socketInstant = io.connect("http://localhost:3000");
     // setSocket(socketInstant);
@@ -28,6 +27,7 @@ function Chatbox(props) {
     //   alert(data);
     // });
     console.log(props.chatUsers);
+
     fetch(
       `http://localhost:3000/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
     )
