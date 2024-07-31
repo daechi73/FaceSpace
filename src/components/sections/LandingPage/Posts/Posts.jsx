@@ -41,7 +41,18 @@ function Posts(props) {
   const renderPosts = posts.map((e, i) => {
     return (
       <div className="landingPage-posts-posts-post" key={i}>
-        {e.post_content}
+        <div className="landingPage-posts-posts-post-postContent">
+          {e.post_content}
+        </div>
+        <div className="landingPage-posts-posts-post-author">
+          {e.posted_user.user_name}
+        </div>
+        <div className="landingPage-posts-posts-post-posted-date">
+          {e.dated_posted_formatted}
+        </div>
+        <div className="landingPage-posts-posts-post-posted-likes">
+          {e.likes}
+        </div>
       </div>
     );
   });
