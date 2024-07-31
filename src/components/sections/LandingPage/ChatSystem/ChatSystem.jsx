@@ -37,7 +37,6 @@ function ChatSystem(props) {
 
   return (
     <div className="chatSystem">
-      {props.resetChatSystem}
       <div className="chatSystem-title">Chat</div>
       <div className="chatSystem-users">{renderUsers}</div>
     </div>
