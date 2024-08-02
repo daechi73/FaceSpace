@@ -16,6 +16,7 @@ function App() {
   const [people, setPeople] = useState([]);
   const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
+  const [resetChatSystem, setResetChatSystem] = useState(null);
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -68,6 +69,8 @@ function App() {
               setChatbox={setChatbox}
               chatUsers={chatUsers}
               setChatUsers={setChatUsers}
+              resetChatSystem={resetChatSystem}
+              setResetChatSystem={setResetChatSystem}
             />
           ) : url === "profile" ? (
             <Profile
@@ -76,6 +79,8 @@ function App() {
               people={people}
               user={signedInUser}
               setSignedInUser={setSignedInUser}
+              setChatUsers={setChatUsers}
+              setChatbox={setChatbox}
             />
           ) : (
             <PageNotFound />
