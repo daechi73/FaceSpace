@@ -6,7 +6,7 @@ import ChatboxApi from "./ChatboxApi";
 import AddChatboxToUser from "./AddChatboxToUser";
 import GetUpdatedUser from "./GetUpdatedUser";
 import io from "socket.io-client";
-import useRemoveChatboxNewMessage from "../../sections/LandingPage/ChatSystem/useRemoveChatboxNewMessage";
+import useRemoveChatboxNewMessage from "../ChatSystem/useRemoveChatboxNewMessage";
 
 function Chatbox(props) {
   const [msg, setMsg] = useState("");
