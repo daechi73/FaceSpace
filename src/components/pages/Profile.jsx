@@ -3,6 +3,7 @@ import "./Profile.css";
 import Posts from "../sections/Profile/Posts";
 import RenderFriends from "../sections/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../sections/RenderUsersUtilify/RenderUsers";
+import ChatSystem from "../global/ChatSystem/ChatSystem";
 import { useEffect, useState } from "react";
 
 function Profile(props) {
@@ -35,7 +36,13 @@ function Profile(props) {
               <div className="profile-bio-bio">{userProfileInfo.bio}</div>
             </div>
           </div>
-
+          <ChatSystem
+            signedInUser={props.user}
+            setChatUsers={props.setChatUsers}
+            setChatbox={props.setChatbox}
+            chatbox={props.chatbox}
+            resetChatSystem={props.resetChatSystem}
+          />
           <Posts posts={userProfileInfo.posts} />
           <div className="profile-friends">
             <RenderFriends
