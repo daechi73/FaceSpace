@@ -9,7 +9,12 @@ function Posts(props) {
       </div>
     );
   });
-  return <div className="profile-posts">{renderUserPosts}</div>;
+  return (
+    <div className="profile-posts">
+      <div className="profile-posts-title">Past posts</div>
+      {renderUserPosts}
+    </div>
+  );
 }
 
 export default Posts;
