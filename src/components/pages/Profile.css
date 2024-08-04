@@ -3,13 +3,43 @@
   width: 100%;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
+
 .profile-userInfo-tag {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 .profile-userInfo {
-  grid-column: 1/4;
+  grid-column: 1/5;
+  margin-top: 2rem;
+}
+.profile-username-username {
+  font-size: 2rem;
+}
+.profile-bio-bio {
+  margin-left: 10rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.profile-container .chatSystem {
+  grid-row: 2/6;
+  grid-column: 1/2;
+}
+.profile-friends {
+  grid-column: 6/7;
+  grid-row: 2/4;
+}
+.profile-users {
+  grid-column: 6/7;
+  grid-row: 4/6;
+}
+.profile-posts-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+}
+.profile-posts {
+  grid-column: 2/6;
+  grid-row: 2/6;
 }
