@@ -6,6 +6,7 @@ function Posts(props) {
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState();
   const [resetPosts, setResetPost] = useState(0);
+
   useEffect(() => {
     fetch("http://localhost:3000/posts", { mode: "cors" })
       .then((res) => res.json())
