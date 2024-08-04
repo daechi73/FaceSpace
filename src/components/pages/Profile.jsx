@@ -26,13 +26,13 @@ function Profile(props) {
         <>
           <div className="profile-userInfo">
             <div className="profile-username profile-userInfo-tag">
-              <div className="profile-username-title">Username:</div>
+              {/* <div className="profile-username-title">Username:</div> */}
               <div className="profile-username-username">
                 {userProfileInfo.user_name}
               </div>
             </div>
             <div className="profile-bio profile-userInfo-tag">
-              <div className="profile-bio-title">Bio:</div>
+              {/* <div className="profile-bio-title">Bio:</div> */}
               <div className="profile-bio-bio">{userProfileInfo.bio}</div>
             </div>
           </div>
@@ -43,7 +43,9 @@ function Profile(props) {
             chatbox={props.chatbox}
             resetChatSystem={props.resetChatSystem}
           />
+
           <Posts posts={userProfileInfo.posts} />
+
           <div className="profile-friends">
             <RenderFriends
               user={userProfileInfo}
