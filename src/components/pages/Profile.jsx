@@ -20,6 +20,7 @@ function Profile(props) {
       });
   }, [resetProfile]);
 
+  console.log("heree in profilee");
   return (
     <div className="profile-container">
       {userProfileInfo ? (
@@ -44,7 +45,7 @@ function Profile(props) {
             resetChatSystem={props.resetChatSystem}
           />
 
-          <Posts posts={userProfileInfo.posts} />
+          <Posts userProfile={userProfileInfo} />
 
           <div className="profile-friends">
             <RenderFriends
