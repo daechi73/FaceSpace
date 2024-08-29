@@ -45,7 +45,7 @@ function Profile(props) {
             resetChatSystem={props.resetChatSystem}
           />
 
-          <Posts userProfile={userProfileInfo} />
+          <Posts userProfile={userProfileInfo} signedInUser={props.user} />
 
           <div className="profile-friends">
             <RenderFriends
