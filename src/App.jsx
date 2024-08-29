@@ -102,6 +102,7 @@ function App() {
         onClick={() => {
           console.log(signedInUser);
         }}
+        className="checkSignedInUserBtn"
       >
         click
       </button>
