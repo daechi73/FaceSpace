@@ -11,30 +11,91 @@ function Posts(props) {
   //   );
   // });
   const [profileWall, setProfileWall] = useState([]);
+  const [postbox, setPostbox] = useState("");
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${props.userProfile._id}`)
+    fetch(
+      `http://localhost:3000/profileWalls/${props.userProfile.profileWall._id}`
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log("here in Posts useEffect");
         console.log(res);
-        setProfileWall(res.user.profileWall.posts);
+        setProfileWall(res.profileWall);
       });
   }, []);
 
-  const renderProfileWall =
-    profileWall.length === 0
+  const handlePostDelBtn = (e) => {
+    const options = {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ postid: e.target.id, profileWall: profileWall }),
+    };
+    fetch(
+      `http://localhost:3000/profileWalls/${profileWall._id}/delete`,
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "Success") {
+          console.log(res);
+          setProfileWall(res.updatedProfileWall);
+        }
+      });
+  };
+
+  const renderProfileWall = Array.isArray(profileWall.posts)
+    ? profileWall.posts.length === 0
       ? "Nothing to render"
       : profileWall.posts.map((e, i) => {
           return (
             <div className="profile-posts-post" key={i}>
               <div className="profile-posts-post-content">{e.post_content}</div>
-              <div className="profile-posts-post-author">{e.posted_user}</div>
+              <div className="profile-posts-post-author">
+                {e.posted_user.user_name}
+              </div>
+              {props.signedInUser.user_name === e.posted_user.user_name ? (
+                <div
+                  className="profile-posts-post-delete"
+                  onClick={handlePostDelBtn}
+                  id={e._id}
+                >
+                  del
+                </div>
+              ) : (
+                ""
+              )}
               <div className="profile-posts-post-date-posted">
                 {e.date_posted}
               </div>
             </div>
           );
-        });
+        })
+    : "";
+
+  const handlePostboxChange = (e) => {
+    setPostbox(e.target.value);
+  };
+
+  const handlePostBtn = () => {
+    const options = {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        profileWall: props.userProfile.profileWall,
+        post: postbox,
+        user: props.signedInUser,
+      }),
+    };
+    fetch(`http://localhost:3000/posts/postProfileWall`, options)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setProfileWall(res.profileWall);
+        setPostbox("");
+      });
+  };
 
   return (
     <div className="profile-posts">
@@ -44,8 +105,12 @@ function Posts(props) {
           name="postbox"
           id="profile-posts-form-postbox"
           className="profile-posts-form-postbox"
+          onChange={handlePostboxChange}
+          value={postbox}
         ></textarea>
-        <button className="profile-posts-form-button">Post</button>
+        <button className="profile-posts-form-button" onClick={handlePostBtn}>
+          Post
+        </button>
       </div>
       {renderProfileWall}
     </div>
