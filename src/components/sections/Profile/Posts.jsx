@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./Posts.css";
 import ProfilePostDel from "./ProfilePostDelAPI";
+import PostDelAPI from "../../global/Post/PostDelApi";
 
 function Posts(props) {
   // const renderUserPosts = props.profileWall.posts.map((e, i) => {
@@ -25,8 +26,13 @@ function Posts(props) {
       });
   }, []);
 
-  const handlePostDelBtn = (e) => {
-    ProfilePostDel(e, profileWall, setProfileWall);
+  const handlePostDelBtn = async (e) => {
+    const profileWallPostDelStatus = await ProfilePostDel(
+      e,
+      profileWall,
+      setProfileWall
+    );
+    if (profileWallPostDelStatus) PostDelAPI(e);
   };
 
   const renderProfileWall = Array.isArray(profileWall.posts)
