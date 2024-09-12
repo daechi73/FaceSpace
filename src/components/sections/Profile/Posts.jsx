@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./Posts.css";
+import ProfilePostDel from "./ProfilePostDelAPI";
 
 function Posts(props) {
   // const renderUserPosts = props.profileWall.posts.map((e, i) => {
@@ -25,23 +26,7 @@ function Posts(props) {
   }, []);
 
   const handlePostDelBtn = (e) => {
-    const options = {
-      mode: "cors",
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ postid: e.target.id, profileWall: profileWall }),
-    };
-    fetch(
-      `http://localhost:3000/profileWalls/${profileWall._id}/delete`,
-      options
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.status === "Success") {
-          console.log(res);
-          setProfileWall(res.updatedProfileWall);
-        }
-      });
+    ProfilePostDel(e, profileWall, setProfileWall);
   };
 
   const renderProfileWall = Array.isArray(profileWall.posts)
