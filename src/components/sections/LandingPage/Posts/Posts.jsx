@@ -36,9 +36,27 @@ function Posts(props) {
         }
       });
   };
+
   const handlePostChange = (e) => {
     setPost(e.target.value);
   };
+  const handlePostDelBtn = (e) => {
+    const options = {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    fetch(`http://localhost:3000/posts/${e.target.id}/delete`, options)
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "Success") {
+          console.log(res);
+          setResetPost(resetPosts + 1);
+        }
+      });
+  };
+
   const renderPosts = posts.map((e, i) => {
     return (
       <div className="landingPage-posts-posts-post" key={i}>
@@ -46,6 +64,13 @@ function Posts(props) {
           {e.post_content}
         </div>
         <div className="landingPage-posts-posts-post-info">
+          <div
+            className="landingPage-posts-posts-post-delBtn"
+            id={e._id}
+            onClick={handlePostDelBtn}
+          >
+            del
+          </div>
           <div className="landingPage-posts-posts-post-author">
             {e.posted_user.user_name}
           </div>
