@@ -57,7 +57,6 @@ function App() {
             setSignedInUser={setSignedInUser}
             setChatbox={setChatbox}
             setChatUsers={setChatUsers}
-            setUserProfile={setUserProfile}
           />
           {url === "home" ? (
             <LandingPage
