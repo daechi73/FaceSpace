@@ -45,6 +45,9 @@ function Posts(props) {
       mode: "cors",
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        signedInUserId: props.signedInUser._id,
+      }),
     };
 
     fetch(`http://localhost:3000/posts/${e.target.id}/delete`, options)
@@ -64,13 +67,18 @@ function Posts(props) {
           {e.post_content}
         </div>
         <div className="landingPage-posts-posts-post-info">
-          <div
-            className="landingPage-posts-posts-post-delBtn"
-            id={e._id}
-            onClick={handlePostDelBtn}
-          >
-            del
-          </div>
+          {props.signedInUser.user_name === e.posted_user.user_name ? (
+            <div
+              className="landingPage-posts-posts-post-delBtn"
+              id={e._id}
+              onClick={handlePostDelBtn}
+            >
+              del
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className="landingPage-posts-posts-post-author">
             {e.posted_user.user_name}
           </div>
