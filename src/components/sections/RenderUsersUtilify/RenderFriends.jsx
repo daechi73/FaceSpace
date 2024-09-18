@@ -14,6 +14,7 @@ function RenderFriends(props) {
               username={e.user_name}
               setUserProfile={props.setUserProfile}
               setResetProfile={props.setResetProfile}
+              linkText={e.user_name}
             />
           </div>
         );

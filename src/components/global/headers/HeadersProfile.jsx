@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeadersProfile.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Profile(props) {
   const navigate = useNavigate();
@@ -15,9 +15,20 @@ function Profile(props) {
         navigate("/");
       });
   };
+
+  const handleUsernameClick = () => {
+    props.setUserProfile(props.signedInUser.username);
+    localStorage.removeItem("userProfile");
+    localStorage.setItem("userProfile", props.signedInUser.username);
+    //props.setResetProfile !== "" ? props.setResetProfile("reset") : "";
+    navigate("/profile");
+  };
+
   return (
     <div className="headers-profile">
-      <div className="headers-profile-username">{props.signedInUser}</div>
+      <div className="headers-profile-username" onClick={handleUsernameClick}>
+        {props.signedInUser}
+      </div>
       <div className="headers-profile-signOut" onClick={handleSignOutBtn}>
         Sign out
       </div>
