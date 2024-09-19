@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeadersProfile.css";
 import { useNavigate, Link } from "react-router-dom";
+import ProfileLink from "../../sections/Profile/ProfileLink";
 
 function Profile(props) {
   const navigate = useNavigate();
@@ -16,19 +17,24 @@ function Profile(props) {
       });
   };
 
-  const handleUsernameClick = () => {
-    props.setUserProfile(props.signedInUser.username);
-    localStorage.removeItem("userProfile");
-    localStorage.setItem("userProfile", props.signedInUser.username);
-    //props.setResetProfile !== "" ? props.setResetProfile("reset") : "";
-    navigate("/profile");
-  };
+  // const handleUsernameClick = () => {
+  //   props.setUserProfile(props.signedInUser.username);
+  //   localStorage.removeItem("userProfile");
+  //   localStorage.setItem("userProfile", props.signedInUser.username);
+  //   //props.setResetProfile !== "" ? props.setResetProfile("reset") : "";
+  //   navigate("/profile");
+  // };
 
   return (
     <div className="headers-profile">
-      <div className="headers-profile-username" onClick={handleUsernameClick}>
+      {/* <div className="headers-profile-username" onClick={handleUsernameClick}>
         {props.signedInUser}
-      </div>
+      </div> */}
+      <ProfileLink
+        username={props.signedInUser.user_name}
+        setUserProfile={props.setUserProfile}
+        linkText={props.signedInUser.user_name}
+      />
       <div className="headers-profile-signOut" onClick={handleSignOutBtn}>
         Sign out
       </div>
