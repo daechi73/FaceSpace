@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function ProfileLink(props) {
@@ -12,7 +13,7 @@ function ProfileLink(props) {
   return (
     <div className="profileLink">
       <Link to="/profile" onClick={handleLinkClick}>
-        {props.linkText}
+        {props.linkText ? props.linkText : "Profile"}
       </Link>
     </div>
   );
