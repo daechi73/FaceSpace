@@ -10,7 +10,7 @@ function Headers(props) {
         <Link to="/home">FaceSpace</Link>
       </div>
       <HeadersProfile
-        signedInUser={props.signedInUser.user_name}
+        signedInUser={props.signedInUser}
         setSignedInUser={props.setSignedInUser}
         setChatbox={props.setChatbox}
         setChatUsers={props.setChatUsers}
