@@ -19,7 +19,6 @@ function RenderUserClickMenu(props) {
         <ProfileLink
           username={props.username}
           setUserProfile={props.setUserProfile}
-          linkText="Profile"
         />
       </div>
     </div>
