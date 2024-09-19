@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./LandingPage.css";
 import Posts from "../sections/LandingPage/Posts/Posts";
-import People from "../sections/LandingPage/People/People.jsx";
+import People from "../global/People/People.jsx";
 import Chatbox from "../global/Chatbox/Chatbox.jsx";
 import ChatSystem from "../global/ChatSystem/ChatSystem.jsx";
 

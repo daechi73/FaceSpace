@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileLink from "../Profile/ProfileLink";
+import ProfileLink from "../../../sections/Profile/ProfileLink";
 
 function RenderFriends(props) {
   console.log("here in RenderFriends");

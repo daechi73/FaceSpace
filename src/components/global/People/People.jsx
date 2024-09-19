@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./People.css";
-import RenderUsers from "../../RenderUsersUtilify/RenderUsers";
-import RenderFriends from "../../RenderUsersUtilify/RenderFriends";
-import RenderFriendReq from "../../RenderUsersUtilify/RenderFriendReq";
+import RenderUsers from "./RenderUsersUtilify/RenderUsers";
+import RenderFriends from "./RenderUsersUtilify/RenderFriends";
+import RenderFriendReq from "./RenderUsersUtilify/RenderFriendReq";
 
 function People(props) {
   console.log("here in people");

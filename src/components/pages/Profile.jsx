@@ -1,8 +1,8 @@
 import React from "react";
 import "./Profile.css";
 import Posts from "../sections/Profile/Posts";
-import RenderFriends from "../sections/RenderUsersUtilify/RenderFriends";
-import RenderUsers from "../sections/RenderUsersUtilify/RenderUsers";
+import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
+import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
 import { useEffect, useState } from "react";
 
