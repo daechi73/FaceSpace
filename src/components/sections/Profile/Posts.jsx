@@ -14,6 +14,9 @@ function Posts(props) {
   // });
   const [profileWall, setProfileWall] = useState([]);
   const [postbox, setPostbox] = useState("");
+
+  console.log("In Profile Posts");
+  console.log(props.userValidate);
   useEffect(() => {
     fetch(
       `http://localhost:3000/profileWalls/${props.userProfile.profileWall._id}`
@@ -90,6 +93,19 @@ function Posts(props) {
 
   return (
     <div className="profile-posts">
+      {props.userValidate ? (
+        <div className="profile-posts-tab">
+          <div className="profile-posts-tab-profileWall profile-posts-tab-tab">
+            MyWall
+          </div>
+          <div className="profile-posts-tab-userPosts profile-posts-tab-tab">
+            MyPosts
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div className="profile-posts-title">Profile Wall</div>
       <div className="profile-posts-form">
         <textarea
