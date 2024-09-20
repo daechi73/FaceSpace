@@ -45,7 +45,11 @@ function Profile(props) {
             resetChatSystem={props.resetChatSystem}
           />
 
-          <Posts userProfile={userProfileInfo} signedInUser={props.user} />
+          <Posts
+            userProfile={userProfileInfo}
+            signedInUser={props.user}
+            userValidate={userProfileInfo.user_name === props.user.user_name}
+          />
 
           <div className="profile-friends">
             <RenderFriends
