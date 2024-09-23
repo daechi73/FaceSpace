@@ -11,19 +11,3 @@
 .profile-posts-form-button {
   width: 50px;
 }
-
-.profile-posts-tab {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.profile-posts-tab-tab {
-  border: solid;
-  border-radius: 0.5rem;
-  border-width: 1px;
-  padding: 0.2rem;
-}
-.profile-posts-tab-tab:hover {
-  color: rgb(214, 212, 68);
-}
