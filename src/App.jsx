@@ -5,7 +5,7 @@ import LandingPage from "./components/pages/LandingPage";
 import Headers from "./components/global/headers/Headers";
 import Profile from "./components/pages/Profile";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -17,6 +17,8 @@ function App() {
   const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
   const [resetChatSystem, setResetChatSystem] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -84,7 +86,7 @@ function App() {
               setChatbox={setChatbox}
             />
           ) : (
-            <PageNotFound />
+            navigate("/home")
           )}
         </>
       ) : (
