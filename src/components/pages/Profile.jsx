@@ -1,6 +1,6 @@
 import React from "react";
 import "./Profile.css";
-import Posts from "../sections/Profile/Posts";
+import MyWall from "../sections/Profile/MyWall.jsx";
 import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
@@ -10,7 +10,7 @@ function Profile(props) {
   console.log("In Profile");
   const [userProfileInfo, setUserProfileInfo] = useState();
   const [resetProfile, setResetProfile] = useState("");
-  const [myShow, setMyShow] = useState("");
+  const [myShow, setMyShow] = useState("myWall");
 
   useEffect(() => {
     fetch(`http://localhost:3000/users/username/${props.userProfile}`)
@@ -30,7 +30,9 @@ function Profile(props) {
     setMyShow("myWall");
   };
 
-  const userValidate = userProfileInfo.user_name === props.user.user_name;
+  const userValidate = userProfileInfo
+    ? userProfileInfo.user_name === props.user.user_name
+    : "";
 
   console.log("heree in profilee");
   return (
@@ -74,11 +76,18 @@ function Profile(props) {
           ) : (
             <></>
           )}
-          <Posts
-            userProfile={userProfileInfo}
-            signedInUser={props.user}
-            userValidate={userProfileInfo.user_name === props.user.user_name}
-          />
+
+          {myShow === "myWall" ? (
+            <MyWall
+              userProfile={userProfileInfo}
+              signedInUser={props.user}
+              userValidate={userProfileInfo.user_name === props.user.user_name}
+            />
+          ) : myShow === "myPost" ? (
+            <div className="profile-myPosts">MyPost</div>
+          ) : (
+            "dfd"
+          )}
 
           <div className="profile-friends">
             <RenderFriends
