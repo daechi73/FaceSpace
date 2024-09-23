@@ -41,5 +41,26 @@
 }
 .profile-posts {
   grid-column: 2/6;
-  grid-row: 2/6;
+  grid-row: 3/6;
+}
+
+.profile-tab {
+  grid-column: 2/6;
+  grid-row: 2/3;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: end;
+}
+
+.profile-tab-tab {
+  border: solid;
+  border-radius: 0.5rem;
+  border-width: 1.5px;
+  padding: 0.2rem;
+  height: 1.6rem;
+}
+.profile-tab-tab:hover {
+  border-color: rgb(80, 19, 116);
+  background-color: black;
 }

@@ -10,6 +10,7 @@ function Profile(props) {
   console.log("In Profile");
   const [userProfileInfo, setUserProfileInfo] = useState();
   const [resetProfile, setResetProfile] = useState("");
+  const [myShow, setMyShow] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/users/username/${props.userProfile}`)
@@ -19,6 +20,17 @@ function Profile(props) {
         setUserProfileInfo(res.user);
       });
   }, [resetProfile]);
+
+  const myPostBtnHandler = () => {
+    console.log("mypostBtn working");
+    setMyShow("myPost");
+  };
+  const myWallBtnHandler = () => {
+    console.log("myWallBtn Working");
+    setMyShow("myWall");
+  };
+
+  const userValidate = userProfileInfo.user_name === props.user.user_name;
 
   console.log("heree in profilee");
   return (
@@ -44,7 +56,24 @@ function Profile(props) {
             chatbox={props.chatbox}
             resetChatSystem={props.resetChatSystem}
           />
-
+          {userValidate ? (
+            <div className="profile-tab">
+              <div
+                className="profile-tab-profileWall profile-tab-tab"
+                onClick={myWallBtnHandler}
+              >
+                MyWall
+              </div>
+              <div
+                className="profile-tab-userPosts profile-tab-tab"
+                onClick={myPostBtnHandler}
+              >
+                MyPosts
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
           <Posts
             userProfile={userProfileInfo}
             signedInUser={props.user}
