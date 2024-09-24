@@ -11,8 +11,12 @@ const PostDelAPI = (e, signedInUser) => {
   )
     .then((res) => res.json())
     .then((res) => {
-      console.log(res);
-      return true;
+      if (res.status === "success") {
+        console.log(res);
+        return true;
+      } else {
+        return false;
+      }
     });
   return pass;
 };
