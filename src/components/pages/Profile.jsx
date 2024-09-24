@@ -1,6 +1,7 @@
 import React from "react";
 import "./Profile.css";
 import MyWall from "../sections/Profile/MyWall.jsx";
+import MyPosts from "../sections/Profile/MyPosts.jsx";
 import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
@@ -84,7 +85,7 @@ function Profile(props) {
               userValidate={userProfileInfo.user_name === props.user.user_name}
             />
           ) : myShow === "myPost" ? (
-            <div className="profile-myPosts">MyPost</div>
+            <MyPosts posted_userId={props.user._id} />
           ) : (
             "dfd"
           )}
