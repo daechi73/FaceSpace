@@ -2,3 +2,13 @@
   grid-column: 2/6;
   grid-row: 3/6;
 }
+.profile-myPosts-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+}
+.profile-myPosts-post-info {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-style: italic;
+}
