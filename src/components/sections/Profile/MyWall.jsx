@@ -48,6 +48,10 @@ function MyWall(props) {
                 <div className="profile-posts-post-author">
                   {e.posted_user.user_name}
                 </div>
+
+                <div className="profile-posts-post-date-posted">
+                  {e.dated_posted_formatted}
+                </div>
                 {props.signedInUser.user_name === e.posted_user.user_name ? (
                   <div
                     className="profile-posts-post-delete"
@@ -59,9 +63,6 @@ function MyWall(props) {
                 ) : (
                   ""
                 )}
-                <div className="profile-posts-post-date-posted">
-                  {e.dated_posted_formatted}
-                </div>
               </div>
             </div>
           );
