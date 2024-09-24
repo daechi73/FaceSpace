@@ -44,22 +44,24 @@ function MyWall(props) {
           return (
             <div className="profile-posts-post" key={i}>
               <div className="profile-posts-post-content">{e.post_content}</div>
-              <div className="profile-posts-post-author">
-                {e.posted_user.user_name}
-              </div>
-              {props.signedInUser.user_name === e.posted_user.user_name ? (
-                <div
-                  className="profile-posts-post-delete"
-                  onClick={handlePostDelBtn}
-                  id={e._id}
-                >
-                  del
+              <div className="profile-posts-post-info">
+                <div className="profile-posts-post-author">
+                  {e.posted_user.user_name}
                 </div>
-              ) : (
-                ""
-              )}
-              <div className="profile-posts-post-date-posted">
-                {e.date_posted}
+                {props.signedInUser.user_name === e.posted_user.user_name ? (
+                  <div
+                    className="profile-posts-post-delete"
+                    onClick={handlePostDelBtn}
+                    id={e._id}
+                  >
+                    del
+                  </div>
+                ) : (
+                  ""
+                )}
+                <div className="profile-posts-post-date-posted">
+                  {e.dated_posted_formatted}
+                </div>
               </div>
             </div>
           );
