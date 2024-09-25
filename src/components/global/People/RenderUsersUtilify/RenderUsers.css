@@ -1,0 +1,12 @@
+.renderUsers-user {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.renderUsers-user-status {
+  display: flex;
+  gap: 0.5rem;
+}
+.renderUsers-users-title {
+  font-size: 1.5rem;
+}
