@@ -2,7 +2,7 @@ import React from "react";
 import "./Profile.css";
 import MyWall from "../sections/Profile/MyWall.jsx";
 import MyPosts from "../sections/Profile/MyPosts.jsx";
-
+import Chatbox from "../global/Chatbox/Chatbox.jsx";
 import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
@@ -125,6 +125,19 @@ function Profile(props) {
               className="profile"
             />
           </div>
+          {props.chatbox ? (
+            <Chatbox
+              chatUsers={props.chatUsers}
+              setSignedInUser={props.setSignedInUser}
+              chatbox={props.chatbox}
+              setChatbox={props.setChatbox}
+              signedInUser={props.user}
+              setResetChatSystem={props.setResetChatSystem}
+              resetChatSystem={props.resetChatSystem}
+            />
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         ""
