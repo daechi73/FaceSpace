@@ -2,7 +2,7 @@ import React from "react";
 import "./Profile.css";
 import MyWall from "../sections/Profile/MyWall.jsx";
 import MyPosts from "../sections/Profile/MyPosts.jsx";
-import ProfilePostDel from "../sections/Profile/ProfilePostDelAPI.js";
+
 import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
@@ -13,6 +13,8 @@ function Profile(props) {
   const [userProfileInfo, setUserProfileInfo] = useState();
   const [resetProfile, setResetProfile] = useState("");
   const [myShow, setMyShow] = useState("myWall");
+  const [showMenu, setShowMenu] = useState(false);
+  const [showMenuUsername, setShowMenuUsername] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/users/username/${props.userProfile}`)
@@ -21,6 +23,14 @@ function Profile(props) {
         console.log(res);
         setUserProfileInfo(res.user);
       });
+    const removeMenu = (e) => {
+      if (e.target.classList.contains(!"renderUsers-user-user-username"))
+        setShowMenu(false);
+    };
+    window.addEventListener("click", removeMenu);
+    return () => {
+      window.removeEventListener("click", removeMenu);
+    };
   }, [resetProfile]);
 
   const myPostBtnHandler = () => {
@@ -104,6 +114,15 @@ function Profile(props) {
               user={props.user}
               setSignedInUser={props.setSignedInUser}
               setUserProfile={props.setUserProfile}
+              showMenu={showMenu}
+              setShowMenu={setShowMenu}
+              setShowMenuUsername={setShowMenuUsername}
+              showMenuUsername={showMenuUsername}
+              chatbox={props.chatbox}
+              setChatbox={props.setChatbox}
+              chatUsers={props.chatUsers}
+              setChatUsers={props.setChatUsers}
+              className="profile"
             />
           </div>
         </>
