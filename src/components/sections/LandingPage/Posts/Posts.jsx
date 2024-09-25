@@ -1,5 +1,6 @@
 import React from "react";
 import "./Posts.css";
+import PostDelAPI from "../../../global/Post/PostDelApi";
 import { useState, useEffect } from "react";
 
 function Posts(props) {
@@ -40,24 +41,9 @@ function Posts(props) {
   const handlePostChange = (e) => {
     setPost(e.target.value);
   };
-  const handlePostDelBtn = (e) => {
-    const options = {
-      mode: "cors",
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        signedInUserId: props.signedInUser._id,
-      }),
-    };
-
-    fetch(`http://localhost:3000/posts/${e.target.id}/delete`, options)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.status === "Success") {
-          console.log(res);
-          setResetPost(resetPosts + 1);
-        }
-      });
+  const handlePostDelBtn = async (e) => {
+    const postDeleted = await PostDelAPI(e, props.signedInUser);
+    if (postDeleted) setResetPost(resetPosts + 1);
   };
 
   const renderPosts = posts.map((e, i) => {
@@ -67,6 +53,15 @@ function Posts(props) {
           {e.post_content}
         </div>
         <div className="landingPage-posts-posts-post-info">
+          <div className="landingPage-posts-posts-post-author">
+            {e.posted_user.user_name}
+          </div>
+          <div className="landingPage-posts-posts-post-posted-date">
+            {e.dated_posted_formatted}
+          </div>
+          <div className="landingPage-posts-posts-post-posted-likes">
+            likes: {e.likes.length}
+          </div>
           {props.signedInUser.user_name === e.posted_user.user_name ? (
             <div
               className="landingPage-posts-posts-post-delBtn"
@@ -78,16 +73,6 @@ function Posts(props) {
           ) : (
             ""
           )}
-
-          <div className="landingPage-posts-posts-post-author">
-            {e.posted_user.user_name}
-          </div>
-          <div className="landingPage-posts-posts-post-posted-date">
-            {e.dated_posted_formatted}
-          </div>
-          <div className="landingPage-posts-posts-post-posted-likes">
-            likes: {e.likes.length}
-          </div>
         </div>
       </div>
     );
