@@ -61,7 +61,3 @@
   border-color: rgb(80, 19, 116);
   background-color: black;
 }
-.profile-myPosts {
-  grid-column: 2/6;
-  grid-row: 3/6;
-}
