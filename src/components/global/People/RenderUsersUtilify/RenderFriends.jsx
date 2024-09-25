@@ -18,7 +18,9 @@ function RenderFriends(props) {
         return (
           <div
             className={
-              props.className + "-friends-friend" + " renderFriends-friend"
+              props.className +
+              "-friends-friend" +
+              " renderFriends-friends-friend"
             }
             key={i}
           >
@@ -34,8 +36,20 @@ function RenderFriends(props) {
     );
   return (
     <div className={props.className + "-friends" + " renderFriends-friends"}>
-      <div className={props.className + "-friends-title"}>Friends</div>
-      <div className={props.className + "-friends-friends"}>
+      <div
+        className={
+          props.className + "-friends-title" + " renderFriends-friends-title"
+        }
+      >
+        Friends
+      </div>
+      <div
+        className={
+          props.className +
+          "-friends-friends" +
+          " renderFriends-friends-friends"
+        }
+      >
         {renderFriends}
       </div>
     </div>
