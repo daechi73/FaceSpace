@@ -71,42 +71,53 @@ function RenderUsers(props) {
     };
 
     return (
-      <div className="landingPage-people-user" key={i}>
-        <div className="landingPage-People-user-user">
+      <div className={props.className + "-people-user"} key={i}>
+        <div className={props.className + "-people-user-user"}>
           {/* <ProfileLink
             username={e.user_name}
             setUserProfile={props.setUserProfile}
           /> */}
           <div
-            className="landingPage-people-user-user-username"
+            className={props.className + "-people-user-user-username"}
             onClick={handleUsernameClick}
           >
             {e.user_name}
           </div>
         </div>
         {filterInOutFReq() === "inbound" ? (
-          <div className="landingPage-people-user-status">
+          <div className={props.className + "-people-people-user-status"}>
             Waiting for response
           </div>
         ) : filterInOutFReq() === "outbound" ? (
-          <div className="landingPage-people-user-status">
+          <div className={props.className + "-people-people-user-status"}>
             <div
-              className="landingPage-people-user-status-acceptBtn"
+              className={
+                props.className + "-people-people-user-status-acceptBtn"
+              }
               onClick={handleAcceptFReq}
             >
               Accept
             </div>
             <div
-              className="landingPage-people-user-status-declineBtn"
+              className={
+                props.className + "-people-people-user-status-declineBtn"
+              }
               onClick={handleDeclineFReq}
             >
               Decline
             </div>
           </div>
         ) : checkIfFriends() ? (
-          <div className="landingPage-people-user-alreadyFriends">friends</div>
+          <div
+            className={props.className + "-people-people-user-alreadyFriends"}
+          >
+            friends
+          </div>
         ) : (
-          <div className="landingPage-people-user-addBtn" onClick={friendReq}>
+          <div
+            className={props.className + "-people-people-user-addBtn"}
+            onClick={friendReq}
+          >
             +
           </div>
         )}
@@ -115,7 +126,8 @@ function RenderUsers(props) {
   });
 
   return (
-    <>
+    <div className={props.className + "-people-people-user-container"}>
+      <div className={props.className + "-people-people-user-title"}>Users</div>
       {renderUsers}
       {props.showMenu ? (
         <RenderUserClickMenu
@@ -131,7 +143,7 @@ function RenderUsers(props) {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 }
 
