@@ -34,7 +34,7 @@ function MyWall(props) {
       profileWall,
       setProfileWall
     );
-    if (profileWallPostDelStatus) PostDelAPI(e);
+    if (profileWallPostDelStatus) PostDelAPI(e, props.signedInUser);
   };
 
   const renderProfileWall = Array.isArray(profileWall.posts)
@@ -108,7 +108,7 @@ function MyWall(props) {
           Post
         </button>
       </div>
-      {renderProfileWall}
+      <div className="profile-posts-posts">{renderProfileWall}</div>
     </div>
   );
 }
