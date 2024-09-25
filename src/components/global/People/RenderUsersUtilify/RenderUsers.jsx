@@ -3,6 +3,10 @@ import FriendsUtility from "./FriendsUtility";
 import RenderUserClickMenu from "../../UserClickMenu/RenderUserClickMenu";
 import UserMenu from "../../UserClickMenu/UserMenu";
 
+//props: people, signedInUser, setSignedInUser,
+//       setUserProfile,showMenu,setShowMenuUsername,showMenuUsername
+//       chatbox, setChatbox, chatUsers, setChatUsers
+
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
 
