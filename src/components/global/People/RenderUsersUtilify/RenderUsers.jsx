@@ -2,6 +2,7 @@ import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import RenderUserClickMenu from "../../UserClickMenu/RenderUserClickMenu";
 import UserMenu from "../../UserClickMenu/UserMenu";
+import "./RenderUsers.css";
 
 //props: people, signedInUser, setSignedInUser,
 //       setUserProfile,showMenu,setShowMenuUsername,showMenuUsername
@@ -71,28 +72,54 @@ function RenderUsers(props) {
     };
 
     return (
-      <div className={props.className + "-people-user"} key={i}>
-        <div className={props.className + "-people-user-user"}>
+      <div
+        className={props.className + "-people-user" + " renderUsers-user"}
+        key={i}
+      >
+        <div
+          className={
+            props.className + "-people-user-user" + " renderUsers-user-user"
+          }
+        >
           {/* <ProfileLink
             username={e.user_name}
             setUserProfile={props.setUserProfile}
           /> */}
+
           <div
-            className={props.className + "-people-user-user-username"}
+            className={
+              props.className +
+              "-people-user-user-username" +
+              " renderUsers-user-user-username"
+            }
             onClick={handleUsernameClick}
           >
             {e.user_name}
           </div>
         </div>
         {filterInOutFReq() === "inbound" ? (
-          <div className={props.className + "-people-people-user-status"}>
+          <div
+            className={
+              props.className +
+              "-people-user-status" +
+              " renderUsers-user-status"
+            }
+          >
             Waiting for response
           </div>
         ) : filterInOutFReq() === "outbound" ? (
-          <div className={props.className + "-people-people-user-status"}>
+          <div
+            className={
+              props.className +
+              "-people-user-status" +
+              " renderUsers-user-status"
+            }
+          >
             <div
               className={
-                props.className + "-people-people-user-status-acceptBtn"
+                props.className +
+                "-people-user-status-acceptBtn" +
+                " renderUsers-user-status-acceptBtn"
               }
               onClick={handleAcceptFReq}
             >
@@ -100,7 +127,9 @@ function RenderUsers(props) {
             </div>
             <div
               className={
-                props.className + "-people-people-user-status-declineBtn"
+                props.className +
+                "-people-user-status-declineBtn" +
+                " renderUsers-user-status-declineBtn"
               }
               onClick={handleDeclineFReq}
             >
@@ -109,13 +138,21 @@ function RenderUsers(props) {
           </div>
         ) : checkIfFriends() ? (
           <div
-            className={props.className + "-people-people-user-alreadyFriends"}
+            className={
+              props.className +
+              "-people-user-alreadyFriends" +
+              " renderUsers-user-alreadyFriends"
+            }
           >
             friends
           </div>
         ) : (
           <div
-            className={props.className + "-people-people-user-addBtn"}
+            className={
+              props.className +
+              "-people-user-addBtn" +
+              " renderUsers-user-addBtn"
+            }
             onClick={friendReq}
           >
             +
@@ -126,8 +163,18 @@ function RenderUsers(props) {
   });
 
   return (
-    <div className={props.className + "-people-people-user-container"}>
-      <div className={props.className + "-people-people-user-title"}>Users</div>
+    <div
+      className={props.className + "renderUsers-users" + " renderUsers-users"}
+    >
+      <div
+        className={
+          props.className +
+          "renderUsers-users-title" +
+          " renderUsers-users-title"
+        }
+      >
+        Users
+      </div>
       {renderUsers}
       {props.showMenu ? (
         <RenderUserClickMenu
