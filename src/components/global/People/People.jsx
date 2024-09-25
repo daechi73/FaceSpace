@@ -11,7 +11,7 @@ function People(props) {
   const [showMenuUsername, setShowMenuUsername] = useState("");
   useEffect(() => {
     const removeMenu = (e) => {
-      if (e.target.className !== "landingPage-people-user-user-username")
+      if (e.target.classList.contains(!"renderUsers-user-user-username"))
         setShowMenu(false);
     };
     window.addEventListener("click", removeMenu);
@@ -64,23 +64,22 @@ function People(props) {
           />
         </div>
       </div>
-      <div className="landingPage-people-user-container">
-        <div className="landingPage-people-user-title">Users</div>
-        <RenderUsers
-          people={props.people}
-          user={props.signedInUser}
-          setSignedInUser={props.setSignedInUser}
-          setUserProfile={props.setUserProfile}
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          setShowMenuUsername={setShowMenuUsername}
-          showMenuUsername={showMenuUsername}
-          chatbox={props.chatbox}
-          setChatbox={props.setChatbox}
-          chatUsers={props.chatUsers}
-          setChatUsers={props.setChatUsers}
-        />
-      </div>
+
+      <RenderUsers
+        people={props.people}
+        user={props.signedInUser}
+        setSignedInUser={props.setSignedInUser}
+        setUserProfile={props.setUserProfile}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+        setShowMenuUsername={setShowMenuUsername}
+        showMenuUsername={showMenuUsername}
+        chatbox={props.chatbox}
+        setChatbox={props.setChatbox}
+        chatUsers={props.chatUsers}
+        setChatUsers={props.setChatUsers}
+        className="landingPage"
+      />
     </div>
   );
 }
