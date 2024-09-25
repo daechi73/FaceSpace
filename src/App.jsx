@@ -80,7 +80,10 @@ function App() {
               userProfile={userProfile}
               setUserProfile={setUserProfile}
               people={people}
+              setPeople={setPeople}
               user={signedInUser}
+              chatbox={chatbox}
+              chatUsers={chatUsers}
               setSignedInUser={setSignedInUser}
               setChatUsers={setChatUsers}
               setChatbox={setChatbox}
