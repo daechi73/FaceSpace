@@ -21,3 +21,9 @@
   gap: 1rem;
   font-style: italic;
 }
+.profile-posts-posts {
+  margin-top: 2rem;
+}
+.profile-posts-post {
+  margin-top: 1rem;
+}
