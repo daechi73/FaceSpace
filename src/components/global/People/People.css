@@ -1,24 +1,13 @@
-.landingPage-people-user {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
 .landingPage-people-friends-request {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-}
-.landingPage-people-user-status {
-  display: flex;
   gap: 0.5rem;
 }
 
 .landingPage-people-friends-friends-title {
   font-size: 1.5rem;
 }
-.landingPage-people-user-title {
-  font-size: 1.5rem;
-}
+
 .landingPage-people-friends-title {
   font-size: 1.5rem;
 }
