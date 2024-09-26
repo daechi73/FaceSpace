@@ -53,8 +53,14 @@ function People(props) {
   }, []);
 
   return (
-    <div className="landingPage-people">
-      <div className="landingPage-people-friends-container">
+    <div className={props.className + "-people" + " people"}>
+      <div
+        className={
+          props.className +
+          "-people-friends-container" +
+          " people-friends-container"
+        }
+      >
         {props.renderFriendReq ? (
           <RenderFriendReq
             user={props.signedInUser}
