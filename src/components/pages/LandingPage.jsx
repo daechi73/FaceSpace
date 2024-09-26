@@ -32,6 +32,7 @@ function LandingPage(props) {
         renderUsers={true}
         renderFriends={true}
         renderFriendReq={true}
+        className="landingPage"
       />
 
       {props.chatbox ? (

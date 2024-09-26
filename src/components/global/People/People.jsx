@@ -68,7 +68,7 @@ function People(props) {
             setUserProfile={props.setUserProfile}
             showMenu={showMenu}
             setShowMenu={setShowMenu}
-            className="landingPage-people-friends"
+            className={props.className}
           />
         ) : (
           <></>
@@ -77,7 +77,7 @@ function People(props) {
           <RenderFriends
             user={props.signedInUser}
             setUserProfile={props.setUserProfile}
-            className="landingPage-people-friends"
+            className={props.className}
           />
         ) : (
           <></>
@@ -97,7 +97,7 @@ function People(props) {
           setChatbox={props.setChatbox}
           chatUsers={props.chatUsers}
           setChatUsers={props.setChatUsers}
-          className="landingPage-people"
+          className={props.className}
         />
       ) : (
         <></>

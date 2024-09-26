@@ -139,6 +139,7 @@ function Profile(props) {
             renderUsers={true}
             renderFriends={true}
             renderFriendReq={true}
+            className="profile"
           />
           {props.chatbox ? (
             <Chatbox
