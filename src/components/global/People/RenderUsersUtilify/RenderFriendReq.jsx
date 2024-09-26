@@ -1,6 +1,7 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
 import RenderUserClickMenu from "../../UserClickMenu/RenderUserClickMenu";
+import "./RenderFriendReq.css";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");
@@ -22,12 +23,25 @@ function RenderFriendReq(props) {
             };
 
             return (
-              <div className="landingPage-people-friends-request" key={i}>
+              <div
+                className={
+                  props.className +
+                  "-friendReq-request" +
+                  " renderFriendReq-friendReq-request"
+                }
+                key={i}
+              >
                 {/* <ProfileLink
                   username={e.outbound.user_name}
                   setUserProfile={props.setUserProfile}
                 /> */}
-                <div className="landingPage-people-friends-request-username">
+                <div
+                  className={
+                    props.className +
+                    "-friendReq-request-username" +
+                    " renderFriendReq-friendReq-request-username"
+                  }
+                >
                   {e.outbound.user_name}
                 </div>
                 {props.showMenu ? (
@@ -40,13 +54,21 @@ function RenderFriendReq(props) {
                   <></>
                 )}
                 <div
-                  className="landingPage-people-friends-request-acceptBtn"
+                  className={
+                    props.className +
+                    "-friendReq-request-acceptBtn" +
+                    " renderFriendReq-friendReq-request-acceptBtn"
+                  }
                   onClick={handleAcceptFReq}
                 >
                   Accept
                 </div>
                 <div
-                  className="landingPage-people-friends-request-declineBtn"
+                  className={
+                    props.className +
+                    "-friendReq-request-declineBtn" +
+                    " renderFriendReq-friendReq-request-declineBtn"
+                  }
                   onClick={handleDeclineFReq}
                 >
                   decline
@@ -55,7 +77,40 @@ function RenderFriendReq(props) {
             );
           }
         });
-  return <>{renderFriendReq}</>;
+  return (
+    <div
+      className={
+        props.className + "-friendReq-container" + " renderFriendReq-container"
+      }
+    >
+      <div
+        className={
+          props.className + "-friendReq-title" + " renderFriendReq-title"
+        }
+      >
+        Friend Request
+      </div>
+      {props.user.friend_requests.length === 0 ? (
+        <div
+          className={
+            props.className +
+            "-friendReq-noFriendReq" +
+            " renderFriendReq-noFriendReq"
+          }
+        >
+          "You have no Friend Request"
+        </div>
+      ) : (
+        <div
+          className={
+            props.className + "-friendReqs" + " renderFriendReq-friendReqs"
+          }
+        >
+          {renderFriendReq}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default RenderFriendReq;
