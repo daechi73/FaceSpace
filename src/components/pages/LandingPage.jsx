@@ -18,7 +18,6 @@ function LandingPage(props) {
         chatbox={props.chatbox}
         resetChatSystem={props.resetChatSystem}
       />
-
       <Posts signedInUser={props.signedInUser} />
       <People
         signedInUser={props.signedInUser}
@@ -30,6 +29,9 @@ function LandingPage(props) {
         setChatbox={props.setChatbox}
         chatUsers={props.chatUsers}
         setChatUsers={props.setChatUsers}
+        renderUsers={true}
+        renderFriends={true}
+        renderFriendReq={true}
       />
 
       {props.chatbox ? (
