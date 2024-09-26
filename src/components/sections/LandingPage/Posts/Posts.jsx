@@ -4,7 +4,7 @@ import PostDelAPI from "../../../global/Post/PostDelApi";
 import { useState, useEffect } from "react";
 
 function Posts(props) {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState();
   const [post, setPost] = useState();
   const [resetPosts, setResetPost] = useState(0);
 
@@ -12,8 +12,11 @@ function Posts(props) {
     fetch("http://localhost:3000/posts", { mode: "cors" })
       .then((res) => res.json())
       .then((res) => {
-        if (res.status === "failed") "setPosts(res.msg)";
-        else {
+        if (res.status === "failed") {
+          console.log(res);
+          setPosts(res.msg);
+        } else {
+          console.log("LandingPage resetting post useEffect");
           setPosts(res.posts);
         }
       });
@@ -43,40 +46,45 @@ function Posts(props) {
   };
   const handlePostDelBtn = async (e) => {
     const postDeleted = await PostDelAPI(e, props.signedInUser);
-    if (postDeleted) setResetPost(resetPosts + 1);
+    if (postDeleted) {
+      console.log("LandingPage posts updating..");
+      setResetPost(resetPosts + 1);
+    }
   };
 
-  const renderPosts = posts.map((e, i) => {
-    return (
-      <div className="landingPage-posts-posts-post" key={i}>
-        <div className="landingPage-posts-posts-post-postContent">
-          {e.post_content}
-        </div>
-        <div className="landingPage-posts-posts-post-info">
-          <div className="landingPage-posts-posts-post-author">
-            {e.posted_user.user_name}
-          </div>
-          <div className="landingPage-posts-posts-post-posted-date">
-            {e.dated_posted_formatted}
-          </div>
-          <div className="landingPage-posts-posts-post-posted-likes">
-            likes: {e.likes.length}
-          </div>
-          {props.signedInUser.user_name === e.posted_user.user_name ? (
-            <div
-              className="landingPage-posts-posts-post-delBtn"
-              id={e._id}
-              onClick={handlePostDelBtn}
-            >
-              del
+  const renderPosts = Array.isArray(posts)
+    ? posts.map((e, i) => {
+        return (
+          <div className="landingPage-posts-posts-post" key={i}>
+            <div className="landingPage-posts-posts-post-postContent">
+              {e.post_content}
             </div>
-          ) : (
-            ""
-          )}
-        </div>
-      </div>
-    );
-  });
+            <div className="landingPage-posts-posts-post-info">
+              <div className="landingPage-posts-posts-post-author">
+                {e.posted_user.user_name}
+              </div>
+              <div className="landingPage-posts-posts-post-posted-date">
+                {e.dated_posted_formatted}
+              </div>
+              <div className="landingPage-posts-posts-post-posted-likes">
+                likes: {e.likes.length}
+              </div>
+              {props.signedInUser.user_name === e.posted_user.user_name ? (
+                <div
+                  className="landingPage-posts-posts-post-delBtn"
+                  id={e._id}
+                  onClick={handlePostDelBtn}
+                >
+                  del
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+        );
+      })
+    : posts;
   return (
     <div className="landingPage-posts-container">
       <div className="landingPage-posts-title">Community Wall</div>
