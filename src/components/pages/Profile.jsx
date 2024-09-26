@@ -3,8 +3,6 @@ import "./Profile.css";
 import MyWall from "../sections/Profile/MyWall.jsx";
 import MyPosts from "../sections/Profile/MyPosts.jsx";
 import Chatbox from "../global/Chatbox/Chatbox.jsx";
-import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
-import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
 import People from "../global/People/People.jsx";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
 import { useEffect, useState } from "react";
@@ -14,8 +12,6 @@ function Profile(props) {
   const [userProfileInfo, setUserProfileInfo] = useState();
   const [resetProfile, setResetProfile] = useState("");
   const [myShow, setMyShow] = useState("myWall");
-  const [showMenu, setShowMenu] = useState(false);
-  const [showMenuUsername, setShowMenuUsername] = useState("");
 
   useEffect(() => {
     fetch(`http://localhost:3000/users/username/${props.userProfile}`)
@@ -102,30 +98,6 @@ function Profile(props) {
             "dfd"
           )}
 
-          {/* <div className="profile-friends">
-            <RenderFriends
-              user={userProfileInfo}
-              setUserProfile={props.setUserProfile}
-              resetProfile={setResetProfile}
-            />
-          </div>
-          <div className="profile-users">
-            <RenderUsers
-              people={props.people}
-              user={props.user}
-              setSignedInUser={props.setSignedInUser}
-              setUserProfile={props.setUserProfile}
-              showMenu={showMenu}
-              setShowMenu={setShowMenu}
-              setShowMenuUsername={setShowMenuUsername}
-              showMenuUsername={showMenuUsername}
-              chatbox={props.chatbox}
-              setChatbox={props.setChatbox}
-              chatUsers={props.chatUsers}
-              setChatUsers={props.setChatUsers}
-              className="profile"
-            />
-          </div> */}
           <People
             signedInUser={props.user}
             setSignedInUser={props.setSignedInUser}
