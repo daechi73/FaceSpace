@@ -5,6 +5,20 @@ import RenderUsers from "./RenderUsersUtilify/RenderUsers";
 import RenderFriends from "./RenderUsersUtilify/RenderFriends";
 import RenderFriendReq from "./RenderUsersUtilify/RenderFriendReq";
 
+/*
+props: signedInUser
+       setSignedInUser
+       setUserProfile
+       people
+       setPeople
+       chatbox
+       setChatbox
+       chatUsers
+       setchatUsers
+       renderUsers
+       renderFriends
+       renderFriendReq
+*/
 function People(props) {
   console.log("here in people");
   const [showMenu, setShowMenu] = useState(false);
@@ -40,46 +54,48 @@ function People(props) {
 
   return (
     <div className="landingPage-people">
-      <div className="landingPage-people-friends-title">Friend Requests</div>
       <div className="landingPage-people-friends-container">
-        {props.signedInUser.friend_requests.length === 0 ? (
-          "You have no Friend Request"
+        {props.renderFriendReq ? (
+          <RenderFriendReq
+            user={props.signedInUser}
+            setSignedInUser={props.setSignedInUser}
+            setUserProfile={props.setUserProfile}
+            showMenu={showMenu}
+            setShowMenu={setShowMenu}
+            className="landingPage-people-friends"
+          />
         ) : (
-          <div className="landingPage-people-friends-friendReq">
-            <RenderFriendReq
-              user={props.signedInUser}
-              setSignedInUser={props.setSignedInUser}
-              setUserProfile={props.setUserProfile}
-              showMenu={showMenu}
-              setShowMenu={setShowMenu}
-            />
-          </div>
+          <></>
         )}
-
-        <div className="landingPage-people-friends-friends-title">Friends</div>
-        <div className="landingPage-people-friends-friends">
+        {props.renderFriends ? (
           <RenderFriends
             user={props.signedInUser}
             setUserProfile={props.setUserProfile}
+            className="landingPage-people-friends"
           />
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
-
-      <RenderUsers
-        people={props.people}
-        user={props.signedInUser}
-        setSignedInUser={props.setSignedInUser}
-        setUserProfile={props.setUserProfile}
-        showMenu={showMenu}
-        setShowMenu={setShowMenu}
-        setShowMenuUsername={setShowMenuUsername}
-        showMenuUsername={showMenuUsername}
-        chatbox={props.chatbox}
-        setChatbox={props.setChatbox}
-        chatUsers={props.chatUsers}
-        setChatUsers={props.setChatUsers}
-        className="landingPage"
-      />
+      {props.renderUsers ? (
+        <RenderUsers
+          people={props.people}
+          user={props.signedInUser}
+          setSignedInUser={props.setSignedInUser}
+          setUserProfile={props.setUserProfile}
+          showMenu={showMenu}
+          setShowMenu={setShowMenu}
+          setShowMenuUsername={setShowMenuUsername}
+          showMenuUsername={showMenuUsername}
+          chatbox={props.chatbox}
+          setChatbox={props.setChatbox}
+          chatUsers={props.chatUsers}
+          setChatUsers={props.setChatUsers}
+          className="landingPage-people"
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
