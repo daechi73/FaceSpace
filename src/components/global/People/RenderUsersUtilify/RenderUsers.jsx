@@ -72,9 +72,14 @@ function RenderUsers(props) {
     };
 
     return (
-      <div className={props.className + "-user" + " renderUsers-user"} key={i}>
+      <div
+        className={props.className + "-people-user" + " renderUsers-user"}
+        key={i}
+      >
         <div
-          className={props.className + "-user-user" + " renderUsers-user-user"}
+          className={
+            props.className + "-people-user-user" + " renderUsers-user-user"
+          }
         >
           {/* <ProfileLink
             username={e.user_name}
@@ -84,7 +89,7 @@ function RenderUsers(props) {
           <div
             className={
               props.className +
-              "-user-user-username" +
+              "-people-user-user-username" +
               " renderUsers-user-user-username"
             }
             onClick={handleUsernameClick}
@@ -95,7 +100,9 @@ function RenderUsers(props) {
         {filterInOutFReq() === "inbound" ? (
           <div
             className={
-              props.className + "-user-status" + " renderUsers-user-status"
+              props.className +
+              "-people-user-status" +
+              " renderUsers-user-status"
             }
           >
             Waiting for response
@@ -103,13 +110,15 @@ function RenderUsers(props) {
         ) : filterInOutFReq() === "outbound" ? (
           <div
             className={
-              props.className + "-user-status" + " renderUsers-user-status"
+              props.className +
+              "-people-user-status" +
+              " renderUsers-user-status"
             }
           >
             <div
               className={
                 props.className +
-                "-user-status-acceptBtn" +
+                "-people-user-status-acceptBtn" +
                 " renderUsers-user-status-acceptBtn"
               }
               onClick={handleAcceptFReq}
@@ -119,7 +128,7 @@ function RenderUsers(props) {
             <div
               className={
                 props.className +
-                "-user-status-declineBtn" +
+                "-people-user-status-declineBtn" +
                 " renderUsers-user-status-declineBtn"
               }
               onClick={handleDeclineFReq}
@@ -131,7 +140,7 @@ function RenderUsers(props) {
           <div
             className={
               props.className +
-              "-user-alreadyFriends" +
+              "-people-user-alreadyFriends" +
               " renderUsers-user-alreadyFriends"
             }
           >
@@ -140,7 +149,9 @@ function RenderUsers(props) {
         ) : (
           <div
             className={
-              props.className + "-user-addBtn" + " renderUsers-user-addBtn"
+              props.className +
+              "-people-user-addBtn" +
+              " renderUsers-user-addBtn"
             }
             onClick={friendReq}
           >
@@ -152,10 +163,10 @@ function RenderUsers(props) {
   });
 
   return (
-    <div className={props.className + "-users" + " renderUsers-users"}>
+    <div className={props.className + "-people-users" + " renderUsers-users"}>
       <div
         className={
-          props.className + "-users-title" + " renderUsers-users-title"
+          props.className + "-people-users-title" + " renderUsers-users-title"
         }
       >
         Users

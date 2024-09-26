@@ -8,7 +8,9 @@ function RenderFriends(props) {
     props.user.friends.length === 0 ? (
       <div
         className={
-          props.className + "-friends-noFriends" + " renderFriends-friends"
+          props.className +
+          "-people-friends-friends-noFriends" +
+          " renderFriends-friends"
         }
       >
         "You have no friends"
@@ -19,7 +21,7 @@ function RenderFriends(props) {
           <div
             className={
               props.className +
-              "-friends-friend" +
+              "-people-friends-friends-friend" +
               " renderFriends-friends-friend"
             }
             key={i}
@@ -35,10 +37,16 @@ function RenderFriends(props) {
       })
     );
   return (
-    <div className={props.className + "-friends" + " renderFriends-friends"}>
+    <div
+      className={
+        props.className + "-people-friends-friends" + " renderFriends-friends"
+      }
+    >
       <div
         className={
-          props.className + "-friends-title" + " renderFriends-friends-title"
+          props.className +
+          "-people-friends-friends-title" +
+          " renderFriends-friends-title"
         }
       >
         Friends
@@ -46,7 +54,7 @@ function RenderFriends(props) {
       <div
         className={
           props.className +
-          "-friends-friends" +
+          "-people-friends-friends-friends" +
           " renderFriends-friends-friends"
         }
       >

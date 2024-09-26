@@ -26,7 +26,7 @@ function RenderFriendReq(props) {
               <div
                 className={
                   props.className +
-                  "-friendReq-request" +
+                  "-people-friends-friendReq-request" +
                   " renderFriendReq-friendReq-request"
                 }
                 key={i}
@@ -38,7 +38,7 @@ function RenderFriendReq(props) {
                 <div
                   className={
                     props.className +
-                    "-friendReq-request-username" +
+                    "-people-friends-friendReq-request-username" +
                     " renderFriendReq-friendReq-request-username"
                   }
                 >
@@ -56,7 +56,7 @@ function RenderFriendReq(props) {
                 <div
                   className={
                     props.className +
-                    "-friendReq-request-acceptBtn" +
+                    "-people-friends-friendReq-request-acceptBtn" +
                     " renderFriendReq-friendReq-request-acceptBtn"
                   }
                   onClick={handleAcceptFReq}
@@ -66,7 +66,7 @@ function RenderFriendReq(props) {
                 <div
                   className={
                     props.className +
-                    "-friendReq-request-declineBtn" +
+                    "-people-friends-friendReq-request-declineBtn" +
                     " renderFriendReq-friendReq-request-declineBtn"
                   }
                   onClick={handleDeclineFReq}
@@ -80,12 +80,16 @@ function RenderFriendReq(props) {
   return (
     <div
       className={
-        props.className + "-friendReq-container" + " renderFriendReq-container"
+        props.className +
+        "-people-friends-friendReq-container" +
+        " renderFriendReq-container"
       }
     >
       <div
         className={
-          props.className + "-friendReq-title" + " renderFriendReq-title"
+          props.className +
+          "-people-friends-friendReq-title" +
+          " renderFriendReq-title"
         }
       >
         Friend Request
@@ -94,7 +98,7 @@ function RenderFriendReq(props) {
         <div
           className={
             props.className +
-            "-friendReq-noFriendReq" +
+            "-people-friends-friendReq-noFriendReq" +
             " renderFriendReq-noFriendReq"
           }
         >
@@ -103,7 +107,9 @@ function RenderFriendReq(props) {
       ) : (
         <div
           className={
-            props.className + "-friendReqs" + " renderFriendReq-friendReqs"
+            props.className +
+            "-people-friends-friendReqs" +
+            " renderFriendReq-friendReqs"
           }
         >
           {renderFriendReq}
