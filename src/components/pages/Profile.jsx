@@ -5,6 +5,7 @@ import MyPosts from "../sections/Profile/MyPosts.jsx";
 import Chatbox from "../global/Chatbox/Chatbox.jsx";
 import RenderFriends from "../global/People/RenderUsersUtilify/RenderFriends";
 import RenderUsers from "../global/People/RenderUsersUtilify/RenderUsers";
+import People from "../global/People/People.jsx";
 import ChatSystem from "../global/ChatSystem/ChatSystem";
 import { useEffect, useState } from "react";
 
@@ -23,14 +24,14 @@ function Profile(props) {
         console.log(res);
         setUserProfileInfo(res.user);
       });
-    const removeMenu = (e) => {
-      if (e.target.classList.contains(!"renderUsers-user-user-username"))
-        setShowMenu(false);
-    };
-    window.addEventListener("click", removeMenu);
-    return () => {
-      window.removeEventListener("click", removeMenu);
-    };
+    // const removeMenu = (e) => {
+    //   if (e.target.classList.contains(!"renderUsers-user-user-username"))
+    //     setShowMenu(false);
+    // };
+    // window.addEventListener("click", removeMenu);
+    // return () => {
+    //   window.removeEventListener("click", removeMenu);
+    // };
   }, [resetProfile]);
 
   const myPostBtnHandler = () => {
@@ -101,7 +102,7 @@ function Profile(props) {
             "dfd"
           )}
 
-          <div className="profile-friends">
+          {/* <div className="profile-friends">
             <RenderFriends
               user={userProfileInfo}
               setUserProfile={props.setUserProfile}
@@ -124,7 +125,21 @@ function Profile(props) {
               setChatUsers={props.setChatUsers}
               className="profile"
             />
-          </div>
+          </div> */}
+          <People
+            signedInUser={props.user}
+            setSignedInUser={props.setSignedInUser}
+            setUserProfile={props.setUserProfile}
+            people={props.people}
+            setPeople={props.setPeople}
+            chatbox={props.chatbox}
+            setChatbox={props.setChatbox}
+            chatUsers={props.chatUsers}
+            setChatUsers={props.setChatUsers}
+            renderUsers={true}
+            renderFriends={true}
+            renderFriendReq={true}
+          />
           {props.chatbox ? (
             <Chatbox
               chatUsers={props.chatUsers}
