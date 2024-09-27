@@ -20,14 +20,6 @@ function Profile(props) {
         console.log(res);
         setUserProfileInfo(res.user);
       });
-    // const removeMenu = (e) => {
-    //   if (e.target.classList.contains(!"renderUsers-user-user-username"))
-    //     setShowMenu(false);
-    // };
-    // window.addEventListener("click", removeMenu);
-    // return () => {
-    //   window.removeEventListener("click", removeMenu);
-    // };
   }, [resetProfile]);
 
   const myPostBtnHandler = () => {
