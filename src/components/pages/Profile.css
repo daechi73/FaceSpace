@@ -18,6 +18,11 @@
 .profile-username-username {
   font-size: 2rem;
 }
+.profile-addUser {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
 .profile-bio-bio {
   margin-left: 10rem;
   margin-top: 0.5rem;
