@@ -46,6 +46,7 @@ function Profile(props) {
               <div className="profile-username-username">
                 {userProfileInfo.user_name}
               </div>
+              <div className="profile-addUserBtn">+</div>
             </div>
             <div className="profile-bio profile-userInfo-tag">
               {/* <div className="profile-bio-title">Bio:</div> */}
