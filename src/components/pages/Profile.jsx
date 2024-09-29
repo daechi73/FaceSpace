@@ -30,12 +30,42 @@ function Profile(props) {
     console.log("myWallBtn Working");
     setMyShow("myWall");
   };
+  const addUserBtnHandler = () => {
+    const options = {
+      mode: "cors",
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        toAddUserId: userProfileInfo._id,
+      }),
+    };
+    fetch(
+      `http://localhost:3000/users/${props.user._id}/update/addFriendReq`,
+      options
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("In Profile add friend");
+        props.setSignedInUser(res.user);
+      });
+  };
 
   const userValidate = userProfileInfo
     ? userProfileInfo.user_name === props.user.user_name
     : "";
 
+  const checkIfFriends = () => {
+    if (userProfileInfo != null) {
+      for (let j = 0; j < props.user.friends.length; j++) {
+        if (props.user.friends[j].id === userProfileInfo.id) return true;
+      }
+
+      return false;
+    }
+  };
+
   console.log("heree in profilee");
+
   return (
     <div className="profile-container">
       {userProfileInfo ? (
@@ -46,7 +76,12 @@ function Profile(props) {
               <div className="profile-username-username">
                 {userProfileInfo.user_name}
               </div>
-              <div className="profile-addUserBtn">+</div>
+              {userProfileInfo.user_name !== props.user.user_name &&
+              !checkIfFriends() ? (
+                <div className="profile-addUserBtn">+</div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="profile-bio profile-userInfo-tag">
               {/* <div className="profile-bio-title">Bio:</div> */}
