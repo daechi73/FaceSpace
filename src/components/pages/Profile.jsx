@@ -57,11 +57,23 @@ function Profile(props) {
   const checkIfFriends = () => {
     if (userProfileInfo != null) {
       for (let j = 0; j < props.user.friends.length; j++) {
-        if (props.user.friends[j].id === userProfileInfo.id) return true;
+        if (props.user.friends[j]._id === userProfileInfo._id) return true;
       }
 
       return false;
     }
+  };
+
+  const filterInOutFReq = () => {
+    for (let j = 0; j < props.user.friend_requests.length; j++) {
+      if (props.user.friend_requests[j].inbound._id === userProfileInfo._id) {
+        return "inbound";
+      }
+      if (props.user.friend_requests[j].outbound._id === userProfileInfo._id) {
+        return "outbound";
+      }
+    }
+    return false;
   };
 
   console.log("heree in profilee");
@@ -77,8 +89,11 @@ function Profile(props) {
                 {userProfileInfo.user_name}
               </div>
               {userProfileInfo.user_name !== props.user.user_name &&
-              !checkIfFriends() ? (
-                <div className="profile-addUserBtn">+</div>
+              !checkIfFriends() &&
+              !filterInOutFReq() ? (
+                <div className="profile-addUserBtn" onClick={addUserBtnHandler}>
+                  +
+                </div>
               ) : (
                 ""
               )}
