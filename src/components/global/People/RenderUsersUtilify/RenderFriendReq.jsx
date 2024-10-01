@@ -1,10 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import FriendsUtility from "./FriendsUtility";
 import RenderUserClickMenu from "../../UserClickMenu/RenderUserClickMenu";
 import "./RenderFriendReq.css";
 
 function RenderFriendReq(props) {
   console.log("Here in RenderFriendReq");
+
+  const [friendReq, setFriendFreq] = useState(false);
   const renderFriendReq =
     props.user.friend_requests.length === 0
       ? ""
@@ -21,6 +24,7 @@ function RenderFriendReq(props) {
                 props.user.props.setSignedInUser
               );
             };
+            if (friendReq === false) setFriendFreq(true);
 
             return (
               <div
@@ -41,6 +45,7 @@ function RenderFriendReq(props) {
                     "-people-friends-friendReq-request-username" +
                     " renderFriendReq-friendReq-request-username"
                   }
+                  onClick={props.handleUsernameClick}
                 >
                   {e.outbound.user_name}
                 </div>
@@ -88,7 +93,7 @@ function RenderFriendReq(props) {
       >
         Friend Request
       </div>
-      {props.user.friend_requests.length === 0 ? (
+      {!friendReq ? (
         <div
           className={
             props.className +

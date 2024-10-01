@@ -26,12 +26,21 @@ function RenderFriends(props) {
             }
             key={i}
           >
-            <ProfileLink
+            {/* <ProfileLink
               username={e.user_name}
               setUserProfile={props.setUserProfile}
               setResetProfile={props.setResetProfile}
               linkText={e.user_name}
-            />
+            /> */}
+            <div
+              className={
+                props.className +
+                "-people-friends-friends-friend-username renderFriends-friends-friend-username"
+              }
+              onClick={props.handleUsernameClick}
+            >
+              {e.user_name}
+            </div>
           </div>
         );
       })
