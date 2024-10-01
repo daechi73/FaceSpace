@@ -95,15 +95,6 @@ function People(props) {
           people={props.people}
           user={props.signedInUser}
           setSignedInUser={props.setSignedInUser}
-          setUserProfile={props.setUserProfile}
-          showMenu={showMenu}
-          setShowMenu={setShowMenu}
-          setShowMenuUsername={setShowMenuUsername}
-          showMenuUsername={showMenuUsername}
-          chatbox={props.chatbox}
-          setChatbox={props.setChatbox}
-          chatUsers={props.chatUsers}
-          setChatUsers={props.setChatUsers}
           handleUsernameClick={handleUsernameClick}
           className={props.className}
         />
