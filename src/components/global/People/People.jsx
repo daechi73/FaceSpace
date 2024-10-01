@@ -4,6 +4,8 @@ import "./People.css";
 import RenderUsers from "./RenderUsersUtilify/RenderUsers";
 import RenderFriends from "./RenderUsersUtilify/RenderFriends";
 import RenderFriendReq from "./RenderUsersUtilify/RenderFriendReq";
+import UserMenu from "../../global/UserClickMenu/UserMenu";
+import RenderUserClickMenu from "../UserClickMenu/RenderUserClickMenu";
 
 /*
 props: signedInUser
@@ -52,6 +54,11 @@ function People(props) {
       });
   }, []);
 
+  //handles username click in each render components
+  const handleUsernameClick = (e) => {
+    UserMenu(showMenu, setShowMenu, setShowMenuUsername, e.target.innerText);
+  };
+
   return (
     <div className={props.className + "-people" + " people"}>
       <div
@@ -97,7 +104,22 @@ function People(props) {
           setChatbox={props.setChatbox}
           chatUsers={props.chatUsers}
           setChatUsers={props.setChatUsers}
+          handleUsernameClick={handleUsernameClick}
           className={props.className}
+        />
+      ) : (
+        <></>
+      )}
+      {showMenu ? (
+        <RenderUserClickMenu
+          username={showMenuUsername}
+          setUserProfile={props.setUserProfile}
+          setShowMenu={setShowMenu}
+          chatbox={props.chatbox}
+          setChatbox={props.setChatbox}
+          chatUsers={props.chatUsers}
+          setChatUsers={props.setChatUsers}
+          signedInUser={props.signedInUser}
         />
       ) : (
         <></>
