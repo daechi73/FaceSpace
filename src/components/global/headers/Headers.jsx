@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 function Headers(props) {
   return (
     <div className="headers">
-      <div className="headers-title">
-        <Link to="/home">FaceSpace</Link>
+      <div className="headers-title ">
+        <Link className="cursor-pointer" to="/home">
+          FaceSpace
+        </Link>
       </div>
       <HeadersProfile
         signedInUser={props.signedInUser}

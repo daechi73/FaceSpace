@@ -15,7 +15,7 @@
 .profile-userInfo {
   grid-column: 2/3;
   margin-top: 2rem;
-  padding: 0 2rem;
+  padding: 0 4rem;
 }
 .profile-myWall-myPosts-container {
   grid-column: 2/3;

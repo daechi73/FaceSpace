@@ -12,9 +12,7 @@
   display: flex;
   align-items: center;
 }
-.headers-title a {
-  color: #8b95c9;
-}
+
 .headers-borderBottom {
   position: absolute;
   border-bottom: solid;

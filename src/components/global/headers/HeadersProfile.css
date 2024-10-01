@@ -10,3 +10,7 @@
   cursor: pointer;
   color: rgb(51, 66, 201);
 }
+.headers-profile-signOut:hover {
+  cursor: pointer;
+  color: white;
+}
