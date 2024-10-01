@@ -39,6 +39,7 @@ function ChatSystem(props) {
     <div className="chatSystem">
       <div className="chatSystem-title">Chat</div>
       <div className="chatSystem-users">{renderUsers}</div>
+      <div className="chatSystem-borderRight"></div>
     </div>
   );
 }
