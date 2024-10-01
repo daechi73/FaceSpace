@@ -1,24 +1,10 @@
 import React from "react";
 import FriendsUtility from "./FriendsUtility";
-import RenderUserClickMenu from "../../UserClickMenu/RenderUserClickMenu";
-import UserMenu from "../../UserClickMenu/UserMenu";
-import "./RenderUsers.css";
 
-//props: people, signedInUser, setSignedInUser,
-//       setUserProfile,showMenu,setShowMenuUsername,showMenuUsername
-//       chatbox, setChatbox, chatUsers, setChatUsers
+import "./RenderUsers.css";
 
 function RenderUsers(props) {
   console.log("Here In RenderUsers");
-
-  const handleUsernameClick = (e) => {
-    UserMenu(
-      props.showMenu,
-      props.setShowMenu,
-      props.setShowMenuUsername,
-      e.target.innerText
-    );
-  };
 
   const renderUsers = props.people.map((e, i) => {
     const friendReq = () => {
@@ -93,7 +79,7 @@ function RenderUsers(props) {
               " renderUsers-user-user-username" +
               " cursor-pointer"
             }
-            onClick={handleUsernameClick}
+            onClick={props.handleUsernameClick}
           >
             {e.user_name}
           </div>
@@ -176,20 +162,6 @@ function RenderUsers(props) {
         Users
       </div>
       {renderUsers}
-      {props.showMenu ? (
-        <RenderUserClickMenu
-          username={props.showMenuUsername}
-          setUserProfile={props.setUserProfile}
-          setShowMenu={props.setShowMenu}
-          chatbox={props.chatbox}
-          setChatbox={props.setChatbox}
-          chatUsers={props.chatUsers}
-          setChatUsers={props.setChatUsers}
-          signedInUser={props.user}
-        />
-      ) : (
-        <></>
-      )}
     </div>
   );
 }
