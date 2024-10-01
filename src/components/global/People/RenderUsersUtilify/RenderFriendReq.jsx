@@ -57,7 +57,8 @@ function RenderFriendReq(props) {
                   className={
                     props.className +
                     "-people-friends-friendReq-request-acceptBtn" +
-                    " renderFriendReq-friendReq-request-acceptBtn"
+                    " renderFriendReq-friendReq-request-acceptBtn" +
+                    " cursor-pointer"
                   }
                   onClick={handleAcceptFReq}
                 >
@@ -67,7 +68,8 @@ function RenderFriendReq(props) {
                   className={
                     props.className +
                     "-people-friends-friendReq-request-declineBtn" +
-                    " renderFriendReq-friendReq-request-declineBtn"
+                    " renderFriendReq-friendReq-request-declineBtn" +
+                    " cursor-pointer"
                   }
                   onClick={handleDeclineFReq}
                 >

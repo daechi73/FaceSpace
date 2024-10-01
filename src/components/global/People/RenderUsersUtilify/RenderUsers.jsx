@@ -90,7 +90,8 @@ function RenderUsers(props) {
             className={
               props.className +
               "-people-user-user-username" +
-              " renderUsers-user-user-username"
+              " renderUsers-user-user-username" +
+              " cursor-pointer"
             }
             onClick={handleUsernameClick}
           >
@@ -119,7 +120,8 @@ function RenderUsers(props) {
               className={
                 props.className +
                 "-people-user-status-acceptBtn" +
-                " renderUsers-user-status-acceptBtn"
+                " renderUsers-user-status-acceptBtn" +
+                " cursor-pointer"
               }
               onClick={handleAcceptFReq}
             >
@@ -129,7 +131,8 @@ function RenderUsers(props) {
               className={
                 props.className +
                 "-people-user-status-declineBtn" +
-                " renderUsers-user-status-declineBtn"
+                " renderUsers-user-status-declineBtn" +
+                " cursor-pointer"
               }
               onClick={handleDeclineFReq}
             >
@@ -151,7 +154,8 @@ function RenderUsers(props) {
             className={
               props.className +
               "-people-user-addBtn" +
-              " renderUsers-user-addBtn"
+              " renderUsers-user-addBtn" +
+              " cursor-pointer"
             }
             onClick={friendReq}
           >

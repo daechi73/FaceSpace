@@ -24,8 +24,8 @@ function ChatSystem(props) {
       <div
         className={
           e.new_message
-            ? `chatSystem_user newMessages ${e.user.user_name}`
-            : "chatSystem_user"
+            ? `chatSystem-user cursor-pointer newMessages ${e.user.user_name}`
+            : "chatSystem-user cursor-pointer"
         }
         key={i}
         onClick={handleUserClick}
