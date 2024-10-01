@@ -110,36 +110,45 @@ function Profile(props) {
             chatbox={props.chatbox}
             resetChatSystem={props.resetChatSystem}
           />
-          {userValidate ? (
-            <div className="profile-tab">
-              <div
-                className="profile-tab-profileWall profile-tab-tab"
-                onClick={myWallBtnHandler}
-              >
-                MyWall
+          <div className="profile-myWall-myPosts-container">
+            {userValidate ? (
+              <div className="profile-tab">
+                <div
+                  className="profile-tab-profileWall profile-tab-tab"
+                  onClick={myWallBtnHandler}
+                >
+                  MyWall
+                </div>
+                <div
+                  className="profile-tab-userPosts profile-tab-tab"
+                  onClick={myPostBtnHandler}
+                >
+                  MyPosts
+                </div>
               </div>
-              <div
-                className="profile-tab-userPosts profile-tab-tab"
-                onClick={myPostBtnHandler}
-              >
-                MyPosts
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
+            ) : (
+              <></>
+            )}
 
-          {myShow === "myWall" ? (
-            <MyWall
-              userProfile={userProfileInfo}
-              signedInUser={props.user}
-              userValidate={userProfileInfo.user_name === props.user.user_name}
-            />
-          ) : myShow === "myPost" ? (
-            <MyPosts posted_userId={props.user._id} signedInUser={props.user} />
-          ) : (
-            "dfd"
-          )}
+            {myShow === "myWall" ? (
+              <MyWall
+                userProfile={userProfileInfo}
+                signedInUser={props.user}
+                userValidate={
+                  userProfileInfo.user_name === props.user.user_name
+                }
+              />
+            ) : myShow === "myPost" ? (
+              <MyPosts
+                posted_userId={props.user._id}
+                signedInUser={props.user}
+              />
+            ) : (
+              ""
+            )}
+            <div className="profile-myWall-myPosts-borderRight"></div>
+            <div className="profile-myWall-myPosts-borderLeft"></div>
+          </div>
 
           <People
             signedInUser={props.user}
