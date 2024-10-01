@@ -2,17 +2,18 @@
   height: 70vh;
   width: 100%;
   display: grid;
+  /* grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr); */
   grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: 2fr 3fr 2fr;
 }
 
 .profile-userInfo-tag {
   display: flex;
-  justify-content: center;
   gap: 2rem;
 }
 .profile-userInfo {
-  grid-column: 1/5;
+  grid-column: 2/3;
   margin-top: 2rem;
 }
 .profile-username-username {
@@ -23,8 +24,11 @@
   align-items: center;
   font-size: 1.25rem;
 }
+.profile-bio {
+  justify-content: end;
+  margin-right: 3rem;
+}
 .profile-bio-bio {
-  margin-left: 10rem;
   margin-top: 0.5rem;
   font-style: italic;
 }
@@ -34,17 +38,17 @@
 }
 
 .profile-people {
-  grid-column: 6/7;
+  grid-column: 3/4;
   grid-row: 2/6;
 }
 
 .profile-posts {
-  grid-column: 2/6;
+  grid-column: 2/3;
   grid-row: 3/6;
 }
 
 .profile-tab {
-  grid-column: 2/6;
+  grid-column: 2/3;
   grid-row: 2/3;
   display: flex;
   gap: 0.5rem;

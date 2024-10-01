@@ -5,8 +5,8 @@
   align-items: center;
 }
 .landingPage-posts-postBox {
-  width: 70%;
-  height: 5rem;
+  width: 500px;
+  height: 80px;
   font-size: 1rem;
 }
 .landingPage-posts-form-btn {
