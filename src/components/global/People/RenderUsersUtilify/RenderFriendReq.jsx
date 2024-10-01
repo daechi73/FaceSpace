@@ -44,15 +44,7 @@ function RenderFriendReq(props) {
                 >
                   {e.outbound.user_name}
                 </div>
-                {props.showMenu ? (
-                  <RenderUserClickMenu
-                    username={e.outbound.user_name}
-                    setUserProfile={props.setUserProfile}
-                    setShowMenu={props.setShowMenu}
-                  />
-                ) : (
-                  <></>
-                )}
+
                 <div
                   className={
                     props.className +
