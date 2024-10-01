@@ -76,6 +76,7 @@ function People(props) {
             showMenu={showMenu}
             setShowMenu={setShowMenu}
             className={props.className}
+            handleUsernameClick={handleUsernameClick}
           />
         ) : (
           <></>
@@ -85,6 +86,7 @@ function People(props) {
             user={props.signedInUser}
             setUserProfile={props.setUserProfile}
             className={props.className}
+            handleUsernameClick={handleUsernameClick}
           />
         ) : (
           <></>
