@@ -9,6 +9,7 @@ function RenderUserClickMenu(props) {
   useEffect(() => {
     console.log("inRenderUserClickMenu useEffect");
     const userClickMenuDiv = userClickMenu.current;
+    console.log(props.coords);
     userClickMenuDiv.style.top = `${props.coords[1] + 10}px`;
     userClickMenuDiv.style.left = `${props.coords[0] + 10}px`;
   }, []);

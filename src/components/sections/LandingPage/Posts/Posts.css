@@ -20,7 +20,7 @@
   font-size: 1rem;
 }
 .landingPage-posts-form-btn {
-  width: 5rem;
+  width: 4srem;
   margin: 1rem 0;
 }
 .landingPage-posts-posts-post {
@@ -44,6 +44,7 @@
   top: 10%;
   border: solid;
   border-width: 1px;
+  border-color: #84dcc6;
 }
 .landingPage-posts-borderRight {
   position: absolute;
@@ -52,4 +53,5 @@
   top: 10%;
   border: solid;
   border-width: 1px;
+  border-color: #84dcc6;
 }

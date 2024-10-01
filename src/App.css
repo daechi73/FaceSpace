@@ -5,6 +5,10 @@
   align-items: center;
   flex-direction: column;
 }
+
+* {
+  border-color: #478978;
+}
 .errorMsg {
   color: red;
   font-style: italic;
@@ -12,6 +16,10 @@
 a {
   text-decoration: none;
   color: white;
+}
+
+textarea {
+  color: #8b95c9;
 }
 .checkSignedInUserBtn {
   top: 0;
@@ -21,4 +29,17 @@ a {
 
 .cursor-pointer {
   cursor: pointer;
+  border-radius: 1rem;
+}
+.cursor-pointer:hover {
+  color: #478978;
+}
+button {
+  border-radius: 0.4rem;
+}
+
+button:hover {
+  background-color: black;
+  border-color: #8b95c9;
+  box-shadow: 0 0 5px 2px #acd7ec;
 }

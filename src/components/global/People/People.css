@@ -3,9 +3,7 @@
   justify-content: center;
   gap: 0.5rem;
 }
-.people {
-  position: relative;
-}
+
 /* .people-borderLeft {
   position: absolute;
   left: 0;

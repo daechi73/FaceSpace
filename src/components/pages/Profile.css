@@ -64,7 +64,7 @@
   height: 1.6rem;
 }
 .profile-tab-tab:hover {
-  border-color: rgb(80, 19, 116);
+  border-color: #8b95c9;
   background-color: black;
 }
 
@@ -75,6 +75,7 @@
   top: 0%;
   right: 0;
   border-width: 1px;
+  border-color: #84dcc6;
 }
 .profile-myWall-myPosts-borderLeft {
   position: absolute;
@@ -83,4 +84,5 @@
   top: 0%;
   left: 0;
   border-width: 1px;
+  border-color: #84dcc6;
 }
