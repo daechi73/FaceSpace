@@ -25,6 +25,8 @@ function People(props) {
   console.log("here in people");
   const [showMenu, setShowMenu] = useState(false);
   const [showMenuUsername, setShowMenuUsername] = useState("");
+  const [coords, setCoords] = useState(null);
+
   useEffect(() => {
     const removeMenu = (e) => {
       if (e.target.classList.contains(!"renderUsers-user-user-username"))
@@ -56,7 +58,16 @@ function People(props) {
 
   //handles username click in each render components
   const handleUsernameClick = (e) => {
-    UserMenu(showMenu, setShowMenu, setShowMenuUsername, e.target.innerText);
+    UserMenu(
+      showMenu,
+      setShowMenu,
+      setShowMenuUsername,
+      e.target.innerText,
+      e.pageX,
+      e.pageY,
+      setCoords
+    );
+    console.log(e);
   };
 
   return (
@@ -113,6 +124,9 @@ function People(props) {
           chatUsers={props.chatUsers}
           setChatUsers={props.setChatUsers}
           signedInUser={props.signedInUser}
+          coords={coords}
+          pageX={coords[0]}
+          pageY={coords[1]}
         />
       ) : (
         <></>
