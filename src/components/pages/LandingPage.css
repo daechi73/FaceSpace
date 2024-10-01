@@ -6,7 +6,7 @@
   grid-template-columns: repeat(6, 1fr); */
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 2fr 3fr 2fr;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 .landingPage .chatSystem {
   grid-column: 1/2;

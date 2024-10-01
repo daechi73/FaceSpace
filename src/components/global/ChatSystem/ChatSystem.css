@@ -5,3 +5,7 @@
 .chatSystem .newMessages {
   font-weight: bold;
 }
+.chatSystem-users {
+  display: flex;
+  justify-content: center;
+}
