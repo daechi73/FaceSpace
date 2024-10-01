@@ -16,6 +16,7 @@ function Headers(props) {
         setChatUsers={props.setChatUsers}
         setUserProfile={props.setUserProfile}
       />
+      <div className="headers-borderBottom"></div>
     </div>
   );
 }
