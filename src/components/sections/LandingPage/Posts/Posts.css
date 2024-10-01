@@ -1,3 +1,7 @@
+.landingPage-posts-container {
+  position: relative;
+  padding: 0 5rem;
+}
 .landingPage-posts-form {
   display: flex;
   flex-direction: column;
@@ -29,4 +33,20 @@
 .landingPage-posts-title {
   font-size: 2.5rem;
   margin-bottom: 3rem;
+}
+.landingPage-posts-borderLeft {
+  position: absolute;
+  height: 80%;
+  left: 0;
+  top: 10%;
+  border: solid;
+  border-width: 1px;
+}
+.landingPage-posts-borderRight {
+  position: absolute;
+  height: 80%;
+  right: 0;
+  top: 10%;
+  border: solid;
+  border-width: 1px;
 }

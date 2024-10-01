@@ -131,6 +131,7 @@ function People(props) {
       ) : (
         <></>
       )}
+      <div className="people-borderLeft"></div>
     </div>
   );
 }

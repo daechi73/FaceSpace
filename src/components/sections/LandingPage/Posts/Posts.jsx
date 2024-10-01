@@ -102,6 +102,8 @@ function Posts(props) {
         </button>
       </div>
       <div className="landingPage-posts-posts">{renderPosts}</div>
+      <div className="landingPage-posts-borderLeft"></div>
+      <div className="landingPage-posts-borderRight"></div>
     </div>
   );
 }
