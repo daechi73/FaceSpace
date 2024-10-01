@@ -5,7 +5,17 @@
   justify-content: space-around;
   padding: 1rem;
   box-sizing: border-box;
+  position: relative;
 }
 .headers-title {
   font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+.headers-borderBottom {
+  position: absolute;
+  border-bottom: solid;
+  bottom: 0;
+  width: 80%;
+  border-width: 1.5px;
 }
