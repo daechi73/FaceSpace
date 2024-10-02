@@ -60,7 +60,7 @@ function RenderFriendReq(props) {
                   }
                   onClick={handleAcceptFReq}
                 >
-                  Accept
+                  ☑
                 </div>
                 <div
                   className={
@@ -71,7 +71,7 @@ function RenderFriendReq(props) {
                   }
                   onClick={handleDeclineFReq}
                 >
-                  decline
+                  ☒
                 </div>
               </div>
             );

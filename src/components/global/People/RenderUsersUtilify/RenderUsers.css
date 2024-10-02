@@ -7,6 +7,15 @@
   display: flex;
   gap: 0.5rem;
 }
+.renderUsers-user-status-acceptBtn {
+  color: rgb(144, 230, 144);
+}
+.renderUsers-user-status-declineBtn {
+  color: rgb(161, 22, 22);
+}
 .renderUsers-users-title {
   font-size: 1.5rem;
+}
+.renderUsers-user-addBtn {
+  color: rgb(144, 230, 144);
 }

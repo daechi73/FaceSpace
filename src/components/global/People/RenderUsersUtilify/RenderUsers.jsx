@@ -93,7 +93,7 @@ function RenderUsers(props) {
               " renderUsers-user-status"
             }
           >
-            Waiting for response
+            (...)
           </div>
         ) : filterInOutFReq() === "outbound" ? (
           <div
@@ -112,7 +112,7 @@ function RenderUsers(props) {
               }
               onClick={handleAcceptFReq}
             >
-              Accept
+              ☑
             </div>
             <div
               className={
@@ -123,7 +123,7 @@ function RenderUsers(props) {
               }
               onClick={handleDeclineFReq}
             >
-              Decline
+              ☒
             </div>
           </div>
         ) : checkIfFriends() ? (
@@ -134,7 +134,7 @@ function RenderUsers(props) {
               " renderUsers-user-alreadyFriends"
             }
           >
-            friends
+            ✅
           </div>
         ) : (
           <div
@@ -146,7 +146,7 @@ function RenderUsers(props) {
             }
             onClick={friendReq}
           >
-            +
+            ＋
           </div>
         )}
       </div>

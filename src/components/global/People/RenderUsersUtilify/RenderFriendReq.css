@@ -6,3 +6,9 @@
   justify-content: center;
   gap: 1rem;
 }
+.renderFriendReq-friendReq-request-acceptBtn {
+  color: rgb(144, 230, 144);
+}
+.renderFriendReq-friendReq-request-declineBtn {
+  color: rgb(161, 22, 22);
+}
