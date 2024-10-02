@@ -125,8 +125,6 @@ function People(props) {
           setChatUsers={props.setChatUsers}
           signedInUser={props.signedInUser}
           coords={coords}
-          pageX={coords[0]}
-          pageY={coords[1]}
         />
       ) : (
         <></>
