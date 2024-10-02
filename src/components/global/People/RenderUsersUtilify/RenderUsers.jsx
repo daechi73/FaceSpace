@@ -77,7 +77,8 @@ function RenderUsers(props) {
               props.className +
               "-people-user-user-username" +
               " renderUsers-user-user-username" +
-              " cursor-pointer"
+              " cursor-pointer" +
+              " username-handleUsernameClick"
             }
             onClick={props.handleUsernameClick}
           >

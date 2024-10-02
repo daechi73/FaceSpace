@@ -43,7 +43,8 @@ function RenderFriendReq(props) {
                   className={
                     props.className +
                     "-people-friends-friendReq-request-username" +
-                    " renderFriendReq-friendReq-request-username"
+                    " renderFriendReq-friendReq-request-username" +
+                    " username-handleUsernameClick"
                   }
                   onClick={props.handleUsernameClick}
                 >

@@ -35,7 +35,8 @@ function RenderFriends(props) {
             <div
               className={
                 props.className +
-                "-people-friends-friends-friend-username renderFriends-friends-friend-username cursor-pointer"
+                "-people-friends-friends-friend-username renderFriends-friends-friend-username cursor-pointer" +
+                " username-handleUsernameClick"
               }
               onClick={props.handleUsernameClick}
             >
