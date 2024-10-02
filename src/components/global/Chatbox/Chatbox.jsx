@@ -57,7 +57,9 @@ function Chatbox(props) {
     }
   });
 
-  useRemoveChatboxNewMessage({ chatboxId: chatboxId });
+  useRemoveChatboxNewMessage({
+    chatboxId: chatboxId,
+  });
 
   const handleMsgBoxChange = (e) => {
     setMsg(e.target.value);
