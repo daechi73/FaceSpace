@@ -20,12 +20,15 @@ function ChatSystem(props) {
           .querySelector(`.newMessages.${e.user.user_name}`)
           .classList.remove("newMessages");
       }
-      if (
-        document.querySelector(`.chatSystem-user-newMessage`).style.display ===
-        ""
-      ) {
-        document.querySelector(`.chatSystem-user-newMessage`).style.display =
-          "none";
+
+      if (document.querySelector(`.chatSystem-user-newMessage`)) {
+        if (
+          document.querySelector(`.chatSystem-user-newMessage`).style
+            .display === ""
+        ) {
+          document.querySelector(`.chatSystem-user-newMessage`).style.display =
+            "none";
+        }
       }
     };
 
