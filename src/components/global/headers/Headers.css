@@ -13,6 +13,21 @@
   align-items: center;
 }
 
+.headers-title-link {
+  color: rgb(77, 77, 124);
+  border-image: linear-gradient(45deg, gold, #84dcc6) 1;
+  animation: huerotate 3s infinite linear;
+  filter: hue-rotate(360deg);
+}
+
+@keyframes huerotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 .headers-borderBottom {
   position: absolute;
   border-bottom: solid;

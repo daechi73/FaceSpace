@@ -105,14 +105,14 @@ function App() {
         </>
       )}
 
-      <button
+      {/* <button
         onClick={() => {
           console.log(signedInUser);
         }}
         className="checkSignedInUserBtn"
       >
         click
-      </button>
+      </button> */}
     </>
   );
 }

@@ -7,7 +7,7 @@ function Headers(props) {
   return (
     <div className="headers">
       <div className="headers-title ">
-        <Link className="cursor-pointer" to="/home">
+        <Link className="cursor-pointer headers-title-link" to="/home">
           FaceSpace
         </Link>
       </div>
