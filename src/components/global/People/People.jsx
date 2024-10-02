@@ -29,9 +29,11 @@ function People(props) {
 
   useEffect(() => {
     const removeMenu = (e) => {
-      if (e.target.classList.contains(!"renderUsers-user-user-username"))
+      if (!e.target.classList.contains("renderUsers-user-user-username")) {
         setShowMenu(false);
+      }
     };
+    //username-handleUsernameClick
     window.addEventListener("click", removeMenu);
     return () => {
       window.removeEventListener("click", removeMenu);
