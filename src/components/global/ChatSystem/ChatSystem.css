@@ -8,6 +8,13 @@
 .chatSystem .newMessages {
   font-weight: bold;
 }
+.chatSystem-user {
+  display: flex;
+  gap: 1rem;
+}
+.chatSystem-user-newMessage {
+  color: yellow;
+}
 .chatSystem-users {
   display: flex;
   justify-content: center;

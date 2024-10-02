@@ -6,6 +6,7 @@ import "./ChatSystem.css";
 
 function ChatSystem(props) {
   console.log("HERE in ChatSystem");
+
   const users = useGetChatUsers(props.signedInUser._id, props.resetChatSystem);
 
   const renderUsers = users.map((e, i) => {
@@ -14,23 +15,33 @@ function ChatSystem(props) {
       if (props.chatbox === null) {
         props.setChatbox(1);
       } else props.setChatbox(props.chatbox + 1);
-      if (document.querySelector(`.newMessages.${e.user.user_name}`))
+      if (document.querySelector(`.newMessages.${e.user.user_name}`)) {
         document
           .querySelector(`.newMessages.${e.user.user_name}`)
           .classList.remove("newMessages");
+      }
+
+      if (document.querySelector(`.chatSystem-user-newMessage`)) {
+        document.querySelector(`.chatSystem-user-newMessage`).remove();
+      }
     };
 
-    return (
+    return e.new_message ? (
       <div
-        className={
-          e.new_message
-            ? `chatSystem-user cursor-pointer newMessages ${e.user.user_name}`
-            : "chatSystem-user cursor-pointer"
-        }
+        className={`chatSystem-user cursor-pointer newMessages ${e.user.user_name}`}
         key={i}
         onClick={handleUserClick}
       >
-        {e.user.user_name}
+        <div className="chatSystem-user-username">{e.user.user_name}</div>
+        <div className="chatSystem-user-newMessage">！</div>
+      </div>
+    ) : (
+      <div
+        className="chatSystem-user cursor-pointer"
+        key={i}
+        onClick={handleUserClick}
+      >
+        <div className="chatSystem-user-username">{e.user.user_name}</div>
       </div>
     );
   });
