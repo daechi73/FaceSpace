@@ -6,9 +6,6 @@
   flex-direction: column;
 }
 
-* {
-  border-color: #478978;
-}
 .errorMsg {
   color: red;
   font-style: italic;
@@ -19,8 +16,11 @@ a {
 }
 
 textarea {
-  color: #8b95c9;
+  color: #ffffff;
+  border-color: #478978;
+  padding: 0.5rem;
 }
+
 .checkSignedInUserBtn {
   top: 0;
   right: 0;

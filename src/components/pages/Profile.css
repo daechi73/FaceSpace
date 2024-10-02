@@ -58,10 +58,11 @@
 
 .profile-tab-tab {
   border: solid;
-  border-radius: 0.5rem;
-  border-width: 1.5px;
-  padding: 0.2rem;
+  border-radius: 0.6rem;
+  border-width: 1px;
+  padding: 0 0.4rem;
   height: 1.6rem;
+  background-color: grey;
 }
 .profile-tab-tab:hover {
   border-color: #8b95c9;
