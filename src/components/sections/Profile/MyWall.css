@@ -1,10 +1,10 @@
 .profile-posts {
   position: relative;
-  padding: 0 3rem;
+  /* padding: 0 5rem; */
 }
 .profile-posts-form-postbox {
-  width: 500px;
-  height: 80px;
+  width: 80%;
+  height: 50px;
 }
 .profile-posts-form {
   display: flex;
@@ -16,6 +16,27 @@
   width: 4rem;
   margin: 1rem 0;
 }
+.profile-posts-hideBar {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.profile-posts-posts {
+  margin-top: 1rem;
+  width: 100%;
+  height: 26vh;
+  overflow: auto;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.profile-posts-post {
+  max-width: 100%;
+}
+.profile-posts-post-content {
+  overflow-wrap: anywhere;
+}
 .profile-posts-title {
   font-size: 1.5rem;
   margin: 2rem 0 1rem 0;
@@ -26,9 +47,41 @@
   gap: 1rem;
   font-style: italic;
 }
-.profile-posts-posts {
-  margin-top: 2rem;
+
+.profile-posts-scrollUp,
+.profile-posts-scrollDown {
+  color: rgb(102, 77, 190);
 }
-.profile-posts-post {
-  margin-top: 1rem;
+.profile-posts-scrollUp {
+  visibility: hidden;
+  height: 0.5rem;
+}
+.profile-posts-scrollUp.show {
+  visibility: visible;
+}
+
+.profile-posts-scrollDown {
+  visibility: hidden;
+}
+.profile-posts-scrollDown.show {
+  visibility: visible;
+}
+
+.blink {
+  animation: blink-animation 0.5s steps(5, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(2, start) infinite;
+}
+.blink2 {
+  animation: blink-animation 0.5s steps(2, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }

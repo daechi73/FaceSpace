@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./MyWall.css";
 import ProfilePostDel from "./ProfilePostDelAPI";
 import PostDelAPI from "../../global/Post/PostDelApi";
@@ -14,8 +14,14 @@ function MyWall(props) {
   // });
   const [profileWall, setProfileWall] = useState([]);
   const [postbox, setPostbox] = useState("");
+  const [scroll, setScroll] = useState("");
+
+  const postsDiv = useRef();
+  const scrollUpDiv = useRef();
+  const scrollDownDiv = useRef();
 
   console.log("In Profile Posts");
+
   useEffect(() => {
     fetch(
       `http://localhost:3000/profileWalls/${props.userProfile.profileWall._id}`
@@ -27,6 +33,88 @@ function MyWall(props) {
         setProfileWall(res.profileWall);
       });
   }, []);
+
+  useEffect(() => {
+    //hides/shows scrollDown/Up arrows
+    if (postsDiv.current) {
+      if (postsDiv.current.scrollHeight > 241) {
+        setScroll(" show");
+      } else {
+        setScroll("");
+      }
+      postsDiv.current.scrollTo(0, postsDiv.current.scrollHeight);
+    }
+
+    //event listeners for scrollDown/Up arrows
+
+    let postDivScrollDownActivate,
+      postDivScrollDownDeactivate,
+      postDivScrollUpActivate,
+      postdivScrollUpDeactivate;
+
+    if (postsDiv.current && scrollDownDiv.current) {
+      let scrollDown;
+
+      postDivScrollDownActivate = () => {
+        scrollDown = setInterval(() => {
+          postsDiv.current.scrollTop += 15;
+        }, 50);
+      };
+      postDivScrollDownDeactivate = () => {
+        clearInterval(scrollDown);
+      };
+
+      scrollDownDiv.current.addEventListener(
+        "mouseover",
+        postDivScrollDownActivate
+      );
+      scrollDownDiv.current.addEventListener(
+        "mouseout",
+        postDivScrollDownDeactivate
+      );
+    }
+
+    if (postsDiv.current && scrollUpDiv.current) {
+      let scrollUp;
+      postDivScrollUpActivate = () => {
+        scrollUp = setInterval(() => {
+          postsDiv.current.scrollTop -= 15;
+        }, 50);
+      };
+
+      postdivScrollUpDeactivate = () => {
+        clearInterval(scrollUp);
+      };
+
+      scrollUpDiv.current.addEventListener(
+        "mouseover",
+        postDivScrollUpActivate
+      );
+      scrollUpDiv.current.addEventListener(
+        "mouseout",
+        postdivScrollUpDeactivate
+      );
+    }
+    return () => {
+      scrollDownDiv.current.removeEventListener(
+        "mouseover",
+        postDivScrollDownActivate
+      );
+      scrollDownDiv.current.removeEventListener(
+        "mouseout",
+        postDivScrollDownDeactivate
+      );
+
+      scrollUpDiv.current.removeEventListener(
+        "mouseover",
+        postDivScrollUpActivate
+      );
+      scrollUpDiv.current.removeEventListener(
+        "mouseout",
+        postdivScrollUpDeactivate
+      );
+    };
+  });
 
   const handlePostDelBtn = async (e) => {
     const profileWallPostDelStatus = await ProfilePostDel(
@@ -108,7 +196,23 @@ function MyWall(props) {
           Post
         </button>
       </div>
-      <div className="profile-posts-posts">{renderProfileWall}</div>
+      <div
+        className={"profile-posts-scrollUp blink cursor-pointer" + scroll}
+        ref={scrollUpDiv}
+      >
+        ︽
+      </div>
+      <div className="profile-posts-hideBar">
+        <div className="profile-posts-posts" ref={postsDiv}>
+          {renderProfileWall}
+        </div>
+      </div>
+      <div
+        className={"profile-posts-scrollDown blink2 cursor-pointer" + scroll}
+        ref={scrollDownDiv}
+      >
+        ︾
+      </div>
     </div>
   );
 }
