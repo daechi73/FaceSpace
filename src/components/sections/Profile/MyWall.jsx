@@ -96,23 +96,30 @@ function MyWall(props) {
       );
     }
     return () => {
-      scrollDownDiv.current.removeEventListener(
-        "mouseover",
-        postDivScrollDownActivate
-      );
-      scrollDownDiv.current.removeEventListener(
-        "mouseout",
-        postDivScrollDownDeactivate
-      );
+      if (
+        postsDiv.current &&
+        scrollUpDiv.current &&
+        postsDiv.current &&
+        scrollDownDiv.current
+      ) {
+        scrollDownDiv.current.removeEventListener(
+          "mouseover",
+          postDivScrollDownActivate
+        );
+        scrollDownDiv.current.removeEventListener(
+          "mouseout",
+          postDivScrollDownDeactivate
+        );
 
-      scrollUpDiv.current.removeEventListener(
-        "mouseover",
-        postDivScrollUpActivate
-      );
-      scrollUpDiv.current.removeEventListener(
-        "mouseout",
-        postdivScrollUpDeactivate
-      );
+        scrollUpDiv.current.removeEventListener(
+          "mouseover",
+          postDivScrollUpActivate
+        );
+        scrollUpDiv.current.removeEventListener(
+          "mouseout",
+          postdivScrollUpDeactivate
+        );
+      }
     };
   });
 
