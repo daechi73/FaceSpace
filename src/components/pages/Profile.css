@@ -7,7 +7,6 @@
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: 2fr 3fr 2fr;
 }
-
 .profile-userInfo-tag {
   display: flex;
   gap: 2rem;
@@ -72,7 +71,7 @@
 
 .profile-myWall-myPosts-borderRight {
   position: absolute;
-  height: 80%;
+  height: 65%;
   border-right: solid;
   top: 0%;
   right: 0;
@@ -81,7 +80,7 @@
 }
 .profile-myWall-myPosts-borderLeft {
   position: absolute;
-  height: 80%;
+  height: 65%;
   border-right: solid;
   top: 0%;
   left: 0;

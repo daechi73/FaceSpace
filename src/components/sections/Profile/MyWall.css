@@ -16,31 +16,36 @@
   width: 4rem;
   margin: 1rem 0;
 }
-.profile-posts-hideBar {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
+
+.profile-posts-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
 }
 .profile-posts-posts {
   margin-top: 1rem;
   width: 100%;
-  height: 26vh;
+  height: 23vh;
   overflow: auto;
   padding-right: 15px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.profile-posts-post {
-  max-width: 100%;
+.profile-posts-hideBar {
+  overflow: hidden;
+  width: 100%;
 }
+.profile-posts-post {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .profile-posts-post-content {
   overflow-wrap: anywhere;
 }
-.profile-posts-title {
-  font-size: 1.5rem;
-  margin: 2rem 0 1rem 0;
-}
+
 .profile-posts-post-info {
   display: flex;
   justify-content: center;

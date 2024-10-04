@@ -1,12 +1,17 @@
 import React from "react";
 import "./Posts.css";
 import PostDelAPI from "../../../global/Post/PostDelApi";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Posts(props) {
   const [posts, setPosts] = useState();
   const [post, setPost] = useState();
   const [resetPosts, setResetPost] = useState(0);
+  const [scroll, setScroll] = useState("");
+
+  const postsDiv = useRef();
+  const scrollUpDiv = useRef();
+  const scrollDownDiv = useRef();
 
   useEffect(() => {
     fetch("http://localhost:3000/posts", { mode: "cors" })
@@ -85,6 +90,96 @@ function Posts(props) {
         );
       })
     : posts;
+
+  useEffect(() => {
+    //hides/shows scrollDown/Up arrows
+    if (postsDiv.current) {
+      if (postsDiv.current.scrollHeight > 241) {
+        setScroll(" show");
+      } else {
+        setScroll("");
+      }
+      postsDiv.current.scrollTo(0, postsDiv.current.scrollHeight);
+    }
+
+    //event listeners for scrollDown/Up arrows
+
+    let postDivScrollDownActivate,
+      postDivScrollDownDeactivate,
+      postDivScrollUpActivate,
+      postdivScrollUpDeactivate;
+
+    if (postsDiv.current && scrollDownDiv.current) {
+      let scrollDown;
+
+      postDivScrollDownActivate = () => {
+        scrollDown = setInterval(() => {
+          postsDiv.current.scrollTop += 15;
+        }, 50);
+      };
+      postDivScrollDownDeactivate = () => {
+        clearInterval(scrollDown);
+      };
+
+      scrollDownDiv.current.addEventListener(
+        "mouseover",
+        postDivScrollDownActivate
+      );
+      scrollDownDiv.current.addEventListener(
+        "mouseout",
+        postDivScrollDownDeactivate
+      );
+    }
+
+    if (postsDiv.current && scrollUpDiv.current) {
+      let scrollUp;
+      postDivScrollUpActivate = () => {
+        scrollUp = setInterval(() => {
+          postsDiv.current.scrollTop -= 15;
+        }, 50);
+      };
+
+      postdivScrollUpDeactivate = () => {
+        clearInterval(scrollUp);
+      };
+
+      scrollUpDiv.current.addEventListener(
+        "mouseover",
+        postDivScrollUpActivate
+      );
+      scrollUpDiv.current.addEventListener(
+        "mouseout",
+        postdivScrollUpDeactivate
+      );
+    }
+    return () => {
+      if (
+        postsDiv.current &&
+        scrollUpDiv.current &&
+        postsDiv.current &&
+        scrollDownDiv.current
+      ) {
+        scrollDownDiv.current.removeEventListener(
+          "mouseover",
+          postDivScrollDownActivate
+        );
+        scrollDownDiv.current.removeEventListener(
+          "mouseout",
+          postDivScrollDownDeactivate
+        );
+
+        scrollUpDiv.current.removeEventListener(
+          "mouseover",
+          postDivScrollUpActivate
+        );
+        scrollUpDiv.current.removeEventListener(
+          "mouseout",
+          postdivScrollUpDeactivate
+        );
+      }
+    };
+  });
+
   return (
     <div className="landingPage-posts-container">
       <div className="landingPage-posts-title">Community Wall</div>
@@ -101,7 +196,25 @@ function Posts(props) {
           Post
         </button>
       </div>
-      <div className="landingPage-posts-posts">{renderPosts}</div>
+      <div
+        className={"landingPage-posts-scrollUp blink cursor-pointer" + scroll}
+        ref={scrollUpDiv}
+      >
+        ︽
+      </div>
+      <div className="landingPage-posts-hideBar">
+        <div className="landingPage-posts-posts" ref={postsDiv}>
+          {renderPosts}
+        </div>
+      </div>
+      <div
+        className={
+          "landingPage-posts-scrollDown blink2 cursor-pointer" + scroll
+        }
+        ref={scrollDownDiv}
+      >
+        ︾
+      </div>
       <div className="landingPage-posts-borderLeft"></div>
       <div className="landingPage-posts-borderRight"></div>
     </div>

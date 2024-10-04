@@ -8,27 +8,42 @@
 }
 .landingPage-posts-form {
   margin-top: 5rem;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 .landingPage-posts-postBox {
-  width: 500px;
-  height: 80px;
+  width: 80%;
+  height: 50px;
   font-size: 1rem;
 }
 .landingPage-posts-form-btn {
   width: 4rem;
   margin: 1rem 0;
 }
+.landingPage-posts-hideBar {
+  overflow: hidden;
+  width: 100%;
+}
+.landingPage-posts-posts {
+  height: 26vh;
+  width: 100%;
+  overflow: auto;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .landingPage-posts-posts-post {
   display: flex;
   gap: 0.25rem;
   justify-content: center;
   flex-direction: column;
-  margin: 1rem 0;
+}
+.landingPage-posts-posts-post-postContent {
+  overflow-wrap: anywhere;
 }
 .landingPage-posts-posts-post-info {
   display: flex;
@@ -54,4 +69,41 @@
   border: solid;
   border-width: 1px;
   border-color: #84dcc6;
+}
+
+.landingPage-posts-scrollUp,
+.landingPage-posts-scrollDown {
+  color: rgb(102, 77, 190);
+}
+.landingPage-posts-scrollUp {
+  visibility: hidden;
+}
+.landingPage-posts-scrollUp.show {
+  visibility: visible;
+}
+
+.landingPage-posts-scrollDown {
+  visibility: hidden;
+}
+.landingPage-posts-scrollDown.show {
+  visibility: visible;
+}
+
+.blink {
+  animation: blink-animation 0.5s steps(5, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(2, start) infinite;
+}
+.blink2 {
+  animation: blink-animation 0.5s steps(2, start) infinite;
+  -webkit-animation: blink-animation 0.5s steps(2, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
