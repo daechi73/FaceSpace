@@ -14,7 +14,7 @@ const FriendsUtility = () => {
       body: JSON.stringify({ signedInUserId: signedInUser.id }),
     };
     fetch(
-      `http://localhost:3000/friendRequests/${friendReq.id}/delete`,
+      `https://facespace-backend.onrender.com/friendRequests/${friendReq.id}/delete`,
       options
     )
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const FriendsUtility = () => {
       }),
     };
     fetch(
-      `http://localhost:3000/users/${signedInUser._id}/update/addFriend`,
+      `https://facespace-backend.onrender.com/users/${signedInUser._id}/update/addFriend`,
       options
     )
       .then((res) => res.json())
@@ -50,7 +50,7 @@ const FriendsUtility = () => {
       body: JSON.stringify({ friendReq: friendReq }),
     };
     fetch(
-      `http://localhost:3000/users/${signedInUser._id}/update/declineFriendReq`,
+      `https://facespace-backend.onrender.com/users/${signedInUser._id}/update/declineFriendReq`,
       options
     )
       .then((res) => res.json())
