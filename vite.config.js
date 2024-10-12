@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    // uncomment below when deployingg
-    base: "/github-repo/",
-  plugins: [react()],
 
+  //uncomment for github deploy
+  //base:"/FaceSpace/",
+  plugins: [react()],
 })

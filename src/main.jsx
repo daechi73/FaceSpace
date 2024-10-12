@@ -9,11 +9,11 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "FaceSpace/",
     element: <App />,
   },
   {
-    path: "/:url",
+    path: "FaceSpace/:url",
     element: <App />,
   },
   // { path: "/sign_up", element: <SignUpPage /> },
