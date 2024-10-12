@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
 
   //uncomment for github deploy
-  //base:"/FaceSpace/",
+  base:"/FaceSpace/",
   plugins: [react()],
 })
