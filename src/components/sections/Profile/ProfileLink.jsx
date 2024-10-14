@@ -12,7 +12,7 @@ function ProfileLink(props) {
   };
   return (
     <div className="profileLink">
-      <Link className="cursor-pointer" to="/profile" onClick={handleLinkClick}>
+      <Link className="cursor-pointer" to="/FaceSpace/profile" onClick={handleLinkClick}>
         {props.linkText ? props.linkText : "Profile"}
       </Link>
     </div>

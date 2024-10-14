@@ -9,11 +9,20 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
+
+    //production path
     path: "FaceSpace/",
+
+    //development path
+    // path: "/",
     element: <App />,
   },
   {
+    //production path
     path: "FaceSpace/:url",
+
+    //development path
+    // path: "/:url",
     element: <App />,
   },
   // { path: "/sign_up", element: <SignUpPage /> },

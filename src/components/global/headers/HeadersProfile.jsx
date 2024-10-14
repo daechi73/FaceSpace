@@ -13,7 +13,7 @@ function Profile(props) {
         localStorage.removeItem("signedInUser");
         props.setChatbox(null);
         props.setChatUsers([]);
-        navigate("/");
+        navigate("/FaceSpace");
       });
   };
 

@@ -55,7 +55,7 @@ function SignUpPage() {
       .then((res) => {
         console.log(res);
         if (res.status === "success") {
-          navigate("/");
+          navigate("/FaceSpace");
         } else {
           setErrorMsgs(res.errors);
         }
@@ -72,7 +72,7 @@ function SignUpPage() {
   return (
     <div className="signUpPage">
       <div className="signUpPage-backBtn">
-        <Link to="/">Back</Link>
+        <Link to="/FaceSpace/">Back</Link>
       </div>
       <div className="signUpPage-title">Sign Up</div>
       <div className="signUpPage-form">
