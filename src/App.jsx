@@ -81,7 +81,7 @@ function App() {
               setChatbox={setChatbox}
             />
           ) : (
-            navigate("/FaceSpace/home")
+            navigate("/home")
           )}
         </>
       ) : (

@@ -36,7 +36,7 @@ function SignInPage(props) {
           props.setSignedInUser(res.user);
           localStorage.removeItem("signedInUser");
           localStorage.setItem("signedInUser", res.user._id);
-          navigate("/FaceSpace/home");
+          navigate("/home");
         } else {
           setErrorMsg(res);
         }
@@ -82,7 +82,7 @@ function SignInPage(props) {
         </button>
       </div>
       <div className="signUpLink">
-        <Link to="/FaceSpace/sign_up">Sign Up</Link>
+        <Link to="/sign_up">Sign Up</Link>
       </div>
       <div className="signInPage-errorMsgs errorMsgs">
         <div className="signInPage-errorMsg errorMsg">{errorMsg}</div>
