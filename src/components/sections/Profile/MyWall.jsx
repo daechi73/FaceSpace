@@ -24,7 +24,7 @@ function MyWall(props) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/profileWalls/${props.userProfile.profileWall._id}`
+      `https://facespace-backend.onrender.com/profileWalls/${props.userProfile.profileWall._id}`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -179,7 +179,7 @@ function MyWall(props) {
         user: props.signedInUser,
       }),
     };
-    fetch(`http://localhost:3000/posts/postProfileWall`, options)
+    fetch(`https://facespace-backend.onrender.com/posts/postProfileWall`, options)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
