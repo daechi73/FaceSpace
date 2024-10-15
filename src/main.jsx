@@ -9,28 +9,11 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-<<<<<<< HEAD
-
-    //production path
-    path: "/FaceSpace/",
-
-    //development path
-    // path: "/",
+    path: "/",
     element: <App />,
   },
   {
-    //production path
-    path: "/FaceSpace/:url",
-
-    //development path
-    // path: "/:url",
-=======
-    path: "FaceSpace/",
-    element: <App />,
-  },
-  {
-    path: "FaceSpace/:url",
->>>>>>> parent of 3676644 (production mode)
+    path: "/:url",
     element: <App />,
   },
   // { path: "/sign_up", element: <SignUpPage /> },
