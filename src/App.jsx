@@ -23,9 +23,18 @@ function App() {
   useEffect(() => {
     if (!signedInUser && localStorage.getItem("signedInUser")) {
       console.log("here in app useEffect in App");
-
+      const options = {
+        mode: "cors",
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Cache: "no-cache",
+        },
+        credentials: "same-origin",
+      };
       fetch(
-        `https://facespace-backend.onrender.com/users/${localStorage.getItem("signedInUser")}`
+        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
       )
         .then((res) => res.json())
         .then((res) => {

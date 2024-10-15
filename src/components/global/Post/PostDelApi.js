@@ -6,7 +6,7 @@ const PostDelAPI = async (e, signedInUser) => {
     body: JSON.stringify({ signedInUserId: signedInUser.id }),
   };
   const pass = await fetch(
-    `https://facespace-backend.onrender.com/posts/${e.target.id}/delete`,
+    `http://localhost:3000/posts/${e.target.id}/delete`,
     options
   )
     .then((res) => res.json())

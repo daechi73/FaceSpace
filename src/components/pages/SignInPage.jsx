@@ -19,14 +19,14 @@ function SignInPage(props) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "https://facespace-backend.onrender.com/",
+        "Access-Control-Allow-Origin": "http://localhost:3000/",
       },
       body: JSON.stringify({
         username: username,
         password: password,
       }),
     };
-    fetch("https://facespace-backend.onrender.com/users/sign_in", options)
+    fetch("http://localhost:3000/users/sign_in", options)
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "success") {
