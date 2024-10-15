@@ -11,7 +11,7 @@ const router = createBrowserRouter([
   {
 
     //production path
-    path: "FaceSpace/",
+    path: "/FaceSpace/",
 
     //development path
     // path: "/",
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     //production path
-    path: "FaceSpace/:url",
+    path: "/FaceSpace/:url",
 
     //development path
     // path: "/:url",
