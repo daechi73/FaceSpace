@@ -220,8 +220,6 @@ Social Media where people meet in simplicity.
                         - [ ]  414×896    (5.55%)
                         - [ ] 393×873     (5.26)
                         - [ ] 412×915      (5%)
-
-
 			- [ ] fix error: exclamation for new chats
 				- when there are more than one new chats, only the first one on the list is targeted to be removed after opening any of the chats.
 			- [ ] refactor to follow SOLID- make a list and go down one by one
