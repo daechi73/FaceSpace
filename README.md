@@ -353,9 +353,11 @@ gnome-terminal --tab
               },
           ],
       })
-```
-	- array for multiple, non-array for single
-- to convert objectId to string, use id (without underscore).
+    ```
+    - array for multiple, non-array for single
+
+- To convert objectId to string, use id (without underscore).
+
 - ### Socket.io 
 	- [online basic tut for reactjs and expressjs](https://medium.com/@matheshyogeswaran/building-real-time-applications-with-socket-io-adc86da2f9f1)
 	- [emit cheat sheet](https://socket.io/docs/v3/emit-cheatsheet/)
