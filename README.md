@@ -206,6 +206,21 @@ Social Media where people meet in simplicity.
 
 		
 		- Future:
+            - [ ] style:
+                - [ ] responsive website
+                    - [ ] desktop:
+                        - [ ] 1920×1080   (22.18%)
+                        - [ ] 1366×768      (14.04%)
+                        - [ ] 1440×900      (6.41%)
+                        - [ ] 1280×720       (5.45%)
+                        - [ ]1280×1024    (4.52%)
+                    - [ ] mobile:
+                        - [ ] 360×800   (11.01%)
+                        - [ ]  390×844   (7.92%
+                        - [ ]  414×896    (5.55%)
+                        - [ ] 393×873     (5.26)
+                        - [ ] 412×915      (5%)
+
 
 			- [ ] fix error: exclamation for new chats
 				- when there are more than one new chats, only the first one on the list is targeted to be removed after opening any of the chats.
