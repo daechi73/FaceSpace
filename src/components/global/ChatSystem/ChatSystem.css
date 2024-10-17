@@ -10,18 +10,19 @@
 }
 .chatSystem-users {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   gap: 0.2rem;
-  max-height: 23rem;
+  height: 23rem;
   overflow-y: scroll;
-  direction: rtl;
+  margin-top: 2rem;
+  /* direction: rtl; */
 }
 .chatSystem-user {
   display: flex;
   gap: 1rem;
-  direction: ltr;
+  /* direction: ltr; */
 }
 .chatSystem-user-newMessage {
   color: yellow;
