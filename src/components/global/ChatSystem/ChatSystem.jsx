@@ -21,13 +21,16 @@ function ChatSystem(props) {
           .classList.remove("newMessages");
       }
 
-      if (document.querySelector(`.chatSystem-user-newMessage`)) {
+      if (
+        document.querySelector(`.chatSystem-${e.user.user_name}-newMessages`)
+      ) {
         if (
-          document.querySelector(`.chatSystem-user-newMessage`).style
-            .display === ""
+          document.querySelector(`.chatSystem-${e.user.user_name}-newMessages`)
+            .style.display === ""
         ) {
-          document.querySelector(`.chatSystem-user-newMessage`).style.display =
-            "none";
+          document.querySelector(
+            `.chatSystem-${e.user.user_name}-newMessages`
+          ).style.display = "none";
         }
       }
     };
@@ -39,7 +42,14 @@ function ChatSystem(props) {
         onClick={handleUserClick}
       >
         <div className="chatSystem-user-username">{e.user.user_name}</div>
-        <div className="chatSystem-user-newMessage">！</div>
+        <div
+          className={
+            "chatSystem-user-newMessage" +
+            ` chatSystem-${e.user.user_name}-newMessages`
+          }
+        >
+          ！
+        </div>
       </div>
     ) : (
       <div
