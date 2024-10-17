@@ -25,7 +25,7 @@ function App() {
       console.log("here in app useEffect in App");
 
       fetch(
-        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
+        `https://facespace-backend.onrender.com/users/${localStorage.getItem("signedInUser")}`
       )
         .then((res) => res.json())
         .then((res) => {

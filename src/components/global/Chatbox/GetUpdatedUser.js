@@ -1,6 +1,6 @@
 const GetUpdatedUser = (signedInUserId) => {
   let response;
-  return fetch(`http://localhost:3000/users/${signedInUserId}`)
+  return fetch(`https://facespace-backend.onrender.com/users/${signedInUserId}`)
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
