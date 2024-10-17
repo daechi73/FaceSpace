@@ -4,9 +4,11 @@
   gap: 0.5rem;
 }
 .people {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1rem; */
+  display: grid;
+  grid-template-rows: 1fr 1fr;
 }
 .people-friends-container {
   display: flex;
@@ -21,3 +23,39 @@
   border-left: solid;
   border-width: 1px;
 } */
+
+.renderFriends-friends-friends::-webkit-scrollbar {
+  width: 5px;
+}
+.renderFriends-friends-friends::-webkit-scrollbar-track {
+  background: transparent;
+}
+.renderFriends-friends-friends::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.renderUsers-users::-webkit-scrollbar {
+  width: 5px;
+}
+.renderUsers-users::-webkit-scrollbar-track {
+  background: transparent;
+}
+.renderUsers-users::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
+
+.renderFriendReqs::-webkit-scrollbar {
+  width: 5px;
+}
+.renderFriendReqs::-webkit-scrollbar-track {
+  background: transparent;
+}
+.renderFriendReqs::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}

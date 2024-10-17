@@ -1,3 +1,10 @@
+.renderUsers-users-container {
+  max-height: 14rem;
+}
+.renderUsers-users {
+  overflow-y: scroll;
+  max-height: 9.5rem;
+}
 .renderUsers-user {
   display: flex;
   justify-content: center;

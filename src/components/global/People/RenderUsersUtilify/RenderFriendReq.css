@@ -12,3 +12,7 @@
 .renderFriendReq-friendReq-request-declineBtn {
   color: rgb(161, 22, 22);
 }
+.renderFriendReqs {
+  overflow-y: scroll;
+  height: 4rem;
+}

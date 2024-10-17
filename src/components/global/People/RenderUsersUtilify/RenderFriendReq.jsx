@@ -94,27 +94,34 @@ function RenderFriendReq(props) {
       >
         Friend Request
       </div>
-      {!friendReq ? (
-        <div
-          className={
-            props.className +
-            "-people-friends-friendReq-noFriendReq" +
-            " renderFriendReq-noFriendReq"
-          }
-        >
-          "You have no Friend Request"
-        </div>
-      ) : (
-        <div
-          className={
-            props.className +
-            "-people-friends-friendReqs" +
-            " renderFriendReq-friendReqs"
-          }
-        >
-          {renderFriendReq}
-        </div>
-      )}
+
+      <div
+        className={
+          props.className + "-people-friends-friendReqs" + " renderFriendReqs"
+        }
+      >
+        {!friendReq ? (
+          <div
+            className={
+              props.className +
+              "-people-friends-friendReq-noFriendReq" +
+              " renderFriendReq-noFriendReq"
+            }
+          >
+            "You have no Friend Request"
+          </div>
+        ) : (
+          <div
+            className={
+              props.className +
+              "-people-friends-friendReqs" +
+              " renderFriendReq-friendReqs"
+            }
+          >
+            {renderFriendReq}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

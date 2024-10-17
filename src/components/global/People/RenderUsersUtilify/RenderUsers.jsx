@@ -154,7 +154,7 @@ function RenderUsers(props) {
   });
 
   return (
-    <div className={props.className + "-people-users" + " renderUsers-users"}>
+    <div className={props.className + "-people-users-container" + " renderUsers-users-container"}>
       <div
         className={
           props.className + "-people-users-title" + " renderUsers-users-title"
@@ -162,7 +162,9 @@ function RenderUsers(props) {
       >
         Users
       </div>
+      <div className={props.className + "-people-users" + " renderUsers-users"}>
       {renderUsers}
+      </div>
     </div>
   );
 }

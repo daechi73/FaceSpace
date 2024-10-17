@@ -1,3 +1,7 @@
 .renderFriends-friends-title {
   font-size: 1.5rem;
 }
+.renderFriends-friends-friends {
+  overflow-y: scroll;
+  max-height: 6.3rem;
+}
