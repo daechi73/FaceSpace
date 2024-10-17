@@ -8,25 +8,21 @@
 .chatSystem .newMessages {
   font-weight: bold;
 }
-.chatSystem-user {
-  display: flex;
-  gap: 1rem;
-}
-.chatSystem-user-newMessage {
-  color: yellow;
-}
 .chatSystem-users {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  gap: 0.2rem;
+  max-height: 23rem;
+  overflow-y: scroll;
+  direction: rtl;
 }
-/* .chatSystem-borderRight {
-  position: absolute;
-  border-right: solid;
-  border-width: 1px;
-  right: 0;
-  top: 0;
-
-  height: 100%;
-} */
+.chatSystem-user {
+  display: flex;
+  gap: 1rem;
+  direction: ltr;
+}
+.chatSystem-user-newMessage {
+  color: yellow;
+}

@@ -65,8 +65,25 @@ function ChatSystem(props) {
   return (
     <div className="chatSystem">
       <div className="chatSystem-title">Chat</div>
-      <div className="chatSystem-users">{renderUsers}</div>
-      <div className="chatSystem-borderRight"></div>
+      <div className="chatSystem-users">
+        {renderUsers}
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>v
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>v
+        <div className="chatSystem-user-username">jjaa</div>v
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+        <div className="chatSystem-user-username">jjaa</div>
+      </div>
     </div>
   );
 }
