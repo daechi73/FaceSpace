@@ -23,18 +23,17 @@
   width: 4rem;
   margin: 1rem 0;
 }
-.landingPage-posts-hideBar {
-  overflow: hidden;
-  width: 100%;
-}
 .landingPage-posts-posts {
   height: 26vh;
   width: 100%;
   overflow: auto;
-  padding-right: 15px;
+  scrollbar-width: none;
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+.landingPage-posts-posts::-webkit-scrollbar {
+  width: 0px;
 }
 .landingPage-posts-posts-post {
   display: flex;

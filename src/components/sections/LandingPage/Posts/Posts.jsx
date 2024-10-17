@@ -202,10 +202,8 @@ function Posts(props) {
       >
         ︽
       </div>
-      <div className="landingPage-posts-hideBar">
-        <div className="landingPage-posts-posts" ref={postsDiv}>
-          {renderPosts}
-        </div>
+      <div className="landingPage-posts-posts" ref={postsDiv}>
+        {renderPosts}
       </div>
       <div
         className={
