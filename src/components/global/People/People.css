@@ -13,7 +13,6 @@
 .people-friends-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 /* .people-borderLeft {
   position: absolute;
