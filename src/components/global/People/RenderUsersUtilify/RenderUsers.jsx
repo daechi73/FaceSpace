@@ -15,7 +15,7 @@ function RenderUsers(props) {
         body: JSON.stringify({ toAddUserId: e._id }),
       };
       fetch(
-        `http://localhost:3000/users/${props.user._id}/update/addFriendReq`,
+        `https://facespace-backend.onrender.com/users/${props.user._id}/update/addFriendReq`,
         options
       )
         .then((res) => res.json())

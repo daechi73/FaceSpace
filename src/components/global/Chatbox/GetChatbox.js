@@ -1,6 +1,6 @@
 const GetChatbox = async (chatUsers) => {
   fetch(
-    `http://localhost:3000/users/getChatbox/${chatUsers[0]}/${chatUsers[1]}`
+    `https://facespace-backend.onrender.com/users/getChatbox/${chatUsers[0]}/${chatUsers[1]}`
   )
     .then((res) => res.json())
     .then((res) => {
