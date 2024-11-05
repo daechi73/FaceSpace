@@ -25,7 +25,9 @@ function App() {
       console.log("here in app useEffect in App");
 
       fetch(
-        `https://facespace-backend.onrender.com/users/${localStorage.getItem("signedInUser")}`
+        `https://facespace-backend.netlify.app/api/users/${localStorage.getItem(
+          "signedInUser"
+        )}`
       )
         .then((res) => res.json())
         .then((res) => {
@@ -41,7 +43,7 @@ function App() {
   });
   console.log("here in app");
   // console.log(signedInUser);
-  console.log(url)
+  console.log(url);
   return (
     <>
       {signedInUser ? (

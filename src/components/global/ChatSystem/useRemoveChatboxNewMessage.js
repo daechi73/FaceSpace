@@ -12,7 +12,7 @@ const useRemoveChatboxNewMessage = (props) => {
         body: JSON.stringify({ empty_message: "" }),
       };
       fetch(
-        `https://facespace-backend.onrender.com/chatboxes/${props.chatboxId}/update/new_message`,
+        `https://facespace-backend.netlify.app/api/chatboxes/${props.chatboxId}/update/new_message`,
         options
       )
         .then((res) => res.json())

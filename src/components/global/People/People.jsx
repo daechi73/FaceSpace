@@ -46,7 +46,10 @@ function People(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user: props.signedInUser }),
     };
-    fetch("https://facespace-backend.onrender.com/users/other_users", options)
+    fetch(
+      "https://facespace-backend.netlify.app/api/users/other_users",
+      options
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log("in people useEffect");

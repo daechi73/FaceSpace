@@ -14,7 +14,9 @@ function Profile(props) {
   const [myShow, setMyShow] = useState("myWall");
 
   useEffect(() => {
-    fetch(`https://facespace-backend.onrender.com/users/username/${props.userProfile}`)
+    fetch(
+      `https://facespace-backend.netlify.app/api/users/username/${props.userProfile}`
+    )
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -40,7 +42,7 @@ function Profile(props) {
       }),
     };
     fetch(
-      `https://facespace-backend.onrender.com/users/${props.user._id}/update/addFriendReq`,
+      `https://facespace-backend.netlify.app/api/users/${props.user._id}/update/addFriendReq`,
       options
     )
       .then((res) => res.json())

@@ -8,7 +8,7 @@ const AddChatboxToUser = async (chatbox, signedInUser) => {
     body: JSON.stringify({ chatbox: chatbox }),
   };
   return fetch(
-    `https://facespace-backend.onrender.com/users/${signedInUser}/update/addChatbox`,
+    `https://facespace-backend.netlify.app/api/users/${signedInUser}/update/addChatbox`,
     options
   )
     .then((res) => res.json())

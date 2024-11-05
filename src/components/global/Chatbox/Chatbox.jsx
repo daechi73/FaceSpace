@@ -28,7 +28,7 @@ function Chatbox(props) {
     // });
 
     fetch(
-      `https://facespace-backend.onrender.com/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
+      `https://facespace-backend.netlify.app/api/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
     )
       .then((res) => res.json())
       .then((res) => {

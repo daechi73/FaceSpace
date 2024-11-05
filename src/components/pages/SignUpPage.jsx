@@ -50,7 +50,7 @@ function SignUpPage() {
         bio: bio,
       }),
     };
-    fetch("https://facespace-backend.onrender.com/users/sign_up", options)
+    fetch("https://facespace-backend.netlify.app/api/users/sign_up", options)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

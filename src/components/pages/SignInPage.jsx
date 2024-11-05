@@ -19,14 +19,15 @@ function SignInPage(props) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "https://facespace-backend.onrender.com/",
+        "Access-Control-Allow-Origin":
+          "https://facespace-backend.netlify.app/api/",
       },
       body: JSON.stringify({
         username: username,
         password: password,
       }),
     };
-    fetch("https://facespace-backend.onrender.com/users/sign_in", options)
+    fetch("https://facespace-backend.netlify.app/api/users/sign_in", options)
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "success") {

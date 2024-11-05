@@ -5,7 +5,7 @@ const userGetChatUsers = (signedInUserId, resetChatSystem) => {
   let chatboxes;
 
   useEffect(() => {
-    fetch(`https://facespace-backend.onrender.com/users/${signedInUserId}`)
+    fetch(`https://facespace-backend.netlify.app/api/users/${signedInUserId}`)
       .then((res) => res.json())
       .then((res) => {
         chatboxes = res.user.chatbox;

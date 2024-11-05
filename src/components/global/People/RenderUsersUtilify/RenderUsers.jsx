@@ -15,7 +15,7 @@ function RenderUsers(props) {
         body: JSON.stringify({ toAddUserId: e._id }),
       };
       fetch(
-        `https://facespace-backend.onrender.com/users/${props.user._id}/update/addFriendReq`,
+        `https://facespace-backend.netlify.app/api/users/${props.user._id}/update/addFriendReq`,
         options
       )
         .then((res) => res.json())
@@ -154,7 +154,13 @@ function RenderUsers(props) {
   });
 
   return (
-    <div className={props.className + "-people-users-container" + " renderUsers-users-container"}>
+    <div
+      className={
+        props.className +
+        "-people-users-container" +
+        " renderUsers-users-container"
+      }
+    >
       <div
         className={
           props.className + "-people-users-title" + " renderUsers-users-title"
@@ -163,7 +169,7 @@ function RenderUsers(props) {
         Users
       </div>
       <div className={props.className + "-people-users" + " renderUsers-users"}>
-      {renderUsers}
+        {renderUsers}
       </div>
     </div>
   );

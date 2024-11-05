@@ -6,7 +6,7 @@ const ProfilePostDel = async (e, profileWall, setProfileWall) => {
     body: JSON.stringify({ postid: e.target.id, profileWall: profileWall }),
   };
   const profilePostAPI = fetch(
-    `https://facespace-backend.onrender.com/profileWalls/${profileWall._id}/delete`,
+    `https://facespace-backend.netlify.app/api/profileWalls/${profileWall._id}/delete`,
     options
   )
     .then((res) => res.json())
