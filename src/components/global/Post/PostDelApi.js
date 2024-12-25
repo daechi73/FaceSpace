@@ -6,7 +6,7 @@ const PostDelAPI = async (e, signedInUser) => {
     body: JSON.stringify({ signedInUserId: signedInUser.id }),
   };
   const pass = await fetch(
-    `http://localhost:3000/posts/${e.target.id}/delete`,
+    `${import.meta.env.VITE_API}posts/${e.target.id}/delete`,
     options
   )
     .then((res) => res.json())

@@ -6,7 +6,7 @@ const ProfilePostDel = async (e, profileWall, setProfileWall) => {
     body: JSON.stringify({ postid: e.target.id, profileWall: profileWall }),
   };
   const profilePostAPI = fetch(
-    `http://localhost:3000/profileWalls/${profileWall._id}/delete`,
+    `${import.meta.env.VITE_API}profileWalls/${profileWall._id}/delete`,
     options
   )
     .then((res) => res.json())

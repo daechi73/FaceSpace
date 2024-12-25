@@ -50,7 +50,7 @@ function SignUpPage() {
         bio: bio,
       }),
     };
-    fetch("http://localhost:3000/users/sign_up", options)
+    fetch(`${import.meta.env.VITE_API}users/sign_up`, options)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

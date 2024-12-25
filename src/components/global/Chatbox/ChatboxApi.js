@@ -7,7 +7,7 @@ const ChatboxApi = async (message) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),
   };
-  return fetch("http://localhost:3000/chatboxes/add_messages", options)
+  return fetch(`${import.meta.env.VITE_API}chatboxes/add_messages`, options)
     .then((res) => res.json())
     .then((res) => {
       return (response = res);

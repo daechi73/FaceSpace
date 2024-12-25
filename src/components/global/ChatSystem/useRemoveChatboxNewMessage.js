@@ -12,7 +12,9 @@ const useRemoveChatboxNewMessage = (props) => {
         body: JSON.stringify({ empty_message: "" }),
       };
       fetch(
-        `http://localhost:3000/chatboxes/${props.chatboxId}/update/new_message`,
+        `${import.meta.env.VITE_API}chatboxes/${
+          props.chatboxId
+        }/update/new_message`,
         options
       )
         .then((res) => res.json())

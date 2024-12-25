@@ -14,7 +14,7 @@ function Posts(props) {
   const scrollDownDiv = useRef();
 
   useEffect(() => {
-    fetch("http://localhost:3000/posts", { mode: "cors" })
+    fetch(`${import.meta.env.VITE_API}posts`, { mode: "cors" })
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "failed") {
@@ -36,7 +36,7 @@ function Posts(props) {
         post: post,
       }),
     };
-    fetch("http://localhost:3000/posts/postMain", options)
+    fetch(`${import.meta.env.VITE_API}posts/postMain`, options)
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "success") {

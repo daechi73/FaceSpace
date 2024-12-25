@@ -6,7 +6,7 @@ import ProfileLink from "../../sections/Profile/ProfileLink";
 function Profile(props) {
   const navigate = useNavigate();
   const handleSignOutBtn = () => {
-    fetch("http://localhost:3000/users/sign_out", {
+    fetch(`${import.meta.env.VITE_API}users/sign_out`, {
       mode: "cors",
       credentials: "include",
     })

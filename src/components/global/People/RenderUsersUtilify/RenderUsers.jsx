@@ -15,7 +15,9 @@ function RenderUsers(props) {
         body: JSON.stringify({ toAddUserId: e._id }),
       };
       fetch(
-        `http://localhost:3000/users/${props.user._id}/update/addFriendReq`,
+        `${import.meta.env.VITE_API}users/${
+          props.user._id
+        }/update/addFriendReq`,
         options
       )
         .then((res) => res.json())

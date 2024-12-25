@@ -24,7 +24,9 @@ function MyWall(props) {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/profileWalls/${props.userProfile.profileWall._id}`
+      `${import.meta.env.VITE_API}profileWalls/${
+        props.userProfile.profileWall._id
+      }`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -179,7 +181,7 @@ function MyWall(props) {
         user: props.signedInUser,
       }),
     };
-    fetch(`http://localhost:3000/posts/postProfileWall`, options)
+    fetch(`${import.meta.env.VITE_API}posts/postProfileWall`, options)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);

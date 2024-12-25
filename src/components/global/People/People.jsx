@@ -46,7 +46,7 @@ function People(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user: props.signedInUser }),
     };
-    fetch("http://localhost:3000/users/other_users", options)
+    fetch(`${import.meta.env.VITE_API}users/other_users`, options)
       .then((res) => res.json())
       .then((res) => {
         console.log("in people useEffect");

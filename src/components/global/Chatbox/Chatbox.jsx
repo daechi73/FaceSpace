@@ -28,7 +28,9 @@ function Chatbox(props) {
     // });
 
     fetch(
-      `http://localhost:3000/users/getChatbox/${props.chatUsers[0]}/${props.chatUsers[1]}`
+      `${import.meta.env.VITE_API}users/getChatbox/${props.chatUsers[0]}/${
+        props.chatUsers[1]
+      }`
     )
       .then((res) => res.json())
       .then((res) => {

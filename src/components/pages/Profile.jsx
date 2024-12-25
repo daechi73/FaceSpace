@@ -14,7 +14,7 @@ function Profile(props) {
   const [myShow, setMyShow] = useState("myWall");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users/username/${props.userProfile}`)
+    fetch(`${import.meta.env.VITE_API}users/username/${props.userProfile}`)
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
@@ -40,7 +40,7 @@ function Profile(props) {
       }),
     };
     fetch(
-      `http://localhost:3000/users/${props.user._id}/update/addFriendReq`,
+      `${import.meta.env.VITE_API}users/${props.user._id}/update/addFriendReq`,
       options
     )
       .then((res) => res.json())

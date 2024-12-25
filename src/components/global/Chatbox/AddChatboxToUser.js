@@ -8,7 +8,7 @@ const AddChatboxToUser = async (chatbox, signedInUser) => {
     body: JSON.stringify({ chatbox: chatbox }),
   };
   return fetch(
-    `http://localhost:3000/users/${signedInUser}/update/addChatbox`,
+    `${import.meta.env.VITE_API}users/${signedInUser}/update/addChatbox`,
     options
   )
     .then((res) => res.json())

@@ -14,7 +14,7 @@ const FriendsUtility = () => {
       body: JSON.stringify({ signedInUserId: signedInUser.id }),
     };
     fetch(
-      `http://localhost:3000/friendRequests/${friendReq.id}/delete`,
+      `${import.meta.env.VITE_API}friendRequests/${friendReq.id}/delete`,
       options
     )
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const FriendsUtility = () => {
       }),
     };
     fetch(
-      `http://localhost:3000/users/${signedInUser._id}/update/addFriend`,
+      `${import.meta.env.VITE_API}users/${signedInUser._id}/update/addFriend`,
       options
     )
       .then((res) => res.json())
@@ -50,7 +50,9 @@ const FriendsUtility = () => {
       body: JSON.stringify({ friendReq: friendReq }),
     };
     fetch(
-      `http://localhost:3000/users/${signedInUser._id}/update/declineFriendReq`,
+      `${import.meta.env.VITE_API}users/${
+        signedInUser._id
+      }/update/declineFriendReq`,
       options
     )
       .then((res) => res.json())

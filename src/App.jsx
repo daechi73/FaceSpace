@@ -25,7 +25,7 @@ function App() {
     //   console.log("here in app useEffect in App");
 
     //   fetch(
-    //     `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
+    //     `${import.meta.env.VITE_API}users/${localStorage.getItem("signedInUser")}`
     //   )
     //     .then((res) => res.json())
     //     .then((res) => {
@@ -38,7 +38,7 @@ function App() {
         mode: "cors",
         credentials: "include",
       };
-      fetch(`http://localhost:3000/users/resignIn`, options)
+      fetch(`${import.meta.env.VITE_API}users/resignIn`, options)
         .then((res) => res.json())
         .then((res) => {
           console.log(res.status);
