@@ -16,6 +16,9 @@ function SignInPage(props) {
       mode: "cors",
       method: "POST",
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         username: username,
         password: password,
