@@ -6,10 +6,7 @@ const MessageApi = async (req) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(req),
   };
-  return fetch(
-    "https://facespace-backend.netlify.app/api/messages/create",
-    options
-  )
+  return fetch("http://localhost:3000/messages/create", options)
     .then((res) => res.json())
     .then((res) => {
       if (res.status === "success") {

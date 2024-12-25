@@ -7,10 +7,7 @@ const ChatboxApi = async (message) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message: message }),
   };
-  return fetch(
-    "https://facespace-backend.netlify.app/api/chatboxes/add_messages",
-    options
-  )
+  return fetch("http://localhost:3000/chatboxes/add_messages", options)
     .then((res) => res.json())
     .then((res) => {
       return (response = res);

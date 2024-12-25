@@ -14,7 +14,7 @@ function Posts(props) {
   const scrollDownDiv = useRef();
 
   useEffect(() => {
-    fetch("https://facespace-backend.netlify.app/api/posts", { mode: "cors" })
+    fetch("http://localhost:3000/posts", { mode: "cors" })
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "failed") {
@@ -36,7 +36,7 @@ function Posts(props) {
         post: post,
       }),
     };
-    fetch("https://facespace-backend.netlify.app/api/posts/postMain", options)
+    fetch("http://localhost:3000/posts/postMain", options)
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "success") {

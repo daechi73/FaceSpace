@@ -13,9 +13,7 @@ function MyPosts(props) {
   const scrollDownDiv = useRef();
 
   useEffect(() => {
-    fetch(
-      `https://facespace-backend.netlify.app/api/posts/${props.posted_userId}/userPosts`
-    )
+    fetch(`http://localhost:3000/posts/${props.posted_userId}/userPosts`)
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "Success") {

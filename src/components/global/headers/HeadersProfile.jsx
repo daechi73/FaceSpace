@@ -6,8 +6,9 @@ import ProfileLink from "../../sections/Profile/ProfileLink";
 function Profile(props) {
   const navigate = useNavigate();
   const handleSignOutBtn = () => {
-    fetch("https://facespace-backend.netlify.app/api/users/sign_out", {
+    fetch("http://localhost:3000/users/sign_out", {
       mode: "cors",
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((res) => {

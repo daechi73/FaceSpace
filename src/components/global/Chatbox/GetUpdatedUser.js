@@ -1,8 +1,6 @@
 const GetUpdatedUser = (signedInUserId) => {
   let response;
-  return fetch(
-    `https://facespace-backend.netlify.app/api/users/${signedInUserId}`
-  )
+  return fetch(`http://localhost:3000/users/${signedInUserId}`)
     .then((res) => res.json())
     .then((res) => {
       console.log(res);

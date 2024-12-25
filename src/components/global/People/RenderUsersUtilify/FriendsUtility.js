@@ -14,7 +14,7 @@ const FriendsUtility = () => {
       body: JSON.stringify({ signedInUserId: signedInUser.id }),
     };
     fetch(
-      `https://facespace-backend.netlify.app/api/friendRequests/${friendReq.id}/delete`,
+      `http://localhost:3000/friendRequests/${friendReq.id}/delete`,
       options
     )
       .then((res) => res.json())
@@ -30,7 +30,7 @@ const FriendsUtility = () => {
       }),
     };
     fetch(
-      `https://facespace-backend.netlify.app/api/users/${signedInUser._id}/update/addFriend`,
+      `http://localhost:3000/users/${signedInUser._id}/update/addFriend`,
       options
     )
       .then((res) => res.json())
@@ -50,7 +50,7 @@ const FriendsUtility = () => {
       body: JSON.stringify({ friendReq: friendReq }),
     };
     fetch(
-      `https://facespace-backend.netlify.app/api/users/${signedInUser._id}/update/declineFriendReq`,
+      `http://localhost:3000/users/${signedInUser._id}/update/declineFriendReq`,
       options
     )
       .then((res) => res.json())
