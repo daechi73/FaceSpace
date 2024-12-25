@@ -6,7 +6,10 @@ import ProfileLink from "../../sections/Profile/ProfileLink";
 function Profile(props) {
   const navigate = useNavigate();
   const handleSignOutBtn = () => {
-    fetch("http://localhost:3000/users/sign_out", { mode: "cors" })
+    fetch("http://localhost:3000/users/sign_out", {
+      mode: "cors",
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((res) => {
         props.setSignedInUser(res.user);

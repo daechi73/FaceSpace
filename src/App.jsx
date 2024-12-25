@@ -21,17 +21,34 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // if (!signedInUser && localStorage.getItem("signedInUser")) {
+    //   console.log("here in app useEffect in App");
+
+    //   fetch(
+    //     `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((res) => {
+    //       setSignedInUser(res.user);
+    //     });
+    // }
     if (!signedInUser && localStorage.getItem("signedInUser")) {
       console.log("here in app useEffect in App");
-
-      fetch(
-        `http://localhost:3000/users/${localStorage.getItem("signedInUser")}`
-      )
+      const options = {
+        mode: "cors",
+        credentials: "include",
+      };
+      fetch(`http://localhost:3000/users/resignIn`, options)
         .then((res) => res.json())
         .then((res) => {
-          setSignedInUser(res.user);
+          console.log(res.status);
+          if (res.status === "success") {
+            console.log("In deeper");
+            setSignedInUser(res.user);
+          }
         });
     }
+
     if (localStorage.getItem("userProfile")) {
       setUserProfile(localStorage.getItem("userProfile"));
     }
@@ -41,7 +58,7 @@ function App() {
   });
   console.log("here in app");
   // console.log(signedInUser);
-  console.log(url)
+  console.log(url);
   return (
     <>
       {signedInUser ? (
