@@ -20,3 +20,10 @@
   grid-column: 3/4;
   grid-row: 2/5;
 }
+
+@media (max-width: 450px) {
+  .landingPage {
+    display: flex;
+    flex-direction: column;
+  }
+}
