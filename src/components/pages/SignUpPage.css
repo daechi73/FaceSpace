@@ -8,6 +8,9 @@
   align-self: flex-start;
   padding: 3rem;
 }
+.signUpPage-backBtn a:hover {
+  color: cadetblue;
+}
 .signUpPage-title {
   font-size: 3rem;
   margin: 1rem 0;
