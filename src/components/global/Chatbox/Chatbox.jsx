@@ -36,10 +36,6 @@ function Chatbox(props) {
           //console.log(res.chatbox.messages[res.chatbox.messages.length - 1]);
         } else setMsgs([]);
       });
-
-    return () => {
-      socketInstant.disconnect();
-    };
   }, [props.chatbox]);
 
   useEffect(() => {
