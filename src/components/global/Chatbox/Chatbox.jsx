@@ -4,29 +4,18 @@ import "./Chatbox.css";
 import MessageApi from "./MessageApi";
 import ChatboxApi from "./ChatboxApi";
 import AddChatboxToUser from "./AddChatboxToUser";
-import GetUpdatedUser from "./GetUpdatedUser";
-import io from "socket.io-client";
 import useRemoveChatboxNewMessage from "../ChatSystem/useRemoveChatboxNewMessage";
 
 function Chatbox(props) {
+  console.log("here in chatbox");
+
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const [chatboxId, setChatboxId] = useState(null);
-  const [socket, setSocket] = useState(null);
+
   let displayRef = useRef(null);
 
-  console.log("here in chatbox");
   useEffect(() => {
-    const socketInstant = io.connect("http://localhost:3000");
-    setSocket(socketInstant);
-    socketInstant.on("connect", () => {
-      console.log(`connected to server socket ${socketInstant.id}`);
-      console.log(socketInstant);
-    });
-    socketInstant.on("testing", (data) => {
-      alert(data);
-    });
-
     fetch(
       `${import.meta.env.VITE_API}users/getChatbox/${props.chatUsers[0]}/${
         props.chatUsers[1]
