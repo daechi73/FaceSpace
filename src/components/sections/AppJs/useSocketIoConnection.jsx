@@ -6,14 +6,17 @@ function useSocketIoConnection() {
 
   useEffect(() => {
     let socketInstance;
-    if (!socket) socketInstance = io.connect("http://localhost:3000");
-    setSocket(socketInstance);
-    socketInstance.on("connect", () => {
-      console.log(`Connected to a server socket ${socketInstance.id}`);
-    });
-    socketInstance.on("testing", (data) => {
-      alert(data);
-    });
+    if (!socket) {
+      socketInstance = io.connect("http://localhost:3000");
+      setSocket(socketInstance);
+      socketInstance.on("connect", () => {
+        console.log(`Connected to a server socket ${socketInstance.id}`);
+      });
+      socketInstance.on("testing", (data) => {
+        alert(data);
+      });
+    }
+
     return () => socketInstance.disconnect();
   }, []);
 
