@@ -6,6 +6,8 @@ import Headers from "./components/global/headers/Headers";
 import Profile from "./components/pages/Profile";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
+import useSocketIoConnection from "./components/global/socketIo/useSocketIoConnection";
 
 import "./App.css";
 
@@ -17,8 +19,26 @@ function App() {
   const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
   const [resetChatSystem, setResetChatSystem] = useState(null);
+  const [socket, setSocket] = useSocketIoConnection();
 
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   let socketInstance;
+  //   if (socket === null) {
+  //     socketInstance = io.connect("http://localhost:3000");
+  //     setSocket(socketInstance);
+  //     socketInstance.on("connect", () => {
+  //       console.log(`Connected to server socket ${socketInstance.id}`);
+  //     });
+  //     socketInstance.on("testing", (data) => {
+  //       alert(data);
+  //     });
+  //   }
+  //   return () => {
+  //     socketInstance.disconnect();
+  //   };
+  // }, []);
 
   useEffect(() => {
     // if (!signedInUser && localStorage.getItem("signedInUser")) {
@@ -32,6 +52,7 @@ function App() {
     //       setSignedInUser(res.user);
     //     });
     // }
+
     if (!signedInUser && localStorage.getItem("signedInUser")) {
       console.log("here in app useEffect in App");
       const options = {
