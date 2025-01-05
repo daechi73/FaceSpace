@@ -20,7 +20,7 @@ function useSocketIoConnection() {
     return () => socketInstance.disconnect();
   }, []);
 
-  return [socket, setSocket];
+  return socket;
 }
 
 export default useSocketIoConnection;
