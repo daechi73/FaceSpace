@@ -17,15 +17,15 @@ function Chatbox(props) {
 
   console.log("here in chatbox");
   useEffect(() => {
-    // const socketInstant = io.connect("http://localhost:3000");
-    // setSocket(socketInstant);
-    // socketInstant.on("connect", () => {
-    //   console.log(`connected to server socket ${socketInstant.id}`);
-    //   console.log(socketInstant);
-    // });
-    // socketInstant.on("testing", (data) => {
-    //   alert(data);
-    // });
+    const socketInstant = io.connect("http://localhost:3000");
+    setSocket(socketInstant);
+    socketInstant.on("connect", () => {
+      console.log(`connected to server socket ${socketInstant.id}`);
+      console.log(socketInstant);
+    });
+    socketInstant.on("testing", (data) => {
+      alert(data);
+    });
 
     fetch(
       `${import.meta.env.VITE_API}users/getChatbox/${props.chatUsers[0]}/${
@@ -49,7 +49,7 @@ function Chatbox(props) {
       });
 
     return () => {
-      // socketInstant.disconnect();
+      socketInstant.disconnect();
     };
   }, [props.chatbox]);
 
