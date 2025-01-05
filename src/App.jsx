@@ -6,9 +6,8 @@ import Headers from "./components/global/headers/Headers";
 import Profile from "./components/pages/Profile";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
-import useSocketIoConnection from "./components/global/socketIo/useSocketIoConnection";
-
+import useSocketIoConnection from "./components/sections/AppJs/useSocketIoConnection";
+import useResumeLogin from "./components/sections/AppJs/useResumeLogin";
 import "./App.css";
 
 function App() {
@@ -19,64 +18,17 @@ function App() {
   const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
   const [resetChatSystem, setResetChatSystem] = useState(null);
-  const [socket, setSocket] = useSocketIoConnection();
+  const socket = useSocketIoConnection();
 
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   let socketInstance;
-  //   if (socket === null) {
-  //     socketInstance = io.connect("http://localhost:3000");
-  //     setSocket(socketInstance);
-  //     socketInstance.on("connect", () => {
-  //       console.log(`Connected to server socket ${socketInstance.id}`);
-  //     });
-  //     socketInstance.on("testing", (data) => {
-  //       alert(data);
-  //     });
-  //   }
-  //   return () => {
-  //     socketInstance.disconnect();
-  //   };
-  // }, []);
-
-  useEffect(() => {
-    // if (!signedInUser && localStorage.getItem("signedInUser")) {
-    //   console.log("here in app useEffect in App");
-
-    //   fetch(
-    //     `${import.meta.env.VITE_API}users/${localStorage.getItem("signedInUser")}`
-    //   )
-    //     .then((res) => res.json())
-    //     .then((res) => {
-    //       setSignedInUser(res.user);
-    //     });
-    // }
-
-    if (!signedInUser && localStorage.getItem("signedInUser")) {
-      console.log("here in app useEffect in App");
-      const options = {
-        mode: "cors",
-        credentials: "include",
-      };
-      fetch(`${import.meta.env.VITE_API}users/resignIn`, options)
-        .then((res) => res.json())
-        .then((res) => {
-          console.log(res.status);
-          if (res.status === "success") {
-            console.log("In deeper");
-            setSignedInUser(res.user);
-          }
-        });
-    }
-
-    if (localStorage.getItem("userProfile")) {
-      setUserProfile(localStorage.getItem("userProfile"));
-    }
-    if (localStorage.getItem("people") && people.length === 0)
-      setPeople(JSON.parse(localStorage.getItem("people")));
-    // localStorage.removeItem("people");
+  useResumeLogin({
+    signedInUser,
+    setSignedInUser,
+    setUserProfile,
+    people,
+    setPeople,
   });
+
   console.log("here in app");
   // console.log(signedInUser);
   console.log(url);
