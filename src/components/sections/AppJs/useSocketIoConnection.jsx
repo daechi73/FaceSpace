@@ -12,9 +12,9 @@ function useSocketIoConnection() {
       socketInstance.on("connect", () => {
         console.log(`Connected to a server socket ${socketInstance.id}`);
       });
-      socketInstance.on("testing", (data) => {
-        alert(data);
-      });
+      // socketInstance.on("testing", (data) => {
+      //   alert(data);
+      // });
     }
 
     return () => socketInstance.disconnect();
