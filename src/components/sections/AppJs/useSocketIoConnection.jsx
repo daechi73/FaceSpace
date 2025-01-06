@@ -17,7 +17,9 @@ function useSocketIoConnection() {
       // });
     }
 
-    return () => socketInstance.disconnect();
+    return () => {
+      if (socketInstance !== undefined) socketInstance.disconnect();
+    };
   }, []);
 
   return socket;
