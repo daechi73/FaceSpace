@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useSocketIoConnection from "./components/sections/AppJs/useSocketIoConnection";
 import useResumeLogin from "./components/sections/AppJs/useResumeLogin";
+import useChangeUserOnlineStatus from "./components/sections/AppJs/useChangeUserOnlineStatus";
 import "./App.css";
 
 function App() {
@@ -18,23 +19,28 @@ function App() {
   const [chatbox, setChatbox] = useState(null);
   const [chatUsers, setChatUsers] = useState([]);
   const [resetChatSystem, setResetChatSystem] = useState(null);
-  const socket = useSocketIoConnection();
-
+  const [initialSignIn, setInitialSignIn] = useState(false);
   const navigate = useNavigate();
+
+  // setSocket(useSocketIoConnection({ signedInUser }));
+  console.log("signedInUser " + signedInUser);
   useResumeLogin({
     signedInUser,
     setSignedInUser,
     setUserProfile,
     people,
     setPeople,
+    setInitialSignIn,
   });
 
+  const socket = useSocketIoConnection({ initialSignIn });
+  useChangeUserOnlineStatus({ signedInUser, socket: socket });
   console.log("here in app");
   // console.log(signedInUser);
-  console.log(url);
+  // console.log(url);
   return (
     <>
-      {signedInUser ? (
+      {/* {signedInUser ? (
         <>
           <Headers
             signedInUser={signedInUser}
@@ -56,6 +62,7 @@ function App() {
               setChatUsers={setChatUsers}
               resetChatSystem={resetChatSystem}
               setResetChatSystem={setResetChatSystem}
+              socket={socket}
             />
           ) : url === "profile" ? (
             <Profile
@@ -69,6 +76,7 @@ function App() {
               setSignedInUser={setSignedInUser}
               setChatUsers={setChatUsers}
               setChatbox={setChatbox}
+              socket={socket}
             />
           ) : (
             navigate("/home")
@@ -84,11 +92,12 @@ function App() {
             <PageNotFound />
           )}
         </>
-      )}
+      )} */}
 
       {/* <button
         onClick={() => {
           console.log(signedInUser);
+          console.log(ja);
         }}
         className="checkSignedInUserBtn"
       >

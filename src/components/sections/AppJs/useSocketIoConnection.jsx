@@ -1,12 +1,13 @@
 import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
 
-function useSocketIoConnection() {
+function useSocketIoConnection(props) {
   const [socket, setSocket] = useState(null);
-
   useEffect(() => {
-    let socketInstance;
-    if (!socket) {
+    if (props.initialSignIn) {
+      console.log("In useSocketIoConnection");
+      // console.log(props.initialSignIn);
+      let socketInstance;
       socketInstance = io.connect("http://localhost:3000");
       setSocket(socketInstance);
       socketInstance.on("connect", () => {
@@ -15,12 +16,12 @@ function useSocketIoConnection() {
       // socketInstance.on("testing", (data) => {
       //   alert(data);
       // });
-    }
 
-    return () => {
-      if (socketInstance !== undefined) socketInstance.disconnect();
-    };
-  }, []);
+      return () => {
+        if (socketInstance !== undefined) socketInstance.disconnect();
+      };
+    }
+  }, [props.initialSignIn]);
 
   return socket;
 }
