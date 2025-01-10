@@ -5,44 +5,46 @@ import MessageApi from "./MessageApi";
 import ChatboxApi from "./ChatboxApi";
 import AddChatboxToUser from "./AddChatboxToUser";
 import useRemoveChatboxNewMessage from "../ChatSystem/useRemoveChatboxNewMessage";
+import useGetChatbox from "./useGetChatbox";
+import useDisplayLastMsg from "./useDisplayLastMsg";
+import offlineMode from "./offlineMode";
 
 function Chatbox(props) {
   console.log("here in chatbox");
-
+  //msg input
   const [msg, setMsg] = useState("");
+  //Chatbox messages
   const [msgs, setMsgs] = useState([]);
+  // chatboxId is used to useRemoveChatboxNewMessage
   const [chatboxId, setChatboxId] = useState(null);
 
   let displayRef = useRef(null);
 
-  useEffect(() => {
-    fetch(
-      `${import.meta.env.VITE_API}users/getChatbox/${props.chatUsers[0]}/${
-        props.chatUsers[1]
-      }`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("here in chatbox fetch");
-        if (res.status === "success") {
-          setMsgs(res.chatbox.messages);
-          //resets changes in chatboxID will change said chatbox's new_message into ""
-          if (
-            res.chatbox.new_message !== "" &&
-            res.chatbox.new_message !== props.signedInUser.user_name
-          ) {
-            setChatboxId(res.chatbox._id);
-          }
-          //console.log(res.chatbox.messages[res.chatbox.messages.length - 1]);
-        } else setMsgs([]);
-      });
-  }, [props.chatbox]);
+  console.log("socketIoHere");
+  console.log(props.socket);
 
-  useEffect(() => {
-    if (displayRef.current) {
-      displayRef.current.scrollTo(0, 1000);
-    }
+  //socketio testing
+
+  // useEffect(() => {
+  //   const socket = props.socket;
+
+  //   socket.on("");
+  // });
+
+  //end of socketio testing
+
+  //props.chatbox, props.chatUsers, props.signedInUser,
+  // setMsgs, setChatboxId,
+
+  useGetChatbox({
+    chatbox: props.chatbox,
+    chatUsers: props.chatUsers,
+    signedInUser: props.signedInUser,
+    setMsgs,
+    setChatboxId,
   });
+
+  useDisplayLastMsg({ displayRef });
 
   useRemoveChatboxNewMessage({ chatboxId: chatboxId });
 
@@ -58,38 +60,47 @@ function Chatbox(props) {
     //
     //##Real Implementation
 
-    const req = {
-      sender: props.chatUsers[0],
-      receiver: props.chatUsers[1],
-      msg: msg,
-    };
+    //props.chatUsers, setMsgs, props.resetChatSystem, props.setResetChatSystem
+    offlineMode({
+      msg,
+      chatUsers: props.chatUsers,
+      setMsgs,
+      setMsg,
+      resetChatSystem: props.resetChatSyste,
+      setResetChatSystem: props.setResetChatSystem,
+    });
 
-    const createMessage = await MessageApi(req);
-    let chatbox;
-    createMessage.status === "success"
-      ? (chatbox = await ChatboxApi(createMessage.message))
-      : console.log(createMessage.msg);
-    if (chatbox.method === "created") {
-      const response = await AddChatboxToUser(
-        chatbox.chatbox,
-        props.chatUsers[0]
-      );
-      // props.setSignedInUser(response.user);
-      setMsgs(response.chatbox.messages);
-      // console.log(response.chatbox);
-    } else {
-      //const getUpdatedUser = GetUpdatedUser(props.chatUsers[0]);
-      // props.setSignedInUser(getUpdatedUser.user);
-      // console.log("finalStage");
-      // console.log(chatbox.chatbox.messages);
-      setMsgs(chatbox.chatbox.messages);
-    }
-    setMsg("");
-    const resetChatSystem = (resetChatSystem, setResetChatSystem) => {
-      if (resetChatSystem === null) return setResetChatSystem(1);
-      else return setResetChatSystem(resetChatSystem + 1);
-    };
-    resetChatSystem(props.resetChatSystem, props.setResetChatSystem);
+    // const req = {
+    //   sender: props.chatUsers[0],
+    //   receiver: props.chatUsers[1],
+    //   msg: msg,
+    // };
+    // const createMessage = await MessageApi(req);
+    // let chatbox;
+    // createMessage.status === "success"
+    //   ? (chatbox = await ChatboxApi(createMessage.message))
+    //   : console.log(createMessage.msg);
+    // if (chatbox.method === "created") {
+    //   const response = await AddChatboxToUser(
+    //     chatbox.chatbox,
+    //     props.chatUsers[0]
+    //   );
+    //   // props.setSignedInUser(response.user);
+    //   setMsgs(response.chatbox.messages);
+    //   // console.log(response.chatbox);
+    // } else {
+    //   //const getUpdatedUser = GetUpdatedUser(props.chatUsers[0]);
+    //   // props.setSignedInUser(getUpdatedUser.user);
+    //   // console.log("finalStage");
+    //   // console.log(chatbox.chatbox.messages);
+    //   setMsgs(chatbox.chatbox.messages);
+    // }
+    // setMsg("");
+    // const resetChatSystem = (resetChatSystem, setResetChatSystem) => {
+    //   if (resetChatSystem === null) return setResetChatSystem(1);
+    //   else return setResetChatSystem(resetChatSystem + 1);
+    // };
+    // resetChatSystem(props.resetChatSystem, props.setResetChatSystem);
   };
   const renderMsgs = msgs.map((e, i) => {
     return (
