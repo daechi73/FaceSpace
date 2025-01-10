@@ -20,6 +20,8 @@ const useResumeLogin = (props) => {
             }
             if (localStorage.getItem("people") && props.people.length === 0)
               props.setPeople(JSON.parse(localStorage.getItem("people")));
+          } else {
+            console.log(res);
           }
         });
     }
